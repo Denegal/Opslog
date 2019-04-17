@@ -18,6 +18,7 @@ try:
     operator = os.environ['OPS_LOG_USER']
 except KeyError as e:
     operator = 'pytest_operator'
+    os.environ['OPS_LOG_USER'] = 'pytest_operator'
 
 logdir = '/home/assessor/working_dir/ops_logs'
 logfile = os.path.join(str(logdir), operator)
@@ -25,7 +26,7 @@ alias = '/etc/profile.d/opslog_data.sh'
 
 
 def get_operator():
-    return os.environ['OPS_LOG_USER']
+    print(os.getenv('OPS_LOG_USER'))
 
 
 def set_operator(value):
@@ -45,51 +46,73 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(formatter_class=argparse.RawDescriptionHelpFormatter,
                                      description=_desc)
-    parser.add_argument(
+
+    root_group = parser.add_mutually_exclusive_group()
+    admin_group = root_group.add_argument_group()
+    admin_group.description = 'Use the following commands to manage or change the current operator log'
+    admin_group.add_argument(
+        '-o', '--operator',
+        action='store_const',
+        const=get_operator,
+        help='Show the current operator'
+    )
+    admin_group.add_argument(
+        '-so', '--set-operator',
+        dest='operator',
+        nargs=1,
+        type=str,
+        help='Set the current operator'
+    )
+    log_group = root_group.add_argument_group()
+    log_group.description = 'Use any or all of the following commands to put an entry into the current operator log'
+    log_group.add_argument(
         '-p',
-        metavar='#',
+        dest='#',
         nargs=1,
         type=int,
         action='store',
         help='The pre-approved action number'
     )
-    parser.add_argument(
+    log_group.add_argument(
         '-i',
         metavar='a.b.c.d/f',
         nargs=1,
         type=str,
         help='The target ip address/range'
     )
-    group = parser.add_mutually_exclusive_group(required=False)
-    group.add_argument(
+    command_group = log_group.add_mutually_exclusive_group()
+    command_group.add_argument(
         '-C',
         metavar="'Command'",
         nargs=1,
         type=str,
         help='Command syntax to log before executing'
     )
-    group.add_argument(
+    command_group.add_argument(
         '-c',
         metavar="'Command'",
         nargs=1,
         type=str,
         help='Command syntax to log without executing'
     )
-    parser.add_argument(
+    log_group.add_argument(
         '-n',
         metavar="'text'",
         nargs=1,
         type=str,
         help='Operator notes to include in the log entry'
     )
-    parser.add_argument(
+    log_group.add_argument(
         '-f',
         metavar='Flag',
         nargs='+',
         type=str,
         help='Flag used to tag the log entry'
     )
-    parser.add_argument(
+
+    display_group = root_group.add_mutually_exclusive_group()
+    display_group.description = "Use the following commands to display or search the current operator log"
+    display_group.add_argument(
         '--cat',
         action='store_const',
         const=cat_log,
@@ -97,4 +120,9 @@ if __name__ == '__main__':
     )
 
     args = parser.parse_args()
-    args.cat() if args.cat else main(args)
+
+    if args.set_operator:
+        set_operator(args.set_operator)
+        exit()
+
+    args.show_operator() if args.show_operator else args.cat() if args.cat else main(args)
