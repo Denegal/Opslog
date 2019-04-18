@@ -2,6 +2,13 @@ import argparse
 import sys
 import os
 
+
+def _setup():
+    """This function will setup the program to use aliases, setup initial operator, and create missing folders/files"""
+    print('Begin setup of operator and program')
+    exit()
+
+
 _desc = """
 usage: opslog.py [-h | -v | -o | -so operator] [-p #] [-i a.b.c.d/f]
                  [-C 'Command' | -c 'Command'] [-n 'text']
@@ -58,6 +65,8 @@ try:
 except KeyError as e:
     operator = 'pytest_operator'
     os.environ['OPS_LOG_USER'] = 'pytest_operator'
+    # _setup()
+
 
 logdir = '/home/assessor/working_dir/ops_logs'
 logfile = os.path.join(str(logdir), operator)
@@ -66,6 +75,7 @@ alias = '/etc/profile.d/opslog_data.sh'
 
 def get_operator():
     print(os.getenv('OPS_LOG_USER'))
+    return os.getenv('OPS_LOG_USER')
 
 
 def set_operator(value):
@@ -73,12 +83,25 @@ def set_operator(value):
 
 
 def cat_log():
+    """Display the current operators log and exit"""
     log = open(logfile).read()
     print(log)
 
 
+def list_flags():
+    print('Display all flags used in current log')
+    exit()
+
+
+def search_log(flags):
+    print('search through log for flag entries: ', flags)
+    exit()
+
+
 def main(args):
+    """This function will handle the main logging"""
     print(args)
+    return args
 
 
 if __name__ == '__main__':
@@ -170,7 +193,7 @@ if __name__ == '__main__':
     display_group.add_argument(
         '-lf',
         action='store_const',
-        const=cat_log,
+        const=list_flags,
         help='List all flags used in current operators log'
     )
     display_group.add_argument(
@@ -183,8 +206,11 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
+    if args.sf:
+        search_log(args.sf)
+
     if args.set_operator:
-        set_operator(args.set_operator)
+        set_operator(args.set_operator[0])
         exit()
 
-    args.operator() if args.operator else args.cat() if args.cat else main(args)
+    list_flags() if args.lf else args.operator() if args.operator else args.cat() if args.cat else main(args)
