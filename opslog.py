@@ -1,6 +1,7 @@
 import argparse
 import sys
 import os
+from pprint import pprint as pp
 
 
 def _setup():
@@ -74,7 +75,7 @@ alias = '/etc/profile.d/opslog_data.sh'
 
 
 def get_operator():
-    print(os.getenv('OPS_LOG_USER'))
+    # print(os.getenv('OPS_LOG_USER'))
     return os.getenv('OPS_LOG_USER')
 
 
@@ -85,12 +86,46 @@ def set_operator(value):
 def cat_log():
     """Display the current operators log and exit"""
     log = open(logfile).read()
-    print(log)
+    return log
 
 
 def list_flags():
-    print('Display all flags used in current log')
-    exit()
+    log = cat_log()
+
+    # Creates a dictionary containing log entries and the flag used in that entry
+    entries = {}
+    i = int()
+    for line in log.splitlines():
+        i = i + 1
+        entries[i] = line.split(';').__getitem__(2)
+
+    # Creates a set which contains all the unique flags found in entries
+    flags = set(entries.values())
+
+    # Create some string variables to hold the final output
+    data = str()
+    header = str("""
+    Below are the flags being used in the current log
+    
+    \tCount   Flag\t\tEntries
+    \t-----   ----\t\t-------""")
+
+    # For each unique flag, count how many times it appears, and find which lines it appears on
+    # Then create a line of text with this information and add it to the output variable
+    entrylist = []
+    for flag in flags:
+        count = sum(value == flag for value in entries.values())
+        entrylist.clear()
+        for key in entries.keys():
+            if entries[key] == flag:
+                entrylist.append(key)
+        data = "\n".join([data, "\t" + str(count) + "\t" + flag + "\t\t" + str(entrylist)])
+
+    output = data.splitlines()
+    output.sort(reverse=True)
+    output = "\n".join(output)
+
+    return header + "\n" + output
 
 
 def search_log(flags):
@@ -213,4 +248,5 @@ if __name__ == '__main__':
         set_operator(args.set_operator[0])
         exit()
 
-    list_flags() if args.lf else args.operator() if args.operator else args.cat() if args.cat else main(args)
+    print(list_flags()) if args.lf else print(get_operator()) if args.operator \
+        else print(args.cat()) if args.cat else main(args)
