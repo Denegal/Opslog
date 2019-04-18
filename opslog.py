@@ -2,7 +2,12 @@ import argparse
 import sys
 import os
 
-_desc = """This script is used to fill in operator notes automatically while performing commands.
+_desc = """
+usage: opslog.py [-h | -v | -o | -so operator] [-p #] [-i a.b.c.d/f]
+                 [-C 'Command' | -c 'Command'] [-n 'text']
+                 [-f Flag [Flag ...]] [--cat | -lf | -sf Flag [Flag ...]]
+
+This script is used to fill in operator notes automatically while performing commands.
 You can use this functions to simply input timestamped notes using the -n option alone.
 Commands input with the -C option will be executed exactly as entered after logging.
 Be careful to use single quote marks around commands or notes if they contain anything
@@ -12,7 +17,41 @@ log file syntax is:
     date;operator name;flag;paa;ip address;command;executed;note
     
 Date format:
-    YYYY-MM-DD HH:MM:SS"""
+    YYYY-MM-DD HH:MM:SS
+     
+     
+Admin arguments:
+  Use the following commands to retrieve program information or set operator
+  
+  -h, --help            show this help message and exit
+  -v, --version         Show program version information
+  -o, --operator        Show the current operator
+  -so operator, 
+   --set-operator operator
+                        Set the current operator
+
+ 
+Logging arguments:
+  Use any or all of the following commands to put an entry into the current operator log
+
+  -p #                  The pre-approved action number
+  -i a.b.c.d/f          The target ip address/range
+  -C 'Command'          Command syntax to log before executing
+  -c 'Command'          Command syntax to log without executing
+  -n 'text'             Operator notes to include in the log entry
+  -f Flag [Flag ...]    Flag(s) used to tag the log entry
+
+ 
+Output Arguments:
+  Use the following commands to display or search the current operator log
+
+  --cat                 Output the current log (can be piped to less/more,
+                        head/tail)
+  -lf                   List all flags used in current operators log
+  -sf Flag [Flag ...]   Search the log entries for those tagged with Flag(s)
+
+ 
+"""
 
 try:
     operator = os.environ['OPS_LOG_USER']
@@ -45,32 +84,42 @@ def main(args):
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(formatter_class=argparse.RawDescriptionHelpFormatter,
-                                     description=_desc)
+                                     description=_desc,
+                                     add_help=False)
 
     root_group = parser.add_mutually_exclusive_group()
-    admin_group = root_group.add_argument_group()
-    admin_group.description = 'Use the following commands to manage or change the current operator log'
-    admin_group.add_argument(
+    root_group.description = 'Use the following commands to manage or change the current operator log'
+    root_group.add_argument(
+        '-h', '--help',
+        action='version',
+        version=_desc
+    )
+    root_group.add_argument(
+        '-v', '--version',
+        action='version',
+        version='%(prog)s version 0.1'
+    )
+    root_group.add_argument(
         '-o', '--operator',
         action='store_const',
         const=get_operator,
         help='Show the current operator'
     )
-    admin_group.add_argument(
+    root_group.add_argument(
         '-so', '--set-operator',
-        dest='operator',
+        metavar='operator',
         nargs=1,
         type=str,
         help='Set the current operator'
     )
-    log_group = root_group.add_argument_group()
+
+    log_group = parser.add_argument_group()
     log_group.description = 'Use any or all of the following commands to put an entry into the current operator log'
     log_group.add_argument(
         '-p',
-        dest='#',
+        metavar='#',
         nargs=1,
         type=int,
-        action='store',
         help='The pre-approved action number'
     )
     log_group.add_argument(
@@ -107,16 +156,29 @@ if __name__ == '__main__':
         metavar='Flag',
         nargs='+',
         type=str,
-        help='Flag used to tag the log entry'
+        help='Flag(s) used to tag the log entry'
     )
 
-    display_group = root_group.add_mutually_exclusive_group()
+    display_group = parser.add_mutually_exclusive_group()
     display_group.description = "Use the following commands to display or search the current operator log"
     display_group.add_argument(
         '--cat',
         action='store_const',
         const=cat_log,
         help='Output the current log (can be piped to less/more, head/tail)'
+    )
+    display_group.add_argument(
+        '-lf',
+        action='store_const',
+        const=cat_log,
+        help='List all flags used in current operators log'
+    )
+    display_group.add_argument(
+        '-sf',
+        metavar='Flag',
+        nargs='+',
+        type=str,
+        help='Search the log entries for those tagged with Flag(s)'
     )
 
     args = parser.parse_args()
@@ -125,4 +187,4 @@ if __name__ == '__main__':
         set_operator(args.set_operator)
         exit()
 
-    args.show_operator() if args.show_operator else args.cat() if args.cat else main(args)
+    args.operator() if args.operator else args.cat() if args.cat else main(args)
