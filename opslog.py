@@ -100,26 +100,30 @@ def list_flags():
         entries[i] = line.split(';').__getitem__(2)
 
     # Creates a set which contains all the unique flags found in entries
-    flags = set(entries.values())
+    flags = set()
+    entries2 = {key: list(map(str, value.split())) for key, value in entries.items()}
+    for flaglist in entries2.values():
+        for single_flags in flaglist:
+            flags.add(single_flags)
 
     # Create some string variables to hold the final output
     data = str()
     header = str("""
     Below are the flags being used in the current log
     
-    \tCount   Flag\t\tEntries
-    \t-----   ----\t\t-------""")
+        {: <10} {: <15} {: <}
+        {: <10} {: <15} {: <}""".format("Count", "Flag", "Entries", "-----", "-----", "-------"))
 
     # For each unique flag, count how many times it appears, and find which lines it appears on
     # Then create a line of text with this information and add it to the output variable
     entrylist = []
     for flag in flags:
-        count = sum(value == flag for value in entries.values())
+        count = sum(flag in value for value in entries2.values())
         entrylist.clear()
-        for key in entries.keys():
-            if entries[key] == flag:
+        for key in entries2.keys():
+            if flag in entries2[key]:
                 entrylist.append(key)
-        data = "\n".join([data, "\t" + str(count) + "\t" + flag + "\t\t" + str(entrylist)])
+        data = "\n".join([data, "\t{: <10} {: <15} {: <}".format(str(count), flag, str(entrylist))])
 
     output = data.splitlines()
     output.sort(reverse=True)
