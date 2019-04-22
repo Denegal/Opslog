@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0e84c006-9adc-4051-883b-51f56779464c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/opslog.py" beforeDir="false" afterPath="$PROJECT_DIR$/opslog.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,8 +16,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/opslog.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="411">
-              <caret line="125" column="35" lean-forward="true" selection-start-line="125" selection-start-column="35" selection-end-line="125" selection-end-column="35" />
+            <state relative-caret-position="-1557">
+              <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -45,8 +46,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="496" />
-    <option name="y" value="48" />
+    <option name="x" value="411" />
+    <option name="y" value="42" />
     <option name="width" value="1419" />
     <option name="height" value="990" />
   </component>
@@ -155,7 +156,7 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="496" y="48" width="1419" height="990" extended-state="0" />
+    <frame x="411" y="42" width="1419" height="990" extended-state="0" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20301291" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -186,20 +187,11 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test_opslog.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/test_opslog.py" />
     <entry file="file://$PROJECT_DIR$/opslog.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="125" column="35" lean-forward="true" selection-start-line="125" selection-start-column="35" selection-end-line="125" selection-end-column="35" />
+        <state relative-caret-position="-1557">
+          <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>

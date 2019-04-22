@@ -1,4 +1,5 @@
 import argparse
+import configparser
 import sys
 import os
 from pprint import pprint as pp
@@ -61,31 +62,40 @@ Output Arguments:
  
 """
 
-try:
-    operator = os.environ['OPS_LOG_USER']
-except KeyError as e:
-    operator = 'pytest_operator'
-    os.environ['OPS_LOG_USER'] = 'pytest_operator'
-    # _setup()
-
-
-logdir = '/home/assessor/working_dir/ops_logs'
-logfile = os.path.join(str(logdir), operator)
-alias = '/etc/profile.d/opslog_data.sh'
+# Setup program and read operator settings
+_logdir = '/usr/lib/ops_log/operator_logs/'
+_aliasfile = '/etc/profile.d/opslog_alias.sh'
+_configfile = '/usr/lib/ops_log/config.ini'
 
 
 def get_operator():
     # print(os.getenv('OPS_LOG_USER'))
-    return os.getenv('OPS_LOG_USER')
+    config = configparser.ConfigParser()
+    config.read(_configfile)
+
+    return config.get("Operator Settings", "Current Operator")
 
 
 def set_operator(value):
-    os.environ['OPS_LOG_USER'] = value
+
+    config = configparser.ConfigParser()
+
+    config.read(_configfile)
+    config.set("Operator Settings", "Current Operator", value)
+
+    with open(_configfile, 'w') as cfgfile:
+        config.write(cfgfile)
 
 
 def cat_log():
     """Display the current operators log and exit"""
-    log = open(logfile).read()
+
+    try:
+        log = open(os.path.join(_logdir, get_operator())).read()
+    except FileNotFoundError:
+        print("No entries for current operator.")
+        exit()
+
     return log
 
 
@@ -137,6 +147,62 @@ def search_log(flags):
     exit()
 
 
+def _install_opslog():
+
+    response = input("opslog has not yet been installed. Would you like to install now? (y/n)")
+
+    if not response.lower().startswith("y"):
+        print("Exiting")
+        exit()
+
+    print("Beginning Install...")
+    if not os.path.isdir('/usr/lib/ops_log/'):
+        try:
+            os.mkdir('/usr/lib/ops_log/')
+            os.chmod('/usr/lib/ops_log', 0o4777)  # this line must be changed to work with python 2.7 (04777)
+
+            os.mkdir(_logdir)
+            os.chmod(_logdir, 0o4777)  # this line must be changed to work with python 2.7 (04777)
+
+            cfgfile = open("/usr/lib/ops_log/config.ini", 'w')
+            input_operator = input("Enter operator name: ")
+            config = configparser.ConfigParser()
+            config.add_section('Operator Settings')
+            config.set('Operator Settings', 'Current Operator', input_operator)
+            config.write(cfgfile)
+
+            cfgfile.close()
+
+            os.chmod("/usr/lib/ops_log/config.ini", 0o666)  # this line must be changed to work with python 2.7 (644)
+
+            create_alias = open(_aliasfile, '+a')
+            create_alias.write("\nfunction opslog()\n{\npython ")
+            create_alias.write(os.path.realpath(__file__))
+            create_alias.write(r' "$@"')
+            create_alias.write('\n}\nexport opslog')
+            create_alias.close()
+            
+            print("""Program successfully installed to /usr/lib/ops_log/
+            After restarting terminal, logs may now be created using shortcut command 'opslog'.
+            
+               Example: opslog -n 'operator note'
+            
+            """)
+
+        except PermissionError:
+            print("Install failed due to insufficient permissions.")
+            print("  ->opslog must be installed as root or with sudo.")
+
+    exit()
+
+
+def read_configs():
+    config = configparser.ConfigParser()
+    config.read("/usr/lib/ops_log/config.ini")
+
+    return config.items()
+
+
 def main(args):
     """This function will handle the main logging"""
     print(args)
@@ -144,6 +210,9 @@ def main(args):
 
 
 if __name__ == '__main__':
+
+    if not os.path.isfile(_configfile):
+        _install_opslog()
 
     parser = argparse.ArgumentParser(formatter_class=argparse.RawDescriptionHelpFormatter,
                                      description=_desc,
