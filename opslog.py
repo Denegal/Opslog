@@ -1,6 +1,7 @@
 import argparse
 import configparser
 import re
+import datetime
 import sys
 import os
 from pprint import pprint as pp
@@ -92,7 +93,7 @@ def cat_log():
     """Display the current operators log and exit"""
 
     try:
-        log = open(os.path.join(_logdir, get_operator())).read()
+        log = open(os.path.join(_logdir, get_operator() + "_ops_log.csv")).read()
     except FileNotFoundError:
         print("No entries for current operator.")
         exit()
@@ -163,7 +164,7 @@ def search_log(flags):
     output = str()
 
     # enumerate each line and every line that appears in the set of results, add it to the output
-    with open(os.path.join(_logdir, get_operator())) as log:
+    with open(os.path.join(_logdir, get_operator() + "_ops_log.csv")) as log:
         for i, line in enumerate(log):
             if entries.__contains__(str(i + 1)):
                 output = output + line
@@ -229,8 +230,23 @@ def read_configs():
 
 def main(args):
     """This function will handle the main logging"""
-    print(args)
-    return args
+    new_entry = str()
+    date = datetime.datetime.utcnow()
+
+    # make sure arguments are in proper format for logging
+    args.f = '' if not args.f else ' '.join(args.f)
+    args.p = '' if not args.p else str(args.p[0])
+    args.i = '' if not args.i else ' '.join(args.i)
+    command = ' '.join(args.c) if args.c else ' '.join(args.C) if args.C else ''
+    executed = 'yes' if args.C else ''
+    args.n = '' if not args.n else args.n[0]
+
+    new_entry = str(date) + ';' + get_operator() + ';' + args.f + ';' + args.p + ';' + \
+               args.i + ';' + command + ';' + executed + ';' + args.n
+
+    with open(os.path.join(_logdir, get_operator() + "_ops_log.csv"), 'a+') as log:
+        log.write(new_entry)
+        log.write("\n")
 
 
 if __name__ == '__main__':
@@ -335,6 +351,10 @@ if __name__ == '__main__':
         type=str,
         help='Search the log entries for those tagged with Flag(s)'
     )
+
+    if not len(sys.argv) > 1:
+        print(_desc)
+        exit()
 
     args = parser.parse_args()
 
