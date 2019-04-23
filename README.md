@@ -1,26 +1,27 @@
-    usage: opslog.py [-h | -v | -o | -so operator] [-p #] [-i a.b.c.d/f]
-    [-C 'Command' | -c 'Command'] [-n 'text']
-    [-f Flag [Flag ...]] [--cat | -lf | -sf Flag [Flag ...]]
- 
- 
 This script is used to fill in operator notes automatically while performing commands.
 You can use this functions to simply input timestamped notes using the -n option alone.
 Commands input with the -C option will be executed exactly as entered after logging.
 Be careful to use single quote marks around commands or notes if they contain anything
 that bash will try to interpret ($ or ! for example)
 
-  
-log file syntax is:
 
+    usage: opslog.py [-h | -v | -o | -so operator]  [-p #]  [-i a.b.c.d/f]
+       [-C 'Command' | -c 'Command']    [-n 'text']
+       [-f Flag [Flag ...]] [--cat | -lf | -sf Flag [Flag ...]]
+       
+         
+log file syntax is:
+ 
     date;operator name;flag;paa;ip address;command;executed;note
     
 Date format:
-
+ 
     YYY-MM-DD HH:MM:SS
      
+  
      
 Admin arguments:
-
+ 
   Use the following commands to retrieve program information or set operator
 
   
@@ -31,6 +32,7 @@ Admin arguments:
      --set-operator operator
                           Set the current operator
 
+ 
  
 Logging arguments:
 
@@ -44,6 +46,7 @@ Logging arguments:
     -n 'text'             Operator notes to include in the log entry
     -f Flag [Flag ...]    Flag(s) used to tag the log entry
 
+ 
  
 Output Arguments:
 
