@@ -1,9 +1,9 @@
-usage: opslog.py [-h | -v | -o | -so operator] [-p #] [-i a.b.c.d/f]
-                 [-C 'Command' | -c 'Command'] [-n 'text']
-                 [-f Flag [Flag ...]] [--cat | -lf | -sf Flag [Flag ...]]
+    usage: opslog.py [-h | -v | -o | -so operator] [-p #] [-i a.b.c.d/f]
+    [-C 'Command' | -c 'Command'] [-n 'text']
+    [-f Flag [Flag ...]] [--cat | -lf | -sf Flag [Flag ...]]
  
  
-    This script is used to fill in operator notes automatically while performing commands.
+This script is used to fill in operator notes automatically while performing commands.
 You can use this functions to simply input timestamped notes using the -n option alone.
 Commands input with the -C option will be executed exactly as entered after logging.
 Be careful to use single quote marks around commands or notes if they contain anything
