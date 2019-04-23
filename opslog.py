@@ -90,6 +90,15 @@ def set_operator(value):
         config.write(cfgfile)
 
 
+def list_operators():
+    print("Logs exist for the following operators:")
+    operators = os.listdir(_logdir)
+    for name in operators:
+        print("\t" + re.split("_ops_log.csv", name)[0])
+
+    exit()
+
+
 def cat_log():
     """Display the current operators log and exit"""
 
@@ -279,6 +288,7 @@ def main(args):
 
 if __name__ == '__main__':
 
+
     if not os.path.isfile(_configfile):
         _install_opslog()
 
@@ -303,6 +313,12 @@ if __name__ == '__main__':
         action='store_const',
         const=get_operator,
         help='Show the current operator'
+    )
+    root_group.add_argument(
+        '-lo', '--list-operators',
+        action='store_const',
+        const=list_operators,
+        help='List all known operators'
     )
     root_group.add_argument(
         '-so', '--set-operator',
@@ -394,4 +410,4 @@ if __name__ == '__main__':
         exit()
 
     print(list_flags()[0], list_flags()[1]) if args.lf else print(get_operator()) if args.operator \
-        else print(args.cat()) if args.cat else main(args)
+        else print(args.list_operators()) if args.list_operators else print(args.cat()) if args.cat else main(args)
