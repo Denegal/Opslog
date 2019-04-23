@@ -1,9 +1,9 @@
 usage: opslog.py [-h | -v | -o | -so operator] [-p #] [-i a.b.c.d/f]
                  [-C 'Command' | -c 'Command'] [-n 'text']
                  [-f Flag [Flag ...]] [--cat | -lf | -sf Flag [Flag ...]]
-
-
-This script is used to fill in operator notes automatically while performing commands.
+ 
+ 
+    This script is used to fill in operator notes automatically while performing commands.
 You can use this functions to simply input timestamped notes using the -n option alone.
 Commands input with the -C option will be executed exactly as entered after logging.
 Be careful to use single quote marks around commands or notes if they contain anything
@@ -16,7 +16,7 @@ log file syntax is:
     
 Date format:
 
-    YYYY-MM-DD HH:MM:SS
+    YYY-MM-DD HH:MM:SS
      
      
 Admin arguments:
@@ -24,12 +24,12 @@ Admin arguments:
   Use the following commands to retrieve program information or set operator
 
   
-  -h, --help            show this help message and exit
-  -v, --version         Show program version information
-  -o, --operator        Show the current operator
-  -so operator, 
-   --set-operator operator
-                        Set the current operator
+    -h, --help            show this help message and exit
+    -v, --version         Show program version information
+    -o, --operator        Show the current operator
+    -so operator, 
+     --set-operator operator
+                          Set the current operator
 
  
 Logging arguments:
@@ -37,12 +37,12 @@ Logging arguments:
   Use any or all of the following commands to put an entry into the current operator log
 
 
-  -p #                  The pre-approved action number
-  -i a.b.c.d/f          The target ip address/range
-  -C 'Command'          Command syntax to log before executing
-  -c 'Command'          Command syntax to log without executing
-  -n 'text'             Operator notes to include in the log entry
-  -f Flag [Flag ...]    Flag(s) used to tag the log entry
+    -p #                  The pre-approved action number
+    -i a.b.c.d/f          The target ip address/range
+    -C 'Command'          Command syntax to log before executing
+    -c 'Command'          Command syntax to log without executing
+    -n 'text'             Operator notes to include in the log entry
+    -f Flag [Flag ...]    Flag(s) used to tag the log entry
 
  
 Output Arguments:
@@ -50,8 +50,8 @@ Output Arguments:
   Use the following commands to display or search the current operator log
 
 
-  --cat                 Output the current log (can be piped to less/more,
+    --cat                 Output the current log (can be piped to less/more,
                         head/tail)
-  -lf                   List all flags used in current operators log
-  -sf Flag [Flag ...]   Search the log entries for those tagged with Flag(s)
+    -lf                   List all flags used in current operators log
+    -sf Flag [Flag ...]   Search the log entries for those tagged with Flag(s)
 
