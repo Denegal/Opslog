@@ -28,6 +28,7 @@ Admin arguments:
     -h, --help            show this help message and exit
     -v, --version         Show program version information
     -o, --operator        Show the current operator
+    -lo                   List all operators
     -so operator, 
      --set-operator operator
                           Set the current operator
@@ -57,4 +58,13 @@ Output Arguments:
                         head/tail)
     -lf                   List all flags used in current operators log
     -sf Flag [Flag ...]   Search the log entries for those tagged with Flag(s)
+ 
+ 
+ 
+Management Arguments:
+
+  Use the following commands to manage the operator log
+
+
+    --export FILENAME     Export the current log
 

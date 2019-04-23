@@ -3,6 +3,7 @@ import configparser
 import re
 import datetime
 import sys
+from shutil import copyfile
 import os
 import subprocess
 from pprint import pprint as pp
@@ -15,7 +16,7 @@ def _setup():
 
 
 _desc = """
-usage: opslog.py [-h | -v | -o | -so operator] [-p #] [-i a.b.c.d/f]
+usage: opslog.py [-h | -v | -o | -lo | -so operator] [-p #] [-i a.b.c.d/f]
                  [-C 'Command' | -c 'Command'] [-n 'text']
                  [-f Flag [Flag ...]] [--cat | -lf | -sf Flag [Flag ...]]
 
@@ -38,6 +39,7 @@ Admin arguments:
   -h, --help            show this help message and exit
   -v, --version         Show program version information
   -o, --operator        Show the current operator
+  -lo                   List all operators
   -so operator, 
    --set-operator operator
                         Set the current operator
@@ -62,7 +64,12 @@ Output Arguments:
   -lf                   List all flags used in current operators log
   -sf Flag [Flag ...]   Search the log entries for those tagged with Flag(s)
 
- 
+
+Management Arguments:
+  Use the following commands to manage the operator log
+
+  --export FILENAME     Export the current log
+
 """
 
 # Setup program and read operator settings
@@ -231,11 +238,19 @@ def _install_opslog():
     exit()
 
 
-def read_configs():
-    config = configparser.ConfigParser()
-    config.read("/usr/lib/ops_log/config.ini")
+def _export_log(location):
 
-    return
+    if os.path.isfile(location):
+        response = input(location + " already exists. Do you wish to overwrite? (y/n)")
+        if not response.startswith('y'):
+            print("Aborting export of log file")
+            exit()
+    try:
+        copyfile(_logdir + get_operator() + "_ops_log.csv", location)
+        print('Log file successfully exported')
+    except IOError as e:
+        print('export failed due to error: \n  ' + str(e))
+    exit()
 
 
 def _cmd_failed(entry):
@@ -254,7 +269,7 @@ def _cmd_failed(entry):
 def main(args):
     """This function will handle the main logging"""
     new_entry = str()
-    date = datetime.datetime.utcnow()
+    date = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
 
     # make sure arguments are in proper format for logging
     args.f = '' if not args.f else ' '.join(args.f)
@@ -287,7 +302,6 @@ def main(args):
 
 
 if __name__ == '__main__':
-
 
     if not os.path.isfile(_configfile):
         _install_opslog()
@@ -395,6 +409,15 @@ if __name__ == '__main__':
         type=str,
         help='Search the log entries for those tagged with Flag(s)'
     )
+    mgmt_group = parser.add_mutually_exclusive_group()
+    mgmt_group.description = "Use the following commands to manage operator logs"
+    mgmt_group.add_argument(
+        '--export',
+        dest='filename',
+        nargs=1,
+        type=str,
+        help='Export the current operator log to file'
+    )
 
     if not len(sys.argv) > 1:
         print(_desc)
@@ -407,6 +430,8 @@ if __name__ == '__main__':
         exit()
     if args.set_operator:
         set_operator(args.set_operator[0])
+    if args.filename:
+        _export_log(args.filename[0])
         exit()
 
     print(list_flags()[0], list_flags()[1]) if args.lf else print(get_operator()) if args.operator \
