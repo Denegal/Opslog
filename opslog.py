@@ -4,6 +4,7 @@ import re
 import datetime
 import sys
 import os
+import subprocess
 from pprint import pprint as pp
 
 
@@ -228,6 +229,19 @@ def read_configs():
     return
 
 
+def _cmd_failed(entry):
+
+    log = open(os.path.join(_logdir, get_operator() + "_ops_log.csv"), 'r')
+    lines = log.readlines()
+    log.close()
+
+    newlog = open(os.path.join(_logdir, get_operator() + "_ops_log.csv"), 'w')
+    for item in lines[:-1]:
+        newlog.writelines(item)
+    newlog.writelines(entry + "\n")
+    newlog.close()
+
+
 def main(args):
     """This function will handle the main logging"""
     new_entry = str()
@@ -238,7 +252,7 @@ def main(args):
     args.p = '' if not args.p else str(args.p[0])
     args.i = '' if not args.i else ' '.join(args.i)
     command = ' '.join(args.c) if args.c else ' '.join(args.C) if args.C else ''
-    executed = 'yes' if args.C else ''
+    executed = 'yes' if args.C else 'no' if args.c else ''
     args.n = '' if not args.n else args.n[0]
 
     new_entry = str(date) + ';' + get_operator() + ';' + args.f + ';' + args.p + ';' + \
@@ -247,6 +261,20 @@ def main(args):
     with open(os.path.join(_logdir, get_operator() + "_ops_log.csv"), 'a+') as log:
         log.write(new_entry)
         log.write("\n")
+
+    if args.C:
+
+        retcode = subprocess.run(['/bin/bash', '-i', '-c', command], stderr=subprocess.PIPE)
+        if retcode.returncode > 0:
+            executed = 'no'
+            cmd_error = re.split(".*: ", str(retcode.stderr).replace("b'", '')
+                                 .replace("\\n'", '').replace('\\n"', ''))[1]
+            new_entry = str(date) + ';' + get_operator() + ';' + args.f + ';' + args.p + ';' + \
+                        args.i + ';' + command + ';' + executed + ';' + args.n + " - ERROR: " + cmd_error
+
+            _cmd_failed(new_entry)
+            print("\n".join(cmd_error.split("\\n")))
+            exit()
 
 
 if __name__ == '__main__':
@@ -268,7 +296,7 @@ if __name__ == '__main__':
     root_group.add_argument(
         '-v', '--version',
         action='version',
-        version='%(prog)s version 0.1'
+        version='%(prog)s version 0.5'
     )
     root_group.add_argument(
         '-o', '--operator',
