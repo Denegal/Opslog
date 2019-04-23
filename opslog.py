@@ -1,5 +1,6 @@
 import argparse
 import configparser
+import re
 import sys
 import os
 from pprint import pprint as pp
@@ -122,7 +123,7 @@ def list_flags():
     Below are the flags being used in the current log
     
         {: <10} {: <15} {: <}
-        {: <10} {: <15} {: <}""".format("Count", "Flag", "Entries", "-----", "-----", "-------"))
+        {: <10} {: <15} {: <}""".format("Count", "Flag", "Entries", "-----", "-----", "-------\n"))
 
     # For each unique flag, count how many times it appears, and find which lines it appears on
     # Then create a line of text with this information and add it to the output variable
@@ -139,12 +140,35 @@ def list_flags():
     output.sort(reverse=True)
     output = "\n".join(output)
 
-    return header + "\n" + output
+    return [header, output]
 
 
 def search_log(flags):
-    print('search through log for flag entries: ', flags)
-    exit()
+    # get the current flags in use using the list_flags function
+    current_flags = list_flags()[1]
+    entries = str()
+
+    # enumerate each line and check if any of the searched for flags appear on that line
+    # if they do, add all the entry numbers to the entries variable
+    for line in current_flags.splitlines():
+        for flag in flags:
+            if re.search(r'\b' + flag + r'\b', line):
+                entries = entries + re.sub(r".*\[", "", line)
+
+    # this for loop uses tuple unpacking to remove unneeded chars in the entries string
+    for r in (("]", ''), (',', ''), (' ', '')):
+        entries = entries.replace(*r)
+
+    entries = set(entries)
+    output = str()
+
+    # enumerate each line and every line that appears in the set of results, add it to the output
+    with open(os.path.join(_logdir, get_operator())) as log:
+        for i, line in enumerate(log):
+            if entries.__contains__(str(i + 1)):
+                output = output + line
+
+    return output
 
 
 def _install_opslog():
@@ -200,7 +224,7 @@ def read_configs():
     config = configparser.ConfigParser()
     config.read("/usr/lib/ops_log/config.ini")
 
-    return config.items()
+    return
 
 
 def main(args):
@@ -315,11 +339,11 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     if args.sf:
-        search_log(args.sf)
-
+        print(search_log(args.sf))
+        exit()
     if args.set_operator:
         set_operator(args.set_operator[0])
         exit()
 
-    print(list_flags()) if args.lf else print(get_operator()) if args.operator \
+    print(list_flags()[0], list_flags()[1]) if args.lf else print(get_operator()) if args.operator \
         else print(args.cat()) if args.cat else main(args)

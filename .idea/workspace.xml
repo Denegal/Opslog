@@ -16,8 +16,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/opslog.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1557">
-              <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
+            <state relative-caret-position="348">
+              <caret line="189" lean-forward="true" selection-start-line="189" selection-end-line="189" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -57,6 +57,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -68,7 +69,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -157,6 +157,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="411" y="42" width="1419" height="990" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20301291" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -190,8 +191,8 @@
     <entry file="file://$PROJECT_DIR$/test_opslog.py" />
     <entry file="file://$PROJECT_DIR$/opslog.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1557">
-          <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
+        <state relative-caret-position="348">
+          <caret line="189" lean-forward="true" selection-start-line="189" selection-end-line="189" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
