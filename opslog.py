@@ -430,9 +430,10 @@ if __name__ == '__main__':
         exit()
     if args.set_operator:
         set_operator(args.set_operator[0])
+        exit()
     if args.filename:
         _export_log(args.filename[0])
         exit()
 
     print(list_flags()[0], list_flags()[1]) if args.lf else print(get_operator()) if args.operator \
-        else print(args.list_operators()) if args.list_operators else print(args.cat()) if args.cat else main(args)
+        else print(args.list_operators()) if args.list_operators else print("\n" + args.cat()) if args.cat else main(args)
