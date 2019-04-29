@@ -4,6 +4,7 @@ import re
 import datetime
 import sys
 from shutil import copyfile
+from shutil import copytree
 import os
 import subprocess
 from pprint import pprint as pp
@@ -69,6 +70,12 @@ Management Arguments:
   Use the following commands to manage the operator log
 
   --export FILENAME     Export the current log
+
+
+
+The man page can be accessed with the command 'man opslog'.
+
+Complete documentation can be found in the /usr/lib/ops_log/html/index.html webfile
 
 """
 
@@ -219,11 +226,26 @@ def _install_opslog():
 
             create_alias = open(_aliasfile, '+a')
             create_alias.write("\nfunction opslog()\n{\npython ")
-            create_alias.write(os.path.realpath(__file__))
+            create_alias.write("/usr/lib/ops_log/opslog.py")
             create_alias.write(r' "$@"')
             create_alias.write('\n}\nexport opslog')
             create_alias.close()
-            
+
+            # Add man page to system
+            copyfile('install/opslog.1', '/usr/share/man/man1/opslog.1')
+
+            # Add html documentation to install folder
+            copytree('install/html/', '/usr/lib/ops_log/html/')
+            os.chmod("/usr/lib/ops_log/html/", 0o775)  # this line must be changed to work with python 2.7 (771)
+            for root, dirs, files in os.walk("/usr/lib/ops_log/html/"):
+                for momo in dirs:
+                    os.chmod(os.path.join(root, momo), 0o775)  # this line must be changed to work with python 2.7 (771)
+                for momo in files:
+                    os.chmod(os.path.join(root, momo), 0o775)  # this line must be changed to work with python 2.7 (771)
+
+            copyfile(os.getcwd() + "/opslog.py", "/usr/lib/ops_log/opslog.py")
+            os.chmod("/usr/lib/ops_log/opslog.py", 0o774)  # this line must be changed to work with python 2.7 (771)
+
             print("""Program successfully installed to /usr/lib/ops_log/
             After restarting terminal, logs may now be created using shortcut command 'opslog'.
             
