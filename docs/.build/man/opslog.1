@@ -1,0 +1,294 @@
+.\" Man page generated from reStructuredText.
+.
+.TH "OPSLOG" "1" "Apr 29, 2019" "1.1" "OpsLog"
+.SH NAME
+opslog \- OpsLog Documentation
+.
+.nr rst2man-indent-level 0
+.
+.de1 rstReportMargin
+\\$1 \\n[an-margin]
+level \\n[rst2man-indent-level]
+level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
+-
+\\n[rst2man-indent0]
+\\n[rst2man-indent1]
+\\n[rst2man-indent2]
+..
+.de1 INDENT
+.\" .rstReportMargin pre:
+. RS \\$1
+. nr rst2man-indent\\n[rst2man-indent-level] \\n[an-margin]
+. nr rst2man-indent-level +1
+.\" .rstReportMargin post:
+..
+.de UNINDENT
+. RE
+.\" indent \\n[an-margin]
+.\" old: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.nr rst2man-indent-level -1
+.\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.in \\n[rst2man-indent\\n[rst2man-indent-level]]u
+..
+.sp
+This script is used to fill in operator notes in .csv format simply and easily.
+.SH OVERVIEW ON HOW TO INSTALL AND SETUP THIS SCRIPT
+.SS Simple Installation
+.INDENT 0.0
+.IP 1. 3
+Ensure python3 is installed on the system
+.IP 2. 3
+.INDENT 3.0
+.TP
+.B Copy the opslog.py file to your chosen folder and move to it
+.INDENT 7.0
+.IP \(bu 2
+It is recommended not to move the program file after install
+.IP \(bu 2
+A folder dedicated to custom scripts is recommended
+.UNINDENT
+.UNINDENT
+.IP 3. 3
+run \fBpython opslog.py\fP
+.IP 4. 3
+Follow the prompts to install the program
+.UNINDENT
+.SS Install Location
+.sp
+opslog is installed to the /usr/lib/ops_log/ directory.
+The folder is created with root privileges and the sticky bit set.
+This allows the program to access it’s configuration file and create
+operator logs regardless regardless of the user running it (root privileges
+are not required to run the program or create logs.)
+.sp
+Inside the ops_log/ folder are the config.ini file which the script
+uses for tracking the current operator, and a operator_logs/ folder
+which stores the .csv file logs for the operators. Like the main installation
+folder, the operator_logs folder is created by root, with sticky bit permissions
+to allow the program to update logs for operators even if they were initially
+created while another user was logged in.
+.sp
+Below is an sample directory listing of the install location:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+/usr/lib/:
+total 595256
+\&....
+drwsrwxrwx  3 root root     4096 Apr 29 13:16 ops_log
+\&...
+
+/usr/lib/ops_log/:
+total 8
+\-rw\-rw\-rw\- 1 root root   54 Apr 29 10:49 config.ini
+drwsrwxrwx 2 root root 4096 Apr 29 10:50 operator_logs
+
+/usr/lib/ops_log/operator_logs:
+total 4
+\-rw\-r\-\-r\-\- 1 assessor assessor 616 Apr 29 10:51 test_operator_ops_log.csv
+\-rw\-r\-\-r\-\- 1 assessor assessor 486 Apr 29 10:57 second_operator_ops_log.csv
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Post Install
+.sp
+Once the initial installation is complete, the program can be run from anywhere on the system
+using the shortcut alias ‘opslog’. This is due to an alias being created in the /etc/profile.d/
+directory in the opslog_data.sh file.
+.sp
+If for any reason this does not work and users are unable to use the ‘opslog’
+shortcut after installation, you can manually create this alias by adding the line:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+alias opslog=\(aqpath/to/opslog.py\(aq
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+in their .bashrc file found in their home directory.
+.sp
+Note: the alias should point wherever the opslog.py file is. If this file is moved after installation,
+the user must update the appropriate aliases to once again point to the file.
+.SH OPSLOG USAGE
+.sp
+This script is used to fill in operator notes automatically in .csv file format.
+You can use this functions to simply input timestamped notes using the \-n option alone.
+Commands input with the \-C option will be executed exactly as entered after logging.
+Be careful to use single quote marks around commands or notes if they contain anything
+that bash will try to interpret ($ or ! for example)
+.SS Basic Info
+.sp
+The basic usage and flags:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+opslog.py [\-h | \-v | \-o | \-lo | \-so operator] [\-p #] [\-i a.b.c.d/f]
+             [\-C \(aqCommand\(aq | \-c \(aqCommand\(aq] [\-n \(aqtext\(aq]
+             [\-f Flag [Flag ...]] [\-\-cat | \-lf | \-sf Flag [Flag ...]]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Log File Syntax
+.sp
+The log file for each operator is stored in .csv format; delimited by semicolons (;).
+The syntax is always the same:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+date;operator name;flag;paa;ip address;command;executed;note
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+The eight fields are:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+\- Date:     The date and time the entry was made in UTC timezone
+    \- YYYY\-MM\-DD HH:MM:SS
+\- Operator: The operator who made the entry
+\- Flag:     Tags used in a log entry. These can be used later for searching or catagorizing entries
+\- PAA:      The pre\-approved action number. This is dependant on mission and crew lead
+\- IP:       Any IP address involved with the entry.
+\- Command   The command syntax used.
+\- Executed  Field used only when Command field is present
+    \- \(aqYes\(aq if the command was executed after logging
+    \- \(aqNo\(aq if the command was not executed or failed to execute
+\- Note      The actual note entry to log.
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Administration Arguments
+.sp
+The following arguments are mutually exclusive and either display program
+information or modify operator settings. If used, they will override any other
+flags and no log entry will be created.
+.sp
+The admin arguments are:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+\-h, \-\-help            show this help message and exit
+\-v, \-\-version         Show program version information
+\-o, \-\-operator        Show the current operator
+\-lo                   List all operators
+\-so operator,
+ \-\-set\-operator operator
+                      Set the current operator
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Most useful are the \-o and \-so arguments which are used to show/set the operator
+.SS Management Arguments
+.sp
+The following arguments are mutually exclusive and are used to export or merge
+operator logs.
+.sp
+The management arguments are:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+\-\-export FILENAME     Export the current log
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Note: The FILENAME can be given in absolute or relative path. If no path is specified
+the file will output to the current directory.
+.SS Output Arguments
+.sp
+The following arguments are mutually exclusive and display the current operator’s
+log or selective information in it. If used, they will override any other arguments
+and no log entry will be created.
+.sp
+The output arguments are:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+\-\-cat                 Output the current log (can be piped to less/more,
+                      head/tail)
+\-lf                   List all flags used in current operators log
+\-sf Flag [Flag ...]   Search the log entries for those tagged with Flag(s)
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Logging Arguments
+.sp
+The following arguments are not mutually exclusive, with the exception of the \-c and
+\-C arguments, and are used to create a log entry in the current operators log. Any or
+all of the arguments may be used in any order.
+.sp
+The logging arguments are:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+\-p #                  The pre\-approved action number
+\-i a.b.c.d/f          The target ip address/range
+\-C \(aqCommand\(aq          Command syntax to log before executing
+\-c \(aqCommand\(aq          Command syntax to log without executing
+\-n \(aqtext\(aq             Operator notes to include in the log entry
+\-f Flag [Flag ...]    Flag(s) used to tag the log entry
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Note 1: When inputting command syntax and notes, use of single quote marks (‘) are recommended to
+prevent your shell from interpreting it before logging.
+.sp
+Note 1 Example:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+>IP=\(aq1.2.3.4\(aq
+>opslog \-c "ping $IP" \-n "Testing connectivity to the $IP variable"
+>opslog \-c \(aqping $IP\(aq \-n \(aqTesting connectivity to the $IP variable\(aq
+>opslog \-\-cat
+
+2019\-04\-29 18:59:24;argument_tests;;;;ping 1.2.3.4;no;Testing connectivity to the ip 1.2.3.4 variable
+2019\-04\-29 18:59:42;argument_tests;;;;ping $IP;no;Testing connectivity to the $IP variable
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Note 2: Flags can be added with the \-f option. Multiple flags may be used if space separated.
+.SH OPSLOG EXAMPLES
+.sp
+\fBTODO: input examples\fP
+.SH AUTHOR
+Jacob Coburn
+.SH COPYRIGHT
+2019, Jacob Coburn
+.\" Generated by docutils manpage writer.
+.
