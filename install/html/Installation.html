@@ -84,7 +84,9 @@ created while another user was logged in.</p>
 <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">ops_log</span><span class="o">/</span><span class="p">:</span>
 <span class="n">total</span> <span class="mi">8</span>
 <span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">rw</span><span class="o">-</span> <span class="mi">1</span> <span class="n">root</span> <span class="n">root</span>   <span class="mi">54</span> <span class="n">Apr</span> <span class="mi">29</span> <span class="mi">10</span><span class="p">:</span><span class="mi">49</span> <span class="n">config</span><span class="o">.</span><span class="n">ini</span>
+<span class="n">drwxrwxr</span><span class="o">-</span><span class="n">x</span> <span class="mi">4</span> <span class="n">root</span> <span class="n">root</span>  <span class="mi">4096</span> <span class="n">Apr</span> <span class="mi">29</span> <span class="mi">15</span><span class="p">:</span><span class="mi">35</span> <span class="n">html</span>
 <span class="n">drwsrwxrwx</span> <span class="mi">2</span> <span class="n">root</span> <span class="n">root</span> <span class="mi">4096</span> <span class="n">Apr</span> <span class="mi">29</span> <span class="mi">10</span><span class="p">:</span><span class="mi">50</span> <span class="n">operator_logs</span>
+<span class="o">-</span><span class="n">rwxrwxr</span><span class="o">--</span> <span class="mi">1</span> <span class="n">root</span> <span class="n">root</span> <span class="mi">15216</span> <span class="n">Apr</span> <span class="mi">29</span> <span class="mi">15</span><span class="p">:</span><span class="mi">47</span> <span class="n">opslog</span><span class="o">.</span><span class="n">py</span>
 
 <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">ops_log</span><span class="o">/</span><span class="n">operator_logs</span><span class="p">:</span>
 <span class="n">total</span> <span class="mi">4</span>
@@ -100,12 +102,14 @@ using the shortcut alias ‘opslog’. This is due to an alias being created in 
 directory in the opslog_data.sh file.</p>
 <p>If for any reason this does not work and users are unable to use the ‘opslog’
 shortcut after installation, you can manually create this alias by adding the line:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">alias</span> <span class="n">opslog</span><span class="o">=</span><span class="s1">&#39;path/to/opslog.py&#39;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">alias</span> <span class="n">opslog</span><span class="o">=</span><span class="s1">&#39;/usr/lib/ops_log/opslog.py&#39;</span>
 </pre></div>
 </div>
 <p>in their .bashrc file found in their home directory.</p>
-<p>Note: the alias should point wherever the opslog.py file is. If this file is moved after installation,
-the user must update the appropriate aliases to once again point to the file.</p>
+<p>A man page is also created for the program and can be access with the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">man</span> <span class="n">opslog</span>
+</pre></div>
+</div>
 </div>
 </div>
 

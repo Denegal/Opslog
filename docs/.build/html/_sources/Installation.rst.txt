@@ -44,7 +44,9 @@ Below is an sample directory listing of the install location::
     /usr/lib/ops_log/:
     total 8
     -rw-rw-rw- 1 root root   54 Apr 29 10:49 config.ini
+    drwxrwxr-x 4 root root  4096 Apr 29 15:35 html
     drwsrwxrwx 2 root root 4096 Apr 29 10:50 operator_logs
+    -rwxrwxr-- 1 root root 15216 Apr 29 15:47 opslog.py
 
     /usr/lib/ops_log/operator_logs:
     total 4
@@ -62,9 +64,12 @@ directory in the opslog_data.sh file.
 If for any reason this does not work and users are unable to use the 'opslog'
 shortcut after installation, you can manually create this alias by adding the line::
 
-    alias opslog='path/to/opslog.py'
+    alias opslog='/usr/lib/ops_log/opslog.py'
 
 in their .bashrc file found in their home directory.
 
-Note: the alias should point wherever the opslog.py file is. If this file is moved after installation,
-the user must update the appropriate aliases to once again point to the file.
+
+A man page is also created for the program and can be access with the command::
+
+    man opslog
+
