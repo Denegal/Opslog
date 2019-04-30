@@ -69,10 +69,13 @@ operator logs.
 The management arguments are::
 
   --export FILENAME     Export the current log
+  --merge File1 File2   Merge multiple log files together into one
 
-Note: The FILENAME can be given in absolute or relative path. If no path is specified
+Note: The files can be given in absolute or relative path. If no path is specified
 the file will output to the current directory.
 
+Note 2: The merge command can accept any number of log files. It will first check to ensure all
+supplied files are in the correct format, and then ask for the output log name before merging.
 
 Output Arguments
 ================

@@ -70,6 +70,7 @@ Management Arguments:
   Use the following commands to manage the operator log
 
   --export FILENAME     Export the current log
+  --merge F1 F2 [F3...] Merge multiple log files together into one log
 
 
 
@@ -275,6 +276,32 @@ def _export_log(location):
     exit()
 
 
+def _merge_logs(logs_list):
+    print("Checking files...")
+
+    # First check that each file provided is the correct format
+    patern = re.compile("^.*;.+;.*;.*;.*;.*;.*;.*")
+    for file in logs_list:
+        with open(file, 'r') as log:
+            for line in log.readlines():
+                if not patern.match(line) and not line == "":
+                    print("ERROR: file {} does not match logging format. Unable to merge".format(file))
+                    exit()
+
+    print("All files matches log format.")
+    dest_file = input("Enter destination filename: ")
+    output = str()
+    for file in logs_list:
+        with open(file, 'r') as log:
+            output = output + str(log.read())
+    result = sorted(output.splitlines())
+    with open(dest_file, "+a") as newlog:
+        newlog.writelines("\n".join(result))
+        newlog.write("\n")
+    print("Merge Successful")
+    exit()
+
+
 def _cmd_failed(entry):
 
     log = open(os.path.join(_logdir, get_operator() + "_ops_log.csv"), 'r')
@@ -440,6 +467,13 @@ if __name__ == '__main__':
         type=str,
         help='Export the current operator log to file'
     )
+    mgmt_group.add_argument(
+        '--merge',
+        dest='mergefile',
+        nargs='+',
+        type=str,
+        help='Merge multiple logs into one file'
+    )
 
     if not len(sys.argv) > 1:
         print(_desc)
@@ -455,6 +489,9 @@ if __name__ == '__main__':
         exit()
     if args.filename:
         _export_log(args.filename[0])
+        exit()
+    if args.mergefile:
+        _merge_logs(args.mergefile)
         exit()
 
     print(list_flags()[0], list_flags()[1]) if args.lf else print(get_operator()) if args.operator \
