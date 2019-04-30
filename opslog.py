@@ -194,7 +194,7 @@ def search_log(flags):
             if entries.__contains__(str(i + 1)):
                 output = output + line
 
-    return output
+    return "\n" + output
 
 
 def _install_opslog():

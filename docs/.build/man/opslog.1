@@ -1,6 +1,6 @@
 .\" Man page generated from reStructuredText.
 .
-.TH "OPSLOG" "1" "Apr 29, 2019" "1.1" "OpsLog"
+.TH "OPSLOG" "1" "Apr 30, 2019" "1.1" "OpsLog"
 .SH NAME
 opslog \- OpsLog Documentation
 .
@@ -57,7 +57,7 @@ Follow the prompts to install the program
 .sp
 opslog is installed to the /usr/lib/ops_log/ directory.
 The folder is created with root privileges and the sticky bit set.
-This allows the program to access it’s configuration file and create
+This allows the program to access it\(aqs configuration file and create
 operator logs regardless regardless of the user running it (root privileges
 are not required to run the program or create logs.)
 .sp
@@ -83,7 +83,9 @@ drwsrwxrwx  3 root root     4096 Apr 29 13:16 ops_log
 /usr/lib/ops_log/:
 total 8
 \-rw\-rw\-rw\- 1 root root   54 Apr 29 10:49 config.ini
+drwxrwxr\-x 4 root root  4096 Apr 29 15:35 html
 drwsrwxrwx 2 root root 4096 Apr 29 10:50 operator_logs
+\-rwxrwxr\-\- 1 root root 15216 Apr 29 15:47 opslog.py
 
 /usr/lib/ops_log/operator_logs:
 total 4
@@ -96,17 +98,17 @@ total 4
 .SS Post Install
 .sp
 Once the initial installation is complete, the program can be run from anywhere on the system
-using the shortcut alias ‘opslog’. This is due to an alias being created in the /etc/profile.d/
-directory in the opslog_data.sh file.
+using the shortcut alias \(aqopslog\(aq. This is due to an alias being created in the /etc/profile.d/
+directory in the opslog_alias.sh file.
 .sp
-If for any reason this does not work and users are unable to use the ‘opslog’
+If for any reason this does not work and users are unable to use the \(aqopslog\(aq
 shortcut after installation, you can manually create this alias by adding the line:
 .INDENT 0.0
 .INDENT 3.5
 .sp
 .nf
 .ft C
-alias opslog=\(aqpath/to/opslog.py\(aq
+alias opslog=\(aq/usr/lib/ops_log/opslog.py\(aq
 .ft P
 .fi
 .UNINDENT
@@ -114,8 +116,17 @@ alias opslog=\(aqpath/to/opslog.py\(aq
 .sp
 in their .bashrc file found in their home directory.
 .sp
-Note: the alias should point wherever the opslog.py file is. If this file is moved after installation,
-the user must update the appropriate aliases to once again point to the file.
+A man page is also created for the program and can be access with the command:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+man opslog
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
 .SH OPSLOG USAGE
 .sp
 This script is used to fill in operator notes automatically in .csv file format.
@@ -211,16 +222,20 @@ The management arguments are:
 .nf
 .ft C
 \-\-export FILENAME     Export the current log
+\-\-merge File1 File2   Merge multiple log files together into one
 .ft P
 .fi
 .UNINDENT
 .UNINDENT
 .sp
-Note: The FILENAME can be given in absolute or relative path. If no path is specified
+Note: The files can be given in absolute or relative path. If no path is specified
 the file will output to the current directory.
+.sp
+Note 2: The merge command can accept any number of log files. It will first check to ensure all
+supplied files are in the correct format, and then ask for the output log name before merging.
 .SS Output Arguments
 .sp
-The following arguments are mutually exclusive and display the current operator’s
+The following arguments are mutually exclusive and display the current operator\(aqs
 log or selective information in it. If used, they will override any other arguments
 and no log entry will be created.
 .sp
@@ -261,7 +276,7 @@ The logging arguments are:
 .UNINDENT
 .UNINDENT
 .sp
-Note 1: When inputting command syntax and notes, use of single quote marks (‘) are recommended to
+Note 1: When inputting command syntax and notes, use of single quote marks (\(aq) are recommended to
 prevent your shell from interpreting it before logging.
 .sp
 Note 1 Example:
@@ -284,8 +299,291 @@ Note 1 Example:
 .sp
 Note 2: Flags can be added with the \-f option. Multiple flags may be used if space separated.
 .SH OPSLOG EXAMPLES
+.SS Displaying and Changing the Current Operator
 .sp
-\fBTODO: input examples\fP
+The current operator is stored in the programs configuration file and is
+referenced whenever log entries are made or the log is queried. You can
+find the current operator by using the \fBopslog \-o\fP command.
+.sp
+Example:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+> opslog \-o
+test_operator
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Whenever the current operator is changed, the configuration file is updated to
+reflect the new operator. You can change the current operator using the
+\fBopslog \-so\fP command.
+.sp
+Example:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+> opslog \-o
+test_operator
+
+> opslog \-so new_operator
+> opslog \-o
+new_operator
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Creating Log Entries
+.sp
+Log entires are created by using any or all of the Logging\-Arguments\&.
+These can be as simple as a timestamped note using \fBopslog \-n \(aqnote\(aq\fP command,
+or as complicated as a full entry using all six arguments.
+.sp
+Example 1:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+> opslog \-n \(aqThis is a simple operator note\(aq
+> opslog \-\-cat
+
+2019\-04\-30 13:44:10;Example Operator;;;;;;This is a simple operator note
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Example 2:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+> opslog \-c \(aqping 1.2.3.4\(aq \-n \(aqThis entry includes a command\(aq
+> opslog \-\-cat
+
+2019\-04\-30 13:45:53;Example Operator;;;;ping 1.2.3.4;no;This entry includes a command
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Example 3:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+> opslog \-p 1 \-i \(aq127.0.0.1\(aq \-C \(aqping \-c 4 127.0.0.1\(aq \-f \(aqtesting\(aq \-n \(aqThis is a full note with command execution\(aq
+PING 127.0.0.1 (127.0.0.1) 56(84) bytes of data.
+64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.027 ms
+64 bytes from 127.0.0.1: icmp_seq=2 ttl=64 time=0.037 ms
+64 bytes from 127.0.0.1: icmp_seq=3 ttl=64 time=0.036 ms
+64 bytes from 127.0.0.1: icmp_seq=4 ttl=64 time=0.038 ms
+
+\-\-\- 127.0.0.1 ping statistics \-\-\-
+4 packets transmitted, 4 received, 0% packet loss, time 59ms
+rtt min/avg/max/mdev = 0.027/0.034/0.038/0.007 ms
+> opslog \-\-cat
+
+2019\-04\-30 13:49:14;Example Operator;testing;1;127.0.0.1;ping \-c 4 127.0.0.1;yes;This is a full note with command execution.
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Note 1: In all three examples. the \fBopslog \-\-cat\fP command is executed to show the contents of the log.
+.sp
+Note 2: In example 2, the 7th field(executed) lists \(aqno\(aq because the command syntax was entered
+with the \fB\-c\fP option. This option only logs the command but does not attempt to execute it.
+.sp
+Note 3: In example 3, the 7th field(executed) lists \(aqyes\(aq because the command syntax was entered
+with the \fB\-C\fP option. This option creates the log entry and then attempts to execute the command
+exactly as entered. Example 3 also shows the results of the executed command.
+.SS Displaying and Searching the Log
+.sp
+Logs can be easily displayed using the \fBopslog \-\-cat\fP command. The log displayed will always
+be the current operators log only. the output from this command can be piped into other commands
+as needed such as \fBhead\fP, \fBless\fP, or \fBgrep\fP\&.
+.sp
+Example 1:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+> opslog \-o
+Example Operator
+> opslog \-\-cat
+
+2019\-04\-30 14:00:03;Example Operator;;;;;;Sample Entry 1
+2019\-04\-30 14:00:06;Example Operator;;;;;;Sample Entry 2
+2019\-04\-30 14:00:31;Example Operator;mission;;;;;Sample Entry 3, with flag
+2019\-04\-30 14:00:38;Example Operator;mission;;;;;Sample Entry 4, with flag
+2019\-04\-30 14:00:49;Example Operator;opschecks;;;;;Sample Entry 5, with flag 2
+2019\-04\-30 14:00:52;Example Operator;opschecks;;;;;Sample Entry 6, with flag 2
+2019\-04\-30 14:01:14;Example Operator;example opschecks;;;;;Sample Entry 7, with 2 flag
+2019\-04\-30 14:01:25;Example Operator;example mission;;;;;Sample Entry 8, with 2 flag
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Example 2:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+> opslog \-\-cat | head \-n4
+
+2019\-04\-30 14:00:03;Example Operator;;;;;;Sample Entry 1
+2019\-04\-30 14:00:06;Example Operator;;;;;;Sample Entry 2
+2019\-04\-30 14:00:31;Example Operator;mission;;;;;Sample Entry 3, with flag
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Although the logs can be searched by piping to grep, Flags provide a much more efficient way of
+tagging entries of particular interest. You can list out all the flags used in the current log
+using the \fBopslog \-lf\fP command.
+.sp
+Example:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+> opslog \-\-lf
+
+    Below are the flags being used in the current log
+
+        Count      Flag            Entries
+        \-\-\-\-\-      \-\-\-\-\-           \-\-\-\-\-\-\-
+        3          opschecks       [5, 6, 7]
+        3          mission         [3, 4, 8]
+        2          example         [7, 8]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+You can also search for and display log entries based on the flags the entry was tagged with using
+the \fBopslog \-sf flag\fP command. The command can accept multiple flags in it\(aqs search.
+.sp
+Example 1:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+> opslog \-lf opschecks
+
+2019\-04\-30 14:00:49;Example Operator;opschecks;;;;;Sample Entry 5, with flag 2
+2019\-04\-30 14:00:52;Example Operator;opschecks;;;;;Sample Entry 6, with flag 2
+2019\-04\-30 14:01:14;Example Operator;example opschecks;;;;;Sample Entry 7, with 2 flag
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Example 2:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+> opslog \-lf example mission
+
+2019\-04\-30 14:00:31;Example Operator;mission;;;;;Sample Entry 3, with flag
+2019\-04\-30 14:00:38;Example Operator;mission;;;;;Sample Entry 4, with flag
+2019\-04\-30 14:01:14;Example Operator;example opschecks;;;;;Sample Entry 7, with 2 flag
+2019\-04\-30 14:01:25;Example Operator;example mission;;;;;Sample Entry 8, with 2 flag
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Exporting and Merging Logs
+.sp
+Once the logs are complete, the can be exported by using the \fBopslog \-\-export\fP command
+and specifying the export location. The location can use absolute or relative path, and will
+output to the current directory if only a filename is given
+.sp
+Example:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+> ls \-l ~/tmp/
+total 0
+> opslog \-\-export ~/tmp/log.csv
+Log file successfully exported
+>ls \-l ~/tmp/
+total 4
+\-rw\-r\-\-r\-\- 1 assessor assessor 594 Apr 30 10:24 log.csv
+> cat ~/tmp/log.csv
+2019\-04\-30 14:00:03;Example Operator;;;;;;Sample Entry 1
+2019\-04\-30 14:00:06;Example Operator;;;;;;Sample Entry 2
+2019\-04\-30 14:00:31;Example Operator;mission;;;;;Sample Entry 3, with flag
+2019\-04\-30 14:00:38;Example Operator;mission;;;;;Sample Entry 4, with flag
+2019\-04\-30 14:00:49;Example Operator;opschecks;;;;;Sample Entry 5, with flag 2
+2019\-04\-30 14:00:52;Example Operator;opschecks;;;;;Sample Entry 6, with flag 2
+2019\-04\-30 14:01:14;Example Operator;example opschecks;;;;;Sample Entry 7, with 2 flag
+2019\-04\-30 14:01:25;Example Operator;example mission;;;;;Sample Entry 8, with 2 flag
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+If for any reason multiple logs need to be combined, the \fBopslog \-\-merge\fP command can
+do so. The command takes any number of files as arguments, checks these files to ensure they
+are properly formated log files, and merges them together into one log.
+.sp
+Example:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+> ls \-l
+total 8
+\-rw\-r\-\-r\-\- 1 assessor assessor 138 Apr 30 10:29 merg1_log.csv
+\-rw\-r\-\-r\-\- 1 assessor assessor  92 Apr 30 10:30 merg2_log.csv
+> cat merg1_log.csv
+2019\-04\-30 15:28:32;merg1;;;;;;Sample entry 1
+2019\-04\-30 15:28:41;merg1;;;;;;Sample entry 2
+2019\-04\-30 15:29:19;merg1;;;;;;Sample entry 5
+> cat merg2_log.csv
+2019\-04\-30 15:28:55;merg2;;;;;;Sample entry 3
+2019\-04\-30 15:29:03;merg2;;;;;;Sample entry 4
+> opslog \-\-merge merg1_log.csv merg2_log.csv
+Checking files...
+All files matches log format.
+Enter destination filename: merged_log.csv
+Merge Successful
+> ls \-l
+total 12
+\-rw\-r\-\-r\-\- 1 assessor assessor 138 Apr 30 10:29 merg1_log.csv
+\-rw\-r\-\-r\-\- 1 assessor assessor  92 Apr 30 10:30 merg2_log.csv
+\-rw\-r\-\-r\-\- 1 assessor assessor 230 Apr 30 10:33 merged_log.csv
+> cat merged_log.csv
+2019\-04\-30 15:28:32;merg1;;;;;;Sample entry 1
+2019\-04\-30 15:28:41;merg1;;;;;;Sample entry 2
+2019\-04\-30 15:28:55;merg2;;;;;;Sample entry 3
+2019\-04\-30 15:29:03;merg2;;;;;;Sample entry 4
+2019\-04\-30 15:29:19;merg1;;;;;;Sample entry 5
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
 .SH AUTHOR
 Jacob Coburn
 .SH COPYRIGHT

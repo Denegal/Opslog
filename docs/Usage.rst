@@ -92,6 +92,8 @@ The output arguments are::
   -sf Flag [Flag ...]   Search the log entries for those tagged with Flag(s)
 
 
+.. _Logging-Arguments:
+
 Logging Arguments
 =================
 

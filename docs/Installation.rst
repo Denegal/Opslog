@@ -59,7 +59,7 @@ Post Install
 
 Once the initial installation is complete, the program can be run from anywhere on the system
 using the shortcut alias 'opslog'. This is due to an alias being created in the /etc/profile.d/
-directory in the opslog_data.sh file.
+directory in the opslog_alias.sh file.
 
 If for any reason this does not work and users are unable to use the 'opslog'
 shortcut after installation, you can manually create this alias by adding the line::
