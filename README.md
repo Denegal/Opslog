@@ -67,4 +67,4 @@ Management Arguments:
 
 
     --export FILENAME     Export the current log
-
+    --merge F1 F2 [F3...] Merge multiple log files together into one log
