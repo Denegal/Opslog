@@ -40,7 +40,7 @@ release = 'v1.1a May, 2019'
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
-    #'rinoh.frontend.sphinx'
+    'rinoh.frontend.sphinx'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
