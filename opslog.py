@@ -179,13 +179,13 @@ def search_log(flags):
     for line in current_flags.splitlines():
         for flag in flags:
             if re.search(r'\b' + flag + r'\b', line):
+                if not entries == '':
+                    entries = entries + ", "
                 entries = entries + re.sub(r".*\[", "", line)
 
-    # this for loop uses tuple unpacking to remove unneeded chars in the entries string
-    for r in (("]", ''), (',', ''), (' ', '')):
-        entries = entries.replace(*r)
-
-    entries = set(entries)
+    entries = entries.replace(']', '')
+    entries = set(entries.split(', '))
+    print(entries)
     output = str()
 
     # enumerate each line and every line that appears in the set of results, add it to the output
@@ -480,6 +480,10 @@ if __name__ == '__main__':
         exit()
 
     args = parser.parse_args()
+
+    if args.sf:
+        print(search_log(args.sf))
+        exit()
 
     print(list_flags()[0], list_flags()[1]) if args.lf else print(get_operator()) if args.operator \
         else print(args.list_operators()) if args.list_operators else print("\n" + args.cat()) if args.cat else main(args)

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0e84c006-9adc-4051-883b-51f56779464c" name="Default Changelist" comment="" />
+    <list default="true" id="0e84c006-9adc-4051-883b-51f56779464c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/opslog.py" beforeDir="false" afterPath="$PROJECT_DIR$/opslog.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -10,11 +12,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/opslog.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="501">
-              <caret line="196" column="18" selection-start-line="196" selection-start-column="18" selection-end-line="196" selection-end-column="18" />
+            <state relative-caret-position="412">
+              <caret line="196" column="24" lean-forward="true" selection-start-line="172" selection-start-column="4" selection-end-line="196" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -31,10 +33,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/docs/conf.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-429">
+            <state relative-caret-position="330">
               <caret line="44" selection-start-line="44" selection-end-line="44" />
             </state>
           </provider>
@@ -84,14 +86,14 @@
         <option value="$PROJECT_DIR$/docs/Installation.rst" />
         <option value="$PROJECT_DIR$/docs/Usage.rst" />
         <option value="$PROJECT_DIR$/docs/Examples.rst" />
-        <option value="$PROJECT_DIR$/opslog.py" />
         <option value="$PROJECT_DIR$/docs/conf.py" />
+        <option value="$PROJECT_DIR$/opslog.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="330" />
-    <option name="y" value="39" />
+    <option name="x" value="470" />
+    <option name="y" value="42" />
     <option name="width" value="1413" />
     <option name="height" value="994" />
   </component>
@@ -205,7 +207,7 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="330" y="39" width="1413" height="994" extended-state="0" />
+    <frame x="470" y="42" width="1413" height="994" extended-state="0" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20389049" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -218,7 +220,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32946634" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32794458" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.32794458" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32830626" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -240,13 +242,6 @@
     <entry file="file://$PROJECT_DIR$/Makefile" />
     <entry file="file://$PROJECT_DIR$/conf.py" />
     <entry file="file://$PROJECT_DIR$/index.rst" />
-    <entry file="file://$PROJECT_DIR$/opslog.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="196" column="18" selection-start-line="196" selection-start-column="18" selection-end-line="196" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -271,8 +266,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/docs/conf.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-429">
+        <state relative-caret-position="330">
           <caret line="44" selection-start-line="44" selection-end-line="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/opslog.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="412">
+          <caret line="196" column="24" lean-forward="true" selection-start-line="172" selection-start-column="4" selection-end-line="196" selection-end-column="24" />
         </state>
       </provider>
     </entry>
