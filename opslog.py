@@ -185,7 +185,6 @@ def search_log(flags):
 
     entries = entries.replace(']', '')
     entries = set(entries.split(', '))
-    print(entries)
     output = str()
 
     # enumerate each line and every line that appears in the set of results, add it to the output
