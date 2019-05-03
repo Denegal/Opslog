@@ -1,27 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0e84c006-9adc-4051-883b-51f56779464c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/doctrees/Examples.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/doctrees/Examples.doctree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/doctrees/Installation.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/doctrees/Installation.doctree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/doctrees/Usage.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/doctrees/Usage.doctree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/doctrees/environment.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/doctrees/environment.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/doctrees/index.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/doctrees/index.doctree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/html/.buildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/html/.buildinfo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/html/Examples.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/html/Examples.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/html/Installation.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/html/Installation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/html/Usage.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/html/Usage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/html/_sources/Examples.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/html/_sources/Examples.rst.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/html/_sources/index.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/html/_sources/index.rst.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/html/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/html/searchindex.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/html/searchindex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/man/opslog.1" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/man/opslog.1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/rinoh/OpsLog.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/rinoh/OpsLog.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/rinoh/OpsLog.stylelog" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/rinoh/OpsLog.stylelog" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Examples.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Examples.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs/conf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.rst" afterDir="false" />
+    <list default="true" id="3e35e272-57d4-456c-ba8f-5dccd6754c3a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,86 +10,8 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/opslog.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2077">
-              <caret line="195" column="24" selection-start-line="195" selection-start-column="24" selection-end-line="195" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="501">
-                <caret line="70" selection-start-line="70" selection-end-line="70" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/docs/conf.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1132">
-              <caret line="118" lean-forward="true" selection-start-line="118" selection-end-line="118" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/docs/index.rst">
-          <provider selected="true" editor-type-id="restructured-text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/docs/Examples.rst">
-          <provider selected="true" editor-type-id="restructured-text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/docs/Installation.rst">
-          <provider selected="true" editor-type-id="restructured-text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/docs/Usage.rst">
-          <provider selected="true" editor-type-id="restructured-text-editor" />
-        </entry>
-      </file>
-    </leaf>
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Python Script" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/test_opslog.py" />
-        <option value="$PROJECT_DIR$/conf.py" />
-        <option value="$PROJECT_DIR$/index.rst" />
-        <option value="$PROJECT_DIR$/docs/Installlation.rst" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/docs/Installation.rst" />
-        <option value="$PROJECT_DIR$/docs/Usage.rst" />
-        <option value="$PROJECT_DIR$/opslog.py" />
-        <option value="$PROJECT_DIR$/docs/index.rst" />
-        <option value="$PROJECT_DIR$/docs/Examples.rst" />
-        <option value="$PROJECT_DIR$/docs/conf.py" />
-      </list>
-    </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="470" />
@@ -116,12 +19,12 @@
     <option name="width" value="1413" />
     <option name="height" value="994" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -129,21 +32,11 @@
               <item name="opslog" type="b2602c69:ProjectViewProjectNode" />
               <item name="opslog" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="opslog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="opslog" type="462c0819:PsiDirectoryNode" />
-              <item name="docs" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
-  </component>
-  <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../python_developers_toolkit" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.buildout.BuildoutModulesConfigurable" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -157,146 +50,39 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.opslog">
-    <configuration name="opslog" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="opslog" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/opslog.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="pytest for test_opslog.test_get_operator" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
-      <module name="opslog" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_opslog.test_get_operator&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Python.opslog" />
-        <item itemvalue="Python tests.pytest for test_opslog.test_get_operator" />
-      </list>
-    </recent_temporary>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0e84c006-9adc-4051-883b-51f56779464c" name="Default Changelist" comment="" />
-      <created>1555449577330</created>
+      <changelist id="3e35e272-57d4-456c-ba8f-5dccd6754c3a" name="Default Changelist" comment="" />
+      <created>1556901637251</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1555449577330</updated>
+      <updated>1556901637251</updated>
     </task>
     <servers />
   </component>
-  <component name="TestHistory">
-    <history-entry file="pytest_for_test_opslog_test_get_operator - 2019.04.17 at 10h 06m 11s.xml">
-      <configuration name="pytest for test_opslog.test_get_operator" configurationId="tests" />
-    </history-entry>
-    <history-entry file="pytest_for_test_opslog_test_get_operator - 2019.04.17 at 10h 10m 09s.xml">
-      <configuration name="pytest for test_opslog.test_get_operator" configurationId="tests" />
-    </history-entry>
-    <history-entry file="pytest_for_test_opslog_test_get_operator - 2019.04.17 at 10h 11m 14s.xml">
-      <configuration name="pytest for test_opslog.test_get_operator" configurationId="tests" />
-    </history-entry>
-  </component>
   <component name="ToolWindowManager">
     <frame x="470" y="42" width="1413" height="994" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20389049" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Python Console" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32908458" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39907193" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32946634" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.32794458" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32830626" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
-  </component>
-  <component name="debuggerHistoryManager">
-    <expressions id="evaluateExpression">
-      <expression>
-        <expression-string>os.environ</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-    </expressions>
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test_opslog.py" />
-    <entry file="file://$PROJECT_DIR$/Makefile" />
-    <entry file="file://$PROJECT_DIR$/conf.py" />
-    <entry file="file://$PROJECT_DIR$/index.rst" />
-    <entry file="file://$PROJECT_DIR$/opslog.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2077">
-          <caret line="195" column="24" selection-start-line="195" selection-start-column="24" selection-end-line="195" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="501">
-            <caret line="70" selection-start-line="70" selection-end-line="70" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/Installation.rst">
-      <provider selected="true" editor-type-id="restructured-text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/Usage.rst">
-      <provider selected="true" editor-type-id="restructured-text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/index.rst">
-      <provider selected="true" editor-type-id="restructured-text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/Examples.rst">
-      <provider selected="true" editor-type-id="restructured-text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/conf.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1132">
-          <caret line="118" lean-forward="true" selection-start-line="118" selection-end-line="118" />
-        </state>
-      </provider>
-    </entry>
   </component>
 </project>
