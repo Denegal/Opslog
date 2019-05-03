@@ -68,7 +68,8 @@ operator logs.
 
 The management arguments are::
 
-  --export FILENAME     Export the current log
+  --export FILE     Export the current log
+  --export-json FILE    Export the current log in json format
   --merge File1 File2   Merge multiple log files together into one
 
 Note: The files can be given in absolute or relative path. If no path is specified

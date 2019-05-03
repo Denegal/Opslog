@@ -3,6 +3,8 @@ import configparser
 import re
 import datetime
 import sys
+import csv
+import json
 from shutil import copyfile
 from shutil import copytree
 import os
@@ -68,7 +70,8 @@ Output Arguments:
 Management Arguments:
   Use the following commands to manage the operator log
 
-  --export FILENAME     Export the current log
+  --export FILE         Export the current log
+  --export-json FILE    Export the current log in json format
   --merge F1 F2 [F3...] Merge multiple log files together into one log
 
 
@@ -274,6 +277,33 @@ def _export_log(location):
     exit()
 
 
+def _export_json(location):
+
+    if os.path.isfile(location):
+        response = input(location + " already exists. Do you wish to overwrite? (y/n)")
+        if not response.startswith('y'):
+            print("Aborting export of log file")
+            exit()
+    try:
+        input_file = _logdir + get_operator() + "_ops_log.csv"
+        output_file = location
+
+        csv_rows = []
+        with open(input_file) as csvfile:
+            fields = ["Date", "Operator", "Flags", "PAA", "IP", "Command", "Executed", "Note"]
+            reader = csv.DictReader(csvfile, fieldnames=fields, delimiter=';')
+            title = reader.fieldnames
+            for row in reader:
+                csv_rows.extend([{title[i]:row[title[i]] for i in range(len(title))}])
+
+            with open(output_file, "w") as f:
+                f.write(json.dumps(csv_rows, sort_keys=False, indent=4, separators=(';', ': '))) # , encoding="utf-8", ensure_ascii=False))
+
+    except IOError as e:
+        print('export failed due to error: \n  ' + str(e))
+    exit()
+
+
 def _merge_logs(logs_list):
     print("Checking files...")
 
@@ -460,10 +490,17 @@ if __name__ == '__main__':
     mgmt_group.description = "Use the following commands to manage operator logs"
     mgmt_group.add_argument(
         '--export',
-        dest='filename',
+        dest='csvfilename',
         nargs=1,
         type=str,
         help='Export the current operator log to file'
+    )
+    mgmt_group.add_argument(
+        '--export-json',
+        dest='jsonfilename',
+        nargs=1,
+        type=str,
+        help='Export the current operator log to file in json format'
     )
     mgmt_group.add_argument(
         '--merge',
@@ -482,6 +519,10 @@ if __name__ == '__main__':
     if args.sf:
         print(search_log(args.sf))
         exit()
+    if args.csvfilename:
+        _export_log(args.csvfilename[0])
+    if args.jsonfilename:
+        _export_json(args.jsonfilename[0])
 
     print(list_flags()[0], list_flags()[1]) if args.lf else print(get_operator()) if args.operator \
         else print(args.list_operators()) if args.list_operators else print("\n" + args.cat()) if args.cat else main(args)

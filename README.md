@@ -66,5 +66,6 @@ Management Arguments:
   Use the following commands to manage the operator log
 
 
-    --export FILENAME     Export the current log
+    --export FILE         Export the current log
+    --export-json FILE    Export the current log in json format
     --merge F1 F2 [F3...] Merge multiple log files together into one log
