@@ -7,7 +7,6 @@ from shutil import copyfile
 from shutil import copytree
 import os
 import subprocess
-from pprint import pprint as pp
 
 
 def _setup():
