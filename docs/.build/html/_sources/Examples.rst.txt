@@ -123,7 +123,7 @@ the ``opslog -sf flag`` command. The command can accept multiple flags in it's s
 
 Example 1::
 
-    > opslog -lf opschecks
+    > opslog -sf opschecks
 
     2019-04-30 14:00:49;Example Operator;opschecks;;;;;Sample Entry 5, with flag 2
     2019-04-30 14:00:52;Example Operator;opschecks;;;;;Sample Entry 6, with flag 2
@@ -131,7 +131,7 @@ Example 1::
 
 Example 2::
 
-    > opslog -lf example mission
+    > opslog -sf example mission
 
     2019-04-30 14:00:31;Example Operator;mission;;;;;Sample Entry 3, with flag
     2019-04-30 14:00:38;Example Operator;mission;;;;;Sample Entry 4, with flag

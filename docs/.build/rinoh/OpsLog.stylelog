@@ -12,10 +12,10 @@
        > (0,0,1,0,2) title page author
          (0,0,0,0,2) body
     SingleStyledText('Jacob Coburn')
-  Paragraph('April 30, 2019', style='title page date')
+  Paragraph('May 03, 2019', style='title page date')
        > (0,0,1,0,2) title page date
          (0,0,0,0,2) body
-    SingleStyledText('April 30, 2019')
+    SingleStyledText('May 03, 2019')
 ---------------------------------- page i ----------------------------------
 #### FlowablesContainer('chapter title')
   Paragraph('Table of Contents', style='front matter section title')
@@ -313,10 +313,115 @@
 ---------------------------------- page 1 ----------------------------------
 #### ChainedContainer('column1')
   DocumentTree()
-    Paragraph('This script is used to fill in o...')   /home/assessor/working_dir/python_projects/opslog/docs/index.rst:9 <paragraph>
+    Paragraph('The opslog program is designed t...')   /home/assessor/working_dir/python_projects/opslog/docs/index.rst:9 <paragraph>
          > (0,0,0,0,2) body
-      MixedStyledText('This script is used to fill in o...')
-        SingleStyledText('This script is used to fill in o...')
+      MixedStyledText('The opslog program is designed t...')
+        SingleStyledText('The opslog program is designed t...')
+    Paragraph('Entries are added to the log by ...')   /home/assessor/working_dir/python_projects/opslog/docs/index.rst:17 <paragraph>
+         > (0,0,0,0,2) body
+      MixedStyledText('Entries are added to the log by ...')
+        SingleStyledText('Entries are added to the log by ...')
+    StaticGroupedFlowables(style='block quote')   <rinoh output>:0 <block_quote>
+         > (0,0,1,0,1) block quote
+      List(style='bulleted')   /home/assessor/working_dir/python_projects/opslog/docs/index.rst:23 <bullet_list>
+           > (0,0,1,0,2) bulleted list
+        ListItem()
+             x (0,0,1,0,4) bulleted list item
+             > fallback to default style
+          ListItemLabel('•')
+               > (0,0,1,0,6) bulleted list item label
+                 (0,0,0,0,2) list item label
+              MixedStyledText('•')
+                SingleStyledText('')
+                SingleStyledText('•')
+                SingleStyledText('')
+          StaticGroupedFlowables()   None:None <list_item>
+               > (0,0,0,0,3) list item body
+            Paragraph('A pre-approved action number')   /home/assessor/working_dir/python_projects/opslog/docs/index.rst:23 <paragraph>
+                 > (0,0,0,0,5) list item paragraph
+                   (0,0,0,0,2) body
+              MixedStyledText('A pre-approved action number')
+                SingleStyledText('A pre-approved action number')
+        ListItem()
+             x (0,0,1,0,4) bulleted list item
+             > fallback to default style
+          ListItemLabel('•')
+               > (0,0,1,0,6) bulleted list item label
+                 (0,0,0,0,2) list item label
+              MixedStyledText('•')
+                SingleStyledText('')
+                SingleStyledText('•')
+                SingleStyledText('')
+          StaticGroupedFlowables()   None:None <list_item>
+               > (0,0,0,0,3) list item body
+            Paragraph('An ip address/range')   /home/assessor/working_dir/python_projects/opslog/docs/index.rst:24 <paragraph>
+                 > (0,0,0,0,5) list item paragraph
+                   (0,0,0,0,2) body
+              MixedStyledText('An ip address/range')
+                SingleStyledText('An ip address/range')
+        ListItem()
+             x (0,0,1,0,4) bulleted list item
+             > fallback to default style
+          ListItemLabel('•')
+               > (0,0,1,0,6) bulleted list item label
+                 (0,0,0,0,2) list item label
+              MixedStyledText('•')
+                SingleStyledText('')
+                SingleStyledText('•')
+                SingleStyledText('')
+          StaticGroupedFlowables()   None:None <list_item>
+               > (0,0,0,0,3) list item body
+            Paragraph('Command syntax')   /home/assessor/working_dir/python_projects/opslog/docs/index.rst:25 <paragraph>
+                 > (0,0,0,0,5) list item paragraph
+                   (0,0,0,0,2) body
+              MixedStyledText('Command syntax')
+                SingleStyledText('Command syntax')
+        ListItem()
+             x (0,0,1,0,4) bulleted list item
+             > fallback to default style
+          ListItemLabel('•')
+               > (0,0,1,0,6) bulleted list item label
+                 (0,0,0,0,2) list item label
+              MixedStyledText('•')
+                SingleStyledText('')
+                SingleStyledText('•')
+                SingleStyledText('')
+          StaticGroupedFlowables()   None:None <list_item>
+               > (0,0,0,0,3) list item body
+            Paragraph('Multiple flags used to tag entri...')   /home/assessor/working_dir/python_projects/opslog/docs/index.rst:26 <paragraph>
+                 > (0,0,0,0,5) list item paragraph
+                   (0,0,0,0,2) body
+              MixedStyledText('Multiple flags used to tag entri...')
+                SingleStyledText('Multiple flags used to tag entri...')
+        ListItem()
+             x (0,0,1,0,4) bulleted list item
+             > fallback to default style
+          ListItemLabel('•')
+               > (0,0,1,0,6) bulleted list item label
+                 (0,0,0,0,2) list item label
+              MixedStyledText('•')
+                SingleStyledText('')
+                SingleStyledText('•')
+                SingleStyledText('')
+          StaticGroupedFlowables()   None:None <list_item>
+               > (0,0,0,0,3) list item body
+            Paragraph('Notes by the operator about the ...')   /home/assessor/working_dir/python_projects/opslog/docs/index.rst:27 <paragraph>
+                 > (0,0,0,0,5) list item paragraph
+                   (0,0,0,0,2) body
+              MixedStyledText('Notes by the operator about the ...')
+                SingleStyledText('Notes by the operator about the ...')
+    Paragraph('Using flags to tag log entries a...')   /home/assessor/working_dir/python_projects/opslog/docs/index.rst:29 <paragraph>
+         > (0,0,0,0,2) body
+      MixedStyledText('Using flags to tag log entries a...')
+        SingleStyledText('Using flags to tag log entries a...')
+    Paragraph('Additionally, the program allows...')   /home/assessor/working_dir/python_projects/opslog/docs/index.rst:33 <paragraph>
+         > (0,0,0,0,2) body
+      MixedStyledText('Additionally, the program allows...')
+        SingleStyledText('Additionally, the program allows...')
+    Paragraph('Finally, operator logs can be ex...')   /home/assessor/working_dir/python_projects/opslog/docs/index.rst:38 <paragraph>
+         > (0,0,0,0,2) body
+      MixedStyledText('Finally, operator logs can be ex...')
+        SingleStyledText('Finally, operator logs can be ex...')
 #### DownExpandingContainer('footer')
   Footer('		1')
        > (0,0,0,0,2) footer
@@ -4092,7 +4197,7 @@
                  > (0,0,0,0,2) body
               MixedStyledText('Example 1:')
                 SingleStyledText('Example 1:')
-            CodeBlock('> opslog -lf opschecks\n\n2019-04-...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:126 <literal_block>
+            CodeBlock('> opslog -sf opschecks\n\n2019-04-...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:126 <literal_block>
                  > (1,0,0,0,2) code block
                    (0,0,0,0,1) body
               Token('>', type=Token.Operator)
@@ -4105,7 +4210,7 @@
                    > (0,0,0,1,2) (pygments)Token.Text
               Token('-', type=Token.Operator)
                    > (0,0,0,1,2) (pygments)Token.Operator
-              Token('lf', type=Token.Name)
+              Token('sf', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token(' ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
@@ -4307,7 +4412,7 @@
                  > (0,0,0,0,2) body
               MixedStyledText('Example 2:')
                 SingleStyledText('Example 2:')
-            CodeBlock('> opslog -lf example mission\n\n20...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:134 <literal_block>
+            CodeBlock('> opslog -sf example mission\n\n20...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:134 <literal_block>
                  > (1,0,0,0,2) code block
                    (0,0,0,0,1) body
               Token('>', type=Token.Operator)
@@ -4320,7 +4425,7 @@
                    > (0,0,0,1,2) (pygments)Token.Text
               Token('-', type=Token.Operator)
                    > (0,0,0,1,2) (pygments)Token.Operator
-              Token('lf', type=Token.Name)
+              Token('sf', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token(' ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text

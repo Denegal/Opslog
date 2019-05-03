@@ -65,7 +65,7 @@
 <h2>Install Location<a class="headerlink" href="#install-location" title="Permalink to this headline">¶</a></h2>
 <p>opslog is installed to the /usr/lib/ops_log/ directory.
 The folder is created with root privileges and the sticky bit set.
-This allows the program to access it's configuration file and create
+This allows the program to access it’s configuration file and create
 operator logs regardless regardless of the user running it (root privileges
 are not required to run the program or create logs.)</p>
 <p>Inside the ops_log/ folder are the config.ini file which the script
@@ -98,9 +98,9 @@ created while another user was logged in.</p>
 <div class="section" id="post-install">
 <h2>Post Install<a class="headerlink" href="#post-install" title="Permalink to this headline">¶</a></h2>
 <p>Once the initial installation is complete, the program can be run from anywhere on the system
-using the shortcut alias 'opslog'. This is due to an alias being created in the /etc/profile.d/
+using the shortcut alias ‘opslog’. This is due to an alias being created in the /etc/profile.d/
 directory in the opslog_alias.sh file.</p>
-<p>If for any reason this does not work and users are unable to use the 'opslog'
+<p>If for any reason this does not work and users are unable to use the ‘opslog’
 shortcut after installation, you can manually create this alias by adding the line:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">alias</span> <span class="n">opslog</span><span class="o">=</span><span class="s1">&#39;/usr/lib/ops_log/opslog.py&#39;</span>
 </pre></div>

@@ -1,6 +1,6 @@
 .\" Man page generated from reStructuredText.
 .
-.TH "OPSLOG" "1" "Apr 30, 2019" "1.1" "OpsLog"
+.TH "OPSLOG" "1" "May 03, 2019" "1.1" "OpsLog"
 .SH NAME
 opslog \- OpsLog Documentation
 .
@@ -31,7 +31,49 @@ level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .in \\n[rst2man-indent\\n[rst2man-indent-level]]u
 ..
 .sp
-This script is used to fill in operator notes in .csv format simply and easily.
+The opslog program is designed to allow operators to take detailed notes
+quickly and efficiently from the terminal without the need to open additional
+programs or enter VM’s. Multiple operators can take notes on a single machine,
+without the need to logoff and logon to their own profiles. Each operator’s notes,
+are stored in separate logs, and the current operator can be switched quickly
+without the need for restarting the terminal. Logs are stored in .csv format,
+allowing for easy import into any program that accepts it (excel for example).
+.sp
+Entries are added to the log by entering a command at the terminal from anywhere
+on the system. Entries can contain as little as simple note by the operator,
+or complete information about a command run on the network. Each log entry
+contains a timestamp and the operators name, in addition to information
+provided by the operator. Currently each log entry can hold the following:
+.INDENT 0.0
+.INDENT 3.5
+.INDENT 0.0
+.IP \(bu 2
+A pre\-approved action number
+.IP \(bu 2
+An ip address/range
+.IP \(bu 2
+Command syntax
+.IP \(bu 2
+Multiple flags used to tag entries
+.IP \(bu 2
+Notes by the operator about the action taken
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.sp
+Using flags to tag log entries allows operators to later search through their
+logs easily and display entries of interest or entries regarding particular
+events.
+.sp
+Additionally, the program allows operators to log commands as they are run using
+the command syntax field. The command input here can, if the operator chooses, be
+run after logging, giving a timestamped record of when commands where run on the
+network.
+.sp
+Finally, operator logs can be exported in their .csv format, and multiple operator
+logs can be merged together to create an msl. Merged logs are automatically sorted
+properly, allowing an operator to combine their logs from multiple machines into
+one concise log.
 .SH OVERVIEW ON HOW TO INSTALL AND SETUP THIS SCRIPT
 .SS Simple Installation
 .INDENT 0.0
@@ -57,7 +99,7 @@ Follow the prompts to install the program
 .sp
 opslog is installed to the /usr/lib/ops_log/ directory.
 The folder is created with root privileges and the sticky bit set.
-This allows the program to access it\(aqs configuration file and create
+This allows the program to access it’s configuration file and create
 operator logs regardless regardless of the user running it (root privileges
 are not required to run the program or create logs.)
 .sp
@@ -98,10 +140,10 @@ total 4
 .SS Post Install
 .sp
 Once the initial installation is complete, the program can be run from anywhere on the system
-using the shortcut alias \(aqopslog\(aq. This is due to an alias being created in the /etc/profile.d/
+using the shortcut alias ‘opslog’. This is due to an alias being created in the /etc/profile.d/
 directory in the opslog_alias.sh file.
 .sp
-If for any reason this does not work and users are unable to use the \(aqopslog\(aq
+If for any reason this does not work and users are unable to use the ‘opslog’
 shortcut after installation, you can manually create this alias by adding the line:
 .INDENT 0.0
 .INDENT 3.5
@@ -235,7 +277,7 @@ Note 2: The merge command can accept any number of log files. It will first chec
 supplied files are in the correct format, and then ask for the output log name before merging.
 .SS Output Arguments
 .sp
-The following arguments are mutually exclusive and display the current operator\(aqs
+The following arguments are mutually exclusive and display the current operator’s
 log or selective information in it. If used, they will override any other arguments
 and no log entry will be created.
 .sp
@@ -276,7 +318,7 @@ The logging arguments are:
 .UNINDENT
 .UNINDENT
 .sp
-Note 1: When inputting command syntax and notes, use of single quote marks (\(aq) are recommended to
+Note 1: When inputting command syntax and notes, use of single quote marks (‘) are recommended to
 prevent your shell from interpreting it before logging.
 .sp
 Note 1 Example:
@@ -400,10 +442,10 @@ rtt min/avg/max/mdev = 0.027/0.034/0.038/0.007 ms
 .sp
 Note 1: In all three examples. the \fBopslog \-\-cat\fP command is executed to show the contents of the log.
 .sp
-Note 2: In example 2, the 7th field(executed) lists \(aqno\(aq because the command syntax was entered
+Note 2: In example 2, the 7th field(executed) lists ‘no’ because the command syntax was entered
 with the \fB\-c\fP option. This option only logs the command but does not attempt to execute it.
 .sp
-Note 3: In example 3, the 7th field(executed) lists \(aqyes\(aq because the command syntax was entered
+Note 3: In example 3, the 7th field(executed) lists ‘yes’ because the command syntax was entered
 with the \fB\-C\fP option. This option creates the log entry and then attempts to execute the command
 exactly as entered. Example 3 also shows the results of the executed command.
 .SS Displaying and Searching the Log
@@ -476,7 +518,7 @@ Example:
 .UNINDENT
 .sp
 You can also search for and display log entries based on the flags the entry was tagged with using
-the \fBopslog \-sf flag\fP command. The command can accept multiple flags in it\(aqs search.
+the \fBopslog \-sf flag\fP command. The command can accept multiple flags in it’s search.
 .sp
 Example 1:
 .INDENT 0.0
@@ -484,7 +526,7 @@ Example 1:
 .sp
 .nf
 .ft C
-> opslog \-lf opschecks
+> opslog \-sf opschecks
 
 2019\-04\-30 14:00:49;Example Operator;opschecks;;;;;Sample Entry 5, with flag 2
 2019\-04\-30 14:00:52;Example Operator;opschecks;;;;;Sample Entry 6, with flag 2
@@ -500,7 +542,7 @@ Example 2:
 .sp
 .nf
 .ft C
-> opslog \-lf example mission
+> opslog \-sf example mission
 
 2019\-04\-30 14:00:31;Example Operator;mission;;;;;Sample Entry 3, with flag
 2019\-04\-30 14:00:38;Example Operator;mission;;;;;Sample Entry 4, with flag

@@ -99,9 +99,9 @@ or as complicated as a full entry using all six arguments.</p>
 </pre></div>
 </div>
 <p>Note 1: In all three examples. the <code class="docutils literal notranslate"><span class="pre">opslog</span> <span class="pre">--cat</span></code> command is executed to show the contents of the log.</p>
-<p>Note 2: In example 2, the 7th field(executed) lists 'no' because the command syntax was entered
+<p>Note 2: In example 2, the 7th field(executed) lists ‘no’ because the command syntax was entered
 with the <code class="docutils literal notranslate"><span class="pre">-c</span></code> option. This option only logs the command but does not attempt to execute it.</p>
-<p>Note 3: In example 3, the 7th field(executed) lists 'yes' because the command syntax was entered
+<p>Note 3: In example 3, the 7th field(executed) lists ‘yes’ because the command syntax was entered
 with the <code class="docutils literal notranslate"><span class="pre">-C</span></code> option. This option creates the log entry and then attempts to execute the command
 exactly as entered. Example 3 also shows the results of the executed command.</p>
 </div>
@@ -149,9 +149,9 @@ using the <code class="docutils literal notranslate"><span class="pre">opslog</s
 </pre></div>
 </div>
 <p>You can also search for and display log entries based on the flags the entry was tagged with using
-the <code class="docutils literal notranslate"><span class="pre">opslog</span> <span class="pre">-sf</span> <span class="pre">flag</span></code> command. The command can accept multiple flags in it's search.</p>
+the <code class="docutils literal notranslate"><span class="pre">opslog</span> <span class="pre">-sf</span> <span class="pre">flag</span></code> command. The command can accept multiple flags in it’s search.</p>
 <p>Example 1:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">opslog</span> <span class="o">-</span><span class="n">lf</span> <span class="n">opschecks</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">opslog</span> <span class="o">-</span><span class="n">sf</span> <span class="n">opschecks</span>
 
 <span class="mi">2019</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">30</span> <span class="mi">14</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">49</span><span class="p">;</span><span class="n">Example</span> <span class="n">Operator</span><span class="p">;</span><span class="n">opschecks</span><span class="p">;;;;;</span><span class="n">Sample</span> <span class="n">Entry</span> <span class="mi">5</span><span class="p">,</span> <span class="k">with</span> <span class="n">flag</span> <span class="mi">2</span>
 <span class="mi">2019</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">30</span> <span class="mi">14</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">52</span><span class="p">;</span><span class="n">Example</span> <span class="n">Operator</span><span class="p">;</span><span class="n">opschecks</span><span class="p">;;;;;</span><span class="n">Sample</span> <span class="n">Entry</span> <span class="mi">6</span><span class="p">,</span> <span class="k">with</span> <span class="n">flag</span> <span class="mi">2</span>
@@ -159,7 +159,7 @@ the <code class="docutils literal notranslate"><span class="pre">opslog</span> <
 </pre></div>
 </div>
 <p>Example 2:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">opslog</span> <span class="o">-</span><span class="n">lf</span> <span class="n">example</span> <span class="n">mission</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">opslog</span> <span class="o">-</span><span class="n">sf</span> <span class="n">example</span> <span class="n">mission</span>
 
 <span class="mi">2019</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">30</span> <span class="mi">14</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">31</span><span class="p">;</span><span class="n">Example</span> <span class="n">Operator</span><span class="p">;</span><span class="n">mission</span><span class="p">;;;;;</span><span class="n">Sample</span> <span class="n">Entry</span> <span class="mi">3</span><span class="p">,</span> <span class="k">with</span> <span class="n">flag</span>
 <span class="mi">2019</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">30</span> <span class="mi">14</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">38</span><span class="p">;</span><span class="n">Example</span> <span class="n">Operator</span><span class="p">;</span><span class="n">mission</span><span class="p">;;;;;</span><span class="n">Sample</span> <span class="n">Entry</span> <span class="mi">4</span><span class="p">,</span> <span class="k">with</span> <span class="n">flag</span>
