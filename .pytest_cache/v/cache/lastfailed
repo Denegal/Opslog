@@ -1,0 +1,4 @@
+{
+  "test_opslog.py::test_create_new_logger": true,
+  "test_opslog.py::test_set_arg_p": true
+}

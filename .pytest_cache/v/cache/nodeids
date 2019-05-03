@@ -1,0 +1,4 @@
+[
+  "test_opslog.py::test_get_operator",
+  "test_opslog.py::test_set_operator"
+]
