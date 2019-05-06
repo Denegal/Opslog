@@ -413,7 +413,7 @@ if __name__ == '__main__':
     )
     root_group.add_argument(
         '-so', '--set-operator',
-        metavar='operator',
+        metavar='newoperator',
         nargs=1,
         type=str,
         help='Set the current operator'
@@ -518,6 +518,9 @@ if __name__ == '__main__':
 
     if args.sf:
         print(search_log(args.sf))
+        exit()
+    if args.set_operator:
+        set_operator(args.set_operator[0])
         exit()
     if args.csvfilename:
         _export_log(args.csvfilename[0])
