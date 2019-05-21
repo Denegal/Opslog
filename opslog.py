@@ -9,6 +9,7 @@ from shutil import copyfile
 from shutil import copytree
 import os
 import subprocess
+#import pandas
 
 
 def _setup():
@@ -126,6 +127,12 @@ def cat_log():
         exit()
 
     return log
+
+
+def cat_log2():
+
+    # pandas.read_csv(os.path.join(_logdir, get_operator() + "_ops_log.csv"))
+
 
 
 def list_flags():
