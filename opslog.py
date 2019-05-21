@@ -132,7 +132,7 @@ def cat_log():
 def cat_log2():
 
     # pandas.read_csv(os.path.join(_logdir, get_operator() + "_ops_log.csv"))
-
+    return
 
 
 def list_flags():
@@ -337,17 +337,28 @@ def _merge_logs(logs_list):
     exit()
 
 
-def _cmd_failed(entry):
+def run_command(command):
 
-    log = open(os.path.join(_logdir, get_operator() + "_ops_log.csv"), 'r')
-    lines = log.readlines()
-    log.close()
+    date = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
 
-    newlog = open(os.path.join(_logdir, get_operator() + "_ops_log.csv"), 'w')
-    for item in lines[:-1]:
-        newlog.writelines(item)
-    newlog.writelines(entry + "\n")
-    newlog.close()
+    retcode = subprocess.run(['/bin/bash', '-i', '-c', command], stderr=subprocess.PIPE)
+    if retcode.returncode > 0:
+        executed = 'no'
+        cmd_error = re.split(".*: ", str(retcode.stderr).replace("b'", '')
+                             .replace("\\n'", '').replace('\\n"', ''))[1]
+        new_entry = str(date) + ';' + get_operator() + ';' + args.f + ';' + args.p + ';' + \
+                    args.i + ';' + command + ';' + executed + ';' + args.n + " - ERROR: " + cmd_error
+
+        log = open(os.path.join(_logdir, get_operator() + "_ops_log.csv"), 'r')
+        lines = log.readlines()
+        log.close()
+
+        newlog = open(os.path.join(_logdir, get_operator() + "_ops_log.csv"), 'w')
+        for item in lines[:-1]:
+            newlog.writelines(item)
+        newlog.writelines(new_entry + "\n")
+        newlog.close()
+        print("\n".join(cmd_error.split("\\n")))
 
 
 def main(args):
@@ -371,18 +382,9 @@ def main(args):
         log.write("\n")
 
     if args.C:
+        run_command(command)
 
-        retcode = subprocess.run(['/bin/bash', '-i', '-c', command], stderr=subprocess.PIPE)
-        if retcode.returncode > 0:
-            executed = 'no'
-            cmd_error = re.split(".*: ", str(retcode.stderr).replace("b'", '')
-                                 .replace("\\n'", '').replace('\\n"', ''))[1]
-            new_entry = str(date) + ';' + get_operator() + ';' + args.f + ';' + args.p + ';' + \
-                        args.i + ';' + command + ';' + executed + ';' + args.n + " - ERROR: " + cmd_error
-
-            _cmd_failed(new_entry)
-            print("\n".join(cmd_error.split("\\n")))
-            exit()
+    exit()
 
 
 if __name__ == '__main__':
