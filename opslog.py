@@ -87,6 +87,8 @@ Complete documentation can be found in the /usr/lib/ops_log/html/index.html webf
 _logdir = '/usr/lib/ops_log/operator_logs/'
 _aliasfile = '/etc/profile.d/opslog_alias.sh'
 _configfile = '/usr/lib/ops_log/config.ini'
+pandas.set_option('display.expand_frame_repr', False)
+pandas.set_option('display.colheader_justify', 'center')
 
 
 def get_operator():
@@ -125,7 +127,6 @@ def display_log():
     except FileNotFoundError:
         print("No entries for current operator.")
         exit()
-
     return log
 
 
@@ -143,6 +144,7 @@ def list_flags():
 
     # Create some string variables to hold the final output
     data = str()
+    output = list()
     header = str("""
     Below are the flags being used in the current log
 
@@ -157,6 +159,7 @@ def list_flags():
         data = "\n".join([data, "\t{: <10} {: <15} {: <}".format(str(count), flag, str(entrylist))])
 
         output = data.splitlines()
+
     output.sort(reverse=True)
     output = "\n".join(output)
 
@@ -524,5 +527,14 @@ if __name__ == '__main__':
     if args.jsonfilename:
         _export_json(args.jsonfilename[0])
 
-    print(list_flags()[0], list_flags()[1]) if args.lf else print(get_operator()) if args.operator \
-        else print(args.list_operators()) if args.list_operators else print(args.cat()) if args.cat else main(args)
+    # left_justify = {"Flag": '{{:<{}s}}'.format(args.cat()['Flag'].str.len().max()).format}
+    # , "Command Syntax": '{{:<{}s}}'.format(args.cat()['Command Syntax'].str.len().max()).format, "Note": '{{:<{}s}}'.format(args.cat()['Note'].str.len().max()).format}
+
+    print(list_flags()[0], list_flags()[1]) if args.lf \
+        else print(get_operator()) if args.operator \
+        else print(args.list_operators()) if args.list_operators \
+        else print(args.cat().to_string(
+            formatters={"Flag": '{{:<{}s}}'.format(args.cat()['Flag'].str.len().max()).format,
+                        "Command Syntax": '{{:<{}s}}'.format(args.cat()['Command Syntax'].str.len().max()).format,
+                        "Note": '{{:<{}s}}'.format(args.cat()['Note'].str.len().max()).format})) if args.cat \
+        else main(args)
