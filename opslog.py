@@ -9,7 +9,7 @@ from shutil import copyfile
 from shutil import copytree
 import os
 import subprocess
-#import pandas
+import pandas
 
 
 def _setup():
@@ -117,11 +117,11 @@ def list_operators():
     exit()
 
 
-def cat_log():
-    """Display the current operators log and exit"""
+def display_log():
 
     try:
-        log = open(os.path.join(_logdir, get_operator() + "_ops_log.csv")).read()
+
+        log = pandas.read_csv(os.path.join(_logdir, get_operator() + "_ops_log.csv"), delimiter=';').fillna('')
     except FileNotFoundError:
         print("No entries for current operator.")
         exit()
@@ -129,49 +129,34 @@ def cat_log():
     return log
 
 
-def cat_log2():
-
-    # pandas.read_csv(os.path.join(_logdir, get_operator() + "_ops_log.csv"))
-    return
-
-
 def list_flags():
-    log = cat_log()
-
-    # Creates a dictionary containing log entries and the flag used in that entry
-    entries = {}
-    i = int()
-    for line in log.splitlines():
-        i = i + 1
-        entries[i] = line.split(';').__getitem__(2)
+    log = display_log()
 
     # Creates a set which contains all the unique flags found in entries
-    flags = set()
-    entries2 = {key: list(map(str, value.split())) for key, value in entries.items()}
-    for flaglist in entries2.values():
-        for single_flags in flaglist:
-            flags.add(single_flags)
+    # This is created using nested list comprehensions.
+    # the first comprehension creates a list of flag entries, the second takes that
+    # list and creates a list of all individual flags from those entries.
+    # this is required because the first comprehension can create a list of lists
+    # if multiple flags are used in a single entry.
+    flags = set([flag2 for i in range(len([flag.split() for flag in log['Flag']]))
+                 for flag2 in [flag.split() for flag in log['Flag']][i]])
 
     # Create some string variables to hold the final output
     data = str()
     header = str("""
     Below are the flags being used in the current log
-    
+
         {: <10} {: <15} {: <}
         {: <10} {: <15} {: <}""".format("Count", "Flag", "Entries", "-----", "-----", "-------\n"))
 
     # For each unique flag, count how many times it appears, and find which lines it appears on
     # Then create a line of text with this information and add it to the output variable
-    entrylist = []
     for flag in flags:
-        count = sum(flag in value for value in entries2.values())
-        entrylist.clear()
-        for key in entries2.keys():
-            if flag in entries2[key]:
-                entrylist.append(key)
+        count = len(log[[flag in entry.split() for entry in log['Flag']]])
+        entrylist = list(log[[flag in entry.split() for entry in log['Flag']]].index)
         data = "\n".join([data, "\t{: <10} {: <15} {: <}".format(str(count), flag, str(entrylist))])
 
-    output = data.splitlines()
+        output = data.splitlines()
     output.sort(reverse=True)
     output = "\n".join(output)
 
@@ -179,30 +164,22 @@ def list_flags():
 
 
 def search_log(flags):
-    # get the current flags in use using the list_flags function
-    current_flags = list_flags()[1]
-    entries = str()
 
-    # enumerate each line and check if any of the searched for flags appear on that line
-    # if they do, add all the entry numbers to the entries variable
-    for line in current_flags.splitlines():
+    log = display_log()
+
+    entrylist = list()
+    entryhit = bool()
+    for entry in log['Flag']:
         for flag in flags:
-            if re.search(r'\b' + flag + r'\b', line):
-                if not entries == '':
-                    entries = entries + ", "
-                entries = entries + re.sub(r".*\[", "", line)
+            if flag in entry.split():
+                entrylist.append(True)
+                entryhit = True
+                break
+        if not entryhit:
+            entrylist.append(False)
+        entryhit = False
 
-    entries = entries.replace(']', '')
-    entries = set(entries.split(', '))
-    output = str()
-
-    # enumerate each line and every line that appears in the set of results, add it to the output
-    with open(os.path.join(_logdir, get_operator() + "_ops_log.csv")) as log:
-        for i, line in enumerate(log):
-            if entries.__contains__(str(i + 1)):
-                output = output + line
-
-    return "\n" + output
+    return log[entrylist]
 
 
 def _install_opslog():
@@ -244,8 +221,8 @@ def _install_opslog():
             copyfile('install/opslog.1', '/usr/share/man/man1/opslog.1')
 
             # Add html documentation to install folder
-            copytree('install/html/', '/usr/lib/ops_log/html/')
-            os.chmod("/usr/lib/ops_log/html/", 0o775)  # this line must be changed to work with python 2.7 (771)
+            copytree('install/help/', '/usr/lib/ops_log/help/')
+            os.chmod("/usr/lib/ops_log/help/", 0o775)  # this line must be changed to work with python 2.7 (771)
             for root, dirs, files in os.walk("/usr/lib/ops_log/html/"):
                 for momo in dirs:
                     os.chmod(os.path.join(root, momo), 0o775)  # this line must be changed to work with python 2.7 (771)
@@ -337,7 +314,7 @@ def _merge_logs(logs_list):
     exit()
 
 
-def run_command(command):
+def _run_command(command):
 
     date = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
 
@@ -363,7 +340,15 @@ def run_command(command):
 
 def main(args):
     """This function will handle the main logging"""
+
     new_entry = str()
+
+    # if no log exists, create one with proper header
+    if not os.path.isfile(os.path.join(_logdir, get_operator() + "_ops_log.csv")):
+        with open(os.path.join(_logdir, get_operator() + "_ops_log.csv"), 'a+') as log:
+            log.write('Date;Operator;Flag;PAA;IPs;Command Syntax;Executed;Note')
+            log.write("\n")
+
     date = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
 
     # make sure arguments are in proper format for logging
@@ -374,15 +359,18 @@ def main(args):
     executed = 'yes' if args.C else 'no' if args.c else ''
     args.n = '' if not args.n else args.n[0]
 
+    # Create entry with all provided arguments
     new_entry = str(date) + ';' + get_operator() + ';' + args.f + ';' + args.p + ';' + \
                args.i + ';' + command + ';' + executed + ';' + args.n
 
+    # Write new entry to log
     with open(os.path.join(_logdir, get_operator() + "_ops_log.csv"), 'a+') as log:
         log.write(new_entry)
         log.write("\n")
 
+    # If -C was used, execute the command
     if args.C:
-        run_command(command)
+        _run_command(command)
 
     exit()
 
@@ -479,13 +467,13 @@ if __name__ == '__main__':
     display_group.add_argument(
         '--cat',
         action='store_const',
-        const=cat_log,
+        const=display_log,
         help='Output the current log (can be piped to less/more, head/tail)'
     )
     display_group.add_argument(
         '-lf',
         action='store_const',
-        const=list_flags,
+        const=list_flags(),
         help='List all flags used in current operators log'
     )
     display_group.add_argument(
@@ -526,7 +514,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     if args.sf:
-        print(search_log(args.sf))
+        print(search_log(args.sf).to_string())
         exit()
     if args.set_operator:
         set_operator(args.set_operator[0])
@@ -537,4 +525,4 @@ if __name__ == '__main__':
         _export_json(args.jsonfilename[0])
 
     print(list_flags()[0], list_flags()[1]) if args.lf else print(get_operator()) if args.operator \
-        else print(args.list_operators()) if args.list_operators else print("\n" + args.cat()) if args.cat else main(args)
+        else print(args.list_operators()) if args.list_operators else print(args.cat()) if args.cat else main(args)
