@@ -270,7 +270,7 @@ def _export_log(location, style):
             exit()
 
     try:
-        if style == 'default':
+        if style == 'default' or style == 'd':
             with open(location, 'w+') as f:
                 f.write(display_log())
                 f.write("\n")
