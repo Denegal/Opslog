@@ -67,5 +67,5 @@ Management Arguments:
 
 
     --export FILE         Export the current log
-    --export-json FILE    Export the current log in json format
+    --format FILETYPE     Format to use when exporting the log(csv, json, or default)
     --merge F1 F2 [F3...] Merge multiple log files together into one log

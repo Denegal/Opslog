@@ -38,14 +38,17 @@ Example 1::
     > opslog -n 'This is a simple operator note'
     > opslog --cat
 
-    2019-04-30 13:44:10;Example Operator;;;;;;This is a simple operator note
+               Date         Operator       Flag PAA IPs Command Syntax Executed              Note
+    2019-04-30 13:44:10  Example Operator                                        This is a simple operator note
 
 Example 2::
 
     > opslog -c 'ping 1.2.3.4' -n 'This entry includes a command'
     > opslog --cat
 
-    2019-04-30 13:45:53;Example Operator;;;;ping 1.2.3.4;no;This entry includes a command
+           Date             Operator       Flag PAA IPs   Command Syntax  Executed              Note
+    2019-04-30 13:46:42  Example Operator                ping 1.2.3.4         no     This entry includes a command
+
 
 Example 3::
 
@@ -61,7 +64,8 @@ Example 3::
     rtt min/avg/max/mdev = 0.027/0.034/0.038/0.007 ms
     > opslog --cat
 
-    2019-04-30 13:49:14;Example Operator;testing;1;127.0.0.1;ping -c 4 127.0.0.1;yes;This is a full note with command execution.
+        Date                Operator        Flag     PAA     IPs            Command Syntax    Executed              Note
+    2019-04-30 13:48:36  Example Operator  testing     1   127.0.0.1     ping -c 4 1.2.3.4      yes     This is a full note with command execution
 
 Note 1: In all three examples. the ``opslog --cat`` command is executed to show the contents of the log.
 
@@ -85,22 +89,24 @@ Example 1::
     Example Operator
     > opslog --cat
 
-    2019-04-30 14:00:03;Example Operator;;;;;;Sample Entry 1
-    2019-04-30 14:00:06;Example Operator;;;;;;Sample Entry 2
-    2019-04-30 14:00:31;Example Operator;mission;;;;;Sample Entry 3, with flag
-    2019-04-30 14:00:38;Example Operator;mission;;;;;Sample Entry 4, with flag
-    2019-04-30 14:00:49;Example Operator;opschecks;;;;;Sample Entry 5, with flag 2
-    2019-04-30 14:00:52;Example Operator;opschecks;;;;;Sample Entry 6, with flag 2
-    2019-04-30 14:01:14;Example Operator;example opschecks;;;;;Sample Entry 7, with 2 flag
-    2019-04-30 14:01:25;Example Operator;example mission;;;;;Sample Entry 8, with 2 flag
+              Date              Operator            Flag        PAA IPs Command Syntax Executed              Note
+    1  2019-04-30 14:00:03  Example Operator                                                     Sample Entry 1
+    2  2019-04-30 14:00:06  Example Operator                                                     Sample Entry 2
+    3  2019-04-30 14:00:31  Example Operator  mission                                            Sample Entry 3, with flag
+    4  2019-04-30 14:00:38  Example Operator  mission                                            Sample Entry 4, with flag
+    5  2019-04-30 14:00:49  Example Operator  opschecks                                          Sample Entry 5, with flag 2
+    6  2019-04-30 14:00:52  Example Operator  opschecks                                          Sample Entry 6, with flag 2
+    7  2019-04-30 14:01:14  Example Operator  example opschecks                                  Sample Entry 7, with 2 flags
+    8  2019-04-30 14:01:25  Example Operator  example mission                                    Sample Entry 8, with 2 flags
 
 Example 2::
 
     > opslog --cat | head -n4
 
-    2019-04-30 14:00:03;Example Operator;;;;;;Sample Entry 1
-    2019-04-30 14:00:06;Example Operator;;;;;;Sample Entry 2
-    2019-04-30 14:00:31;Example Operator;mission;;;;;Sample Entry 3, with flag
+          Date              Operator            Flag        PAA IPs Command Syntax Executed              Note
+    1  2019-04-30 14:00:03  Example Operator                                                     Sample Entry 1
+    2  2019-04-30 14:00:06  Example Operator                                                     Sample Entry 2
+    3  2019-04-30 14:00:31  Example Operator  mission                                            Sample Entry 3, with flag
 
 Although the logs can be searched by piping to grep, Flags provide a much more efficient way of
 tagging entries of particular interest. You can list out all the flags used in the current log
@@ -125,32 +131,55 @@ Example 1::
 
     > opslog -sf opschecks
 
-    2019-04-30 14:00:49;Example Operator;opschecks;;;;;Sample Entry 5, with flag 2
-    2019-04-30 14:00:52;Example Operator;opschecks;;;;;Sample Entry 6, with flag 2
-    2019-04-30 14:01:14;Example Operator;example opschecks;;;;;Sample Entry 7, with 2 flag
+            Date              Operator            Flag        PAA IPs Command Syntax Executed              Note
+    5  2019-04-30 14:00:49  Example Operator  opschecks                                          Sample Entry 5, with flag 2
+    6  2019-04-30 14:00:52  Example Operator  opschecks                                          Sample Entry 6, with flag 2
+    7  2019-04-30 14:01:14  Example Operator  example opschecks                                  Sample Entry 7, with 2 flags
 
 Example 2::
 
     > opslog -sf example mission
 
-    2019-04-30 14:00:31;Example Operator;mission;;;;;Sample Entry 3, with flag
-    2019-04-30 14:00:38;Example Operator;mission;;;;;Sample Entry 4, with flag
-    2019-04-30 14:01:14;Example Operator;example opschecks;;;;;Sample Entry 7, with 2 flag
-    2019-04-30 14:01:25;Example Operator;example mission;;;;;Sample Entry 8, with 2 flag
+            Date              Operator            Flag        PAA IPs Command Syntax Executed              Note
+    3  2019-04-30 14:00:31  Example Operator  mission                                            Sample Entry 3, with flag
+    4  2019-04-30 14:00:38  Example Operator  mission                                            Sample Entry 4, with flag
+    7  2019-04-30 14:01:14  Example Operator  example opschecks                                  Sample Entry 7, with 2 flags
+    8  2019-04-30 14:01:25  Example Operator  example mission                                    Sample Entry 8, with 2 flags
 
 
 Exporting and Merging Logs
 ==========================
 
 Once the logs are complete, the can be exported by using the ``opslog --export`` command
-and specifying the export location. The location can use absolute or relative path, and will
+and specifying the export location and optionally a format. The location can use absolute or relative path, and will
 output to the current directory if only a filename is given
+
 
 Example::
 
     > ls -l ~/tmp/
     total 0
-    > opslog --export ~/tmp/log.csv
+    > opslog --export ~/tmp/log
+    Log file successfully exported
+    >ls -l ~/tmp/
+    total 4
+    -rw-r--r-- 1 assessor assessor 594 Apr 30 10:24 log.csv
+    > cat ~/tmp/log.csv
+              Date              Operator            Flag        PAA IPs Command Syntax Executed              Note
+    1  2019-04-30 14:00:03  Example Operator                                                     Sample Entry 1
+    2  2019-04-30 14:00:06  Example Operator                                                     Sample Entry 2
+    3  2019-04-30 14:00:31  Example Operator  mission                                            Sample Entry 3, with flag
+    4  2019-04-30 14:00:38  Example Operator  mission                                            Sample Entry 4, with flag
+    5  2019-04-30 14:00:49  Example Operator  opschecks                                          Sample Entry 5, with flag 2
+    6  2019-04-30 14:00:52  Example Operator  opschecks                                          Sample Entry 6, with flag 2
+    7  2019-04-30 14:01:14  Example Operator  example opschecks                                  Sample Entry 7, with 2 flags
+    8  2019-04-30 14:01:25  Example Operator  example mission                                    Sample Entry 8, with 2 flags
+
+Example 2::
+
+    > ls -l ~/tmp/
+    total 0
+    > opslog --export ~/tmp/log.csv --format csv
     Log file successfully exported
     >ls -l ~/tmp/
     total 4
@@ -167,7 +196,7 @@ Example::
 
 If for any reason multiple logs need to be combined, the ``opslog --merge`` command can
 do so. The command takes any number of files as arguments, checks these files to ensure they
-are properly formated log files, and merges them together into one log.
+are csv formated log files, and merges them together into one log.
 
 Example::
 

@@ -95,19 +95,18 @@ def get_operator():
     # print(os.getenv('OPS_LOG_USER'))
     config = configparser.ConfigParser()
     config.read(_configfile)
-
     return config.get("Operator Settings", "Current Operator")
 
 
 def set_operator(value):
 
     config = configparser.ConfigParser()
-
     config.read(_configfile)
     config.set("Operator Settings", "Current Operator", value)
-
     with open(_configfile, 'w') as cfgfile:
         config.write(cfgfile)
+    print("New operator set")
+    exit()
 
 
 def list_operators():
@@ -115,23 +114,36 @@ def list_operators():
     operators = os.listdir(_logdir)
     for name in operators:
         print("\t" + re.split("_ops_log.csv", name)[0])
-
     exit()
 
 
-def display_log():
+def _get_log():
 
     try:
 
         log = pandas.read_csv(os.path.join(_logdir, get_operator() + "_ops_log.csv"), delimiter=';').fillna('')
+        log.index += 1
     except FileNotFoundError:
-        print("No entries for current operator.")
+        print("No log for current operator.")
         exit()
     return log
 
 
+def display_log(log = _get_log()):
+    left_justify = {"Flag": '{{:<{}s}}'.format(log['Flag'].str.len().max()).format,
+                    "Command Syntax": '{{:<{}s}}'.format(log['Command Syntax'].str.len().max()).format,
+                    "Note": '{{:<{}s}}'.format(log['Note'].str.len().max()).format}
+
+    if not log.empty:
+        return log.to_string(formatters=left_justify)
+    else:
+        print("\nThere are no entries in current log tagged with any of the provided flags.")
+        print("Use 'opslog -lf' to list all currently used flags\n")
+    exit()
+
+
 def list_flags():
-    log = display_log()
+    log = _get_log()
 
     # Creates a set which contains all the unique flags found in entries
     # This is created using nested list comprehensions.
@@ -168,7 +180,7 @@ def list_flags():
 
 def search_log(flags):
 
-    log = display_log()
+    log = _get_log()
 
     entrylist = list()
     entryhit = bool()
@@ -249,45 +261,45 @@ def _install_opslog():
     exit()
 
 
-def _export_log(location):
+def _export_log(location, style):
 
     if os.path.isfile(location):
         response = input(location + " already exists. Do you wish to overwrite? (y/n)")
         if not response.startswith('y'):
             print("Aborting export of log file")
             exit()
+
     try:
-        copyfile(_logdir + get_operator() + "_ops_log.csv", location)
+        if style == 'default':
+            with open(location, 'w+') as f:
+                f.write(display_log())
+                f.write("\n")
+        elif style == 'csv':
+            copyfile(_logdir + get_operator() + "_ops_log.csv", location)
+        elif style == 'json':
+            input_file = _logdir + get_operator() + "_ops_log.csv"
+            output_file = location
+
+            csv_rows = []
+            with open(input_file) as csvfile:
+                fields = ["Date", "Operator", "Flags", "PAA", "IP", "Command", "Executed", "Note"]
+                reader = csv.DictReader(csvfile, fieldnames=fields, delimiter=';')
+                title = reader.fieldnames
+                for row in reader:
+                    csv_rows.extend([{title[i]: row[title[i]] for i in range(len(title))}])
+
+                with open(output_file, "w") as f:
+                    f.write(json.dumps(csv_rows, sort_keys=False, indent=4,
+                                       separators=(';', ': ')))  # , encoding="utf-8", ensure_ascii=False))
+        else:
+            print("Export failed: unknown filetype {}".format(style))
+            exit()
+
         print('Log file successfully exported')
-    except IOError as e:
-        print('export failed due to error: \n  ' + str(e))
-    exit()
-
-
-def _export_json(location):
-
-    if os.path.isfile(location):
-        response = input(location + " already exists. Do you wish to overwrite? (y/n)")
-        if not response.startswith('y'):
-            print("Aborting export of log file")
-            exit()
-    try:
-        input_file = _logdir + get_operator() + "_ops_log.csv"
-        output_file = location
-
-        csv_rows = []
-        with open(input_file) as csvfile:
-            fields = ["Date", "Operator", "Flags", "PAA", "IP", "Command", "Executed", "Note"]
-            reader = csv.DictReader(csvfile, fieldnames=fields, delimiter=';')
-            title = reader.fieldnames
-            for row in reader:
-                csv_rows.extend([{title[i]:row[title[i]] for i in range(len(title))}])
-
-            with open(output_file, "w") as f:
-                f.write(json.dumps(csv_rows, sort_keys=False, indent=4, separators=(';', ': '))) # , encoding="utf-8", ensure_ascii=False))
 
     except IOError as e:
         print('export failed due to error: \n  ' + str(e))
+
     exit()
 
 
@@ -486,21 +498,23 @@ if __name__ == '__main__':
         type=str,
         help='Search the log entries for those tagged with Flag(s)'
     )
-    mgmt_group = parser.add_mutually_exclusive_group()
+    mgmt_group = parser.add_argument_group()
     mgmt_group.description = "Use the following commands to manage operator logs"
     mgmt_group.add_argument(
         '--export',
-        dest='csvfilename',
+        dest='filename',
         nargs=1,
         type=str,
         help='Export the current operator log to file'
     )
     mgmt_group.add_argument(
-        '--export-json',
-        dest='jsonfilename',
+        '--format',
+        dest='filetype',
         nargs=1,
         type=str,
-        help='Export the current operator log to file in json format'
+        choices=['csv', 'json', 'default'],
+        default='default',
+        help='format to export the operator log in (csv, json, or default)'
     )
     mgmt_group.add_argument(
         '--merge',
@@ -517,24 +531,16 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     if args.sf:
-        print(search_log(args.sf).to_string())
+        print(display_log(search_log(args.sf)))
         exit()
     if args.set_operator:
         set_operator(args.set_operator[0])
         exit()
-    if args.csvfilename:
-        _export_log(args.csvfilename[0])
-    if args.jsonfilename:
-        _export_json(args.jsonfilename[0])
-
-    # left_justify = {"Flag": '{{:<{}s}}'.format(args.cat()['Flag'].str.len().max()).format}
-    # , "Command Syntax": '{{:<{}s}}'.format(args.cat()['Command Syntax'].str.len().max()).format, "Note": '{{:<{}s}}'.format(args.cat()['Note'].str.len().max()).format}
+    if args.filename:
+        _export_log(args.filename[0], args.filetype[0])
 
     print(list_flags()[0], list_flags()[1]) if args.lf \
         else print(get_operator()) if args.operator \
         else print(args.list_operators()) if args.list_operators \
-        else print(args.cat().to_string(
-            formatters={"Flag": '{{:<{}s}}'.format(args.cat()['Flag'].str.len().max()).format,
-                        "Command Syntax": '{{:<{}s}}'.format(args.cat()['Command Syntax'].str.len().max()).format,
-                        "Note": '{{:<{}s}}'.format(args.cat()['Note'].str.len().max()).format})) if args.cat \
+        else print(display_log()) if args.cat \
         else main(args)
