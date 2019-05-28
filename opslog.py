@@ -10,6 +10,7 @@ from shutil import copytree
 import os
 import subprocess
 import pandas
+import tempfile
 
 
 def _setup():
@@ -130,7 +131,8 @@ def _get_log():
 
 
 def display_log(log = _get_log()):
-    left_justify = {"Flag": '{{:<{}s}}'.format(log['Flag'].str.len().max()).format,
+    left_justify = {"Operator": '{{:<{}s}}'.format(log['Operator'].str.len().max()).format,
+                    "Flag": '{{:<{}s}}'.format(log['Flag'].str.len().max()).format,
                     "Command Syntax": '{{:<{}s}}'.format(log['Command Syntax'].str.len().max()).format,
                     "Note": '{{:<{}s}}'.format(log['Note'].str.len().max()).format}
 
@@ -261,8 +263,9 @@ def _install_opslog():
     exit()
 
 
-def _export_log(location, style):
+def _export_log(location, style, log=os.path.join(_logdir, get_operator() + "_ops_log.csv")):
 
+    # First check to see if file already exists and if it does, make sure user wishes to overwrite
     if os.path.isfile(location):
         response = input(location + " already exists. Do you wish to overwrite? (y/n)")
         if not response.startswith('y'):
@@ -270,20 +273,25 @@ def _export_log(location, style):
             exit()
 
     try:
+
+        # if no format was specified or if default was specified, output in pandas matrix format
         if style == 'default' or style == 'd':
             with open(location, 'w+') as f:
-                f.write(display_log())
+                f.write(display_log(pandas.read_csv(log, delimiter=';').fillna('')))
                 f.write("\n")
+
+        # If csv format was specified, simply copy the log file to output location
         elif style == 'csv':
-            copyfile(_logdir + get_operator() + "_ops_log.csv", location)
+            copyfile(log, location)
+
+        # if json format was specified, create json file from csv and save to output location
         elif style == 'json':
-            input_file = _logdir + get_operator() + "_ops_log.csv"
+            input_file = log
             output_file = location
 
             csv_rows = []
             with open(input_file) as csvfile:
-                fields = ["Date", "Operator", "Flags", "PAA", "IP", "Command", "Executed", "Note"]
-                reader = csv.DictReader(csvfile, fieldnames=fields, delimiter=';')
+                reader = csv.DictReader(csvfile, delimiter=';')
                 title = reader.fieldnames
                 for row in reader:
                     csv_rows.extend([{title[i]: row[title[i]] for i in range(len(title))}])
@@ -291,16 +299,19 @@ def _export_log(location, style):
                 with open(output_file, "w") as f:
                     f.write(json.dumps(csv_rows, sort_keys=False, indent=4,
                                        separators=(';', ': ')))  # , encoding="utf-8", ensure_ascii=False))
+
+        # If any other format was entered, raise TypeError
         else:
-            print("Export failed: unknown filetype {}".format(style))
-            exit()
+            raise TypeError("Export failed: unknown filetype {}".format(style))
 
-        print('Log file successfully exported')
+        # If export successful, tell user so
+        print('Operation Successful')
 
+    # If any error was encountered, included custom TypeError, print to screen.
     except IOError as e:
-        print('export failed due to error: \n  ' + str(e))
+        print('Operation failed due to error: \n  ' + str(e))
 
-    exit()
+    return
 
 
 def _merge_logs(logs_list):
@@ -310,22 +321,39 @@ def _merge_logs(logs_list):
     patern = re.compile("^.*;.+;.*;.*;.*;.*;.*;.*")
     for file in logs_list:
         with open(file, 'r') as log:
+            # Skip first line(header)
+            log.readline()
+
+            # Make sure each line of log (after header) matches correct csv log format
+            # If any line does not match, print error and exit
             for line in log.readlines():
                 if not patern.match(line) and not line == "":
                     print("ERROR: file {} does not match logging format. Unable to merge".format(file))
                     exit()
 
+    # If all files specified match log format, ask user for output location.
     print("All files matches log format.")
     dest_file = input("Enter destination filename: ")
+    dest_format = input("enter destination log format(default, csv, json): ")
     output = str()
+
     for file in logs_list:
         with open(file, 'r') as log:
+            # for each file, skip first line(header), then copy all other lines to output variable
+            log.readline()
             output = output + str(log.read())
     result = sorted(output.splitlines())
-    with open(dest_file, "+a") as newlog:
+
+    merged_file = tempfile.NamedTemporaryFile(delete=False)
+    # Write header to new file followed by lines from all input files
+    with open(merged_file.name, "+a") as newlog:
+        newlog.writelines('Date;Operator;Flag;PAA;IPs;Command Syntax;Executed;Note\n')
         newlog.writelines("\n".join(result))
         newlog.write("\n")
-    print("Merge Successful")
+
+    _export_log(dest_file, dest_format, merged_file.name)
+    merged_file.close()
+
     exit()
 
 
@@ -344,6 +372,7 @@ def _run_command(command):
         log = open(os.path.join(_logdir, get_operator() + "_ops_log.csv"), 'r')
         lines = log.readlines()
         log.close()
+
 
         newlog = open(os.path.join(_logdir, get_operator() + "_ops_log.csv"), 'w')
         for item in lines[:-1]:
@@ -538,6 +567,8 @@ if __name__ == '__main__':
         exit()
     if args.filename:
         _export_log(args.filename[0], args.filetype[0])
+    if args.mergefile:
+        _merge_logs(args.mergefile)
 
     print(list_flags()[0], list_flags()[1]) if args.lf \
         else print(get_operator()) if args.operator \
