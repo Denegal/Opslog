@@ -4,18 +4,18 @@
        > (0,0,1,0,2) title page title
          (0,0,0,0,2) body
     SingleStyledText('OpsLog Documentation')
-  Paragraph('Release v1.1a May, 2019', style='title page subtitle')
+  Paragraph('Release v1.6a May, 2019', style='title page subtitle')
        > (0,0,1,0,2) title page subtitle
          (0,0,0,0,2) body
-    SingleStyledText('Release v1.1a May, 2019')
+    SingleStyledText('Release v1.6a May, 2019')
   Paragraph('Jacob Coburn', style='title page author')
        > (0,0,1,0,2) title page author
          (0,0,0,0,2) body
     SingleStyledText('Jacob Coburn')
-  Paragraph('May 03, 2019', style='title page date')
+  Paragraph('May 28, 2019', style='title page date')
        > (0,0,1,0,2) title page date
          (0,0,0,0,2) body
-    SingleStyledText('May 03, 2019')
+    SingleStyledText('May 28, 2019')
 ---------------------------------- page i ----------------------------------
 #### FlowablesContainer('chapter title')
   Paragraph('Table of Contents', style='front matter section title')
@@ -297,10 +297,10 @@
                  > (0,0,0,1,1) linked reference
               SingleStyledText('Exporting and Merging Logs')
             Tab('	')
-            ReferenceField('11')
+            ReferenceField('12')
                  x (0,0,0,1,3) toc linked reference
                  > (0,0,0,1,1) linked reference
-              SingleStyledText('11')
+              SingleStyledText('12')
 #### DownExpandingContainer('footer')
   Footer('		i')
        > (0,0,0,0,2) footer
@@ -442,8 +442,8 @@
       Field('OpsLog Documentation')
         SingleStyledText('OpsLog Documentation')
       SingleStyledText(', ')
-      Field('Release v1.1a May, 2019')
-        SingleStyledText('Release v1.1a May, 2019')
+      Field('Release v1.6a May, 2019')
+        SingleStyledText('Release v1.6a May, 2019')
 #### DownExpandingContainer('footer')
   Footer('2		Chapter ​.  ​')
        > (0,0,0,0,2) footer
@@ -819,7 +819,7 @@
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
               Token(' ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
-              Token('html', type=Token.Name)
+              Token('help', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token('\n', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
@@ -989,8 +989,8 @@
       Field('OpsLog Documentation')
         SingleStyledText('OpsLog Documentation')
       SingleStyledText(', ')
-      Field('Release v1.1a May, 2019')
-        SingleStyledText('Release v1.1a May, 2019')
+      Field('Release v1.6a May, 2019')
+        SingleStyledText('Release v1.6a May, 2019')
 #### DownExpandingContainer('footer')
   Footer('4		Chapter 1.  Overview on How t...')
        > (0,0,0,0,2) footer
@@ -1976,15 +1976,15 @@
                   SingleStyledText('2.4')
                   SingleStyledText(' ')
                   SingleStyledText('Management Arguments')
-            Paragraph('The following arguments are mutu...')   /home/assessor/working_dir/python_projects/opslog/docs/Usage.rst:66 <paragraph>
+            Paragraph('The following arguments are used...')   /home/assessor/working_dir/python_projects/opslog/docs/Usage.rst:66 <paragraph>
                  > (0,0,0,0,2) body
-              MixedStyledText('The following arguments are mutu...')
-                SingleStyledText('The following arguments are mutu...')
+              MixedStyledText('The following arguments are used...')
+                SingleStyledText('The following arguments are used...')
             Paragraph('The management arguments are:')   /home/assessor/working_dir/python_projects/opslog/docs/Usage.rst:69 <paragraph>
                  > (0,0,0,0,2) body
               MixedStyledText('The management arguments are:')
                 SingleStyledText('The management arguments are:')
-            CodeBlock('--export FILE     Export the cur...')   /home/assessor/working_dir/python_projects/opslog/docs/Usage.rst:71 <literal_block>
+            CodeBlock('--export FILE         Export the...')   /home/assessor/working_dir/python_projects/opslog/docs/Usage.rst:71 <literal_block>
                  > (1,0,0,0,2) code block
                    (0,0,0,0,1) body
               Token('--', type=Token.Operator)
@@ -1995,7 +1995,7 @@
                    > (0,0,0,1,2) (pygments)Token.Text
               Token('FILE', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
-              Token('     ', type=Token.Text)
+              Token('         ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
               Token('Export', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
@@ -2015,19 +2015,31 @@
                    > (0,0,0,1,2) (pygments)Token.Text
               Token('--', type=Token.Operator)
                    > (0,0,0,1,2) (pygments)Token.Operator
-              Token('export', type=Token.Name)
+              Token('format', type=Token.Name.Builtin)
+                   > (0,0,0,1,2) (pygments)Token.Name.Builtin
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('FILETYPE', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
-              Token('-', type=Token.Operator)
-                   > (0,0,0,1,2) (pygments)Token.Operator
-              Token('json', type=Token.Name)
+              Token('     ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Format', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token(' ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
-              Token('FILE', type=Token.Name)
+              Token('to', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
-              Token('    ', type=Token.Text)
+              Token(' ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
-              Token('Export', type=Token.Name)
+              Token('use', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('when', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('exporting', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token(' ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
@@ -2035,24 +2047,30 @@
                    > (0,0,0,1,2) (pygments)Token.Name
               Token(' ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
-              Token('current', type=Token.Name)
-                   > (0,0,0,1,2) (pygments)Token.Name
-              Token(' ', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
               Token('log', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
-              Token(' ', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-              Token('in', type=Token.Operator.Word)
-                   > (0,0,0,1,2) (pygments)Token.Operator.Word
+              Token('(', type=Token.Punctuation)
+                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('csv', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(',', type=Token.Punctuation)
+                   > (0,0,0,1,2) (pygments)Token.Punctuation
               Token(' ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
               Token('json', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
+              Token(',', type=Token.Punctuation)
+                   > (0,0,0,1,2) (pygments)Token.Punctuation
               Token(' ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
-              Token('format', type=Token.Name.Builtin)
-                   > (0,0,0,1,2) (pygments)Token.Name.Builtin
+              Token('or', type=Token.Operator.Word)
+                   > (0,0,0,1,2) (pygments)Token.Operator.Word
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('default', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(')', type=Token.Punctuation)
+                   > (0,0,0,1,2) (pygments)Token.Punctuation
               Token('\n', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
               Token('--', type=Token.Operator)
@@ -2306,8 +2324,8 @@
       Field('OpsLog Documentation')
         SingleStyledText('OpsLog Documentation')
       SingleStyledText(', ')
-      Field('Release v1.1a May, 2019')
-        SingleStyledText('Release v1.1a May, 2019')
+      Field('Release v1.6a May, 2019')
+        SingleStyledText('Release v1.6a May, 2019')
 #### DownExpandingContainer('footer')
   Footer('6		Chapter 2.  Opslog Usage')
        > (0,0,0,0,2) footer
@@ -2585,8 +2603,8 @@
       Field('OpsLog Documentation')
         SingleStyledText('OpsLog Documentation')
       SingleStyledText(', ')
-      Field('Release v1.1a May, 2019')
-        SingleStyledText('Release v1.1a May, 2019')
+      Field('Release v1.6a May, 2019')
+        SingleStyledText('Release v1.6a May, 2019')
 #### DownExpandingContainer('footer')
   Footer('2.6.  Logging Arguments		7')
        > (0,0,0,0,2) footer
@@ -2613,8 +2631,8 @@
       Field('OpsLog Documentation')
         SingleStyledText('OpsLog Documentation')
       SingleStyledText(', ')
-      Field('Release v1.1a May, 2019')
-        SingleStyledText('Release v1.1a May, 2019')
+      Field('Release v1.6a May, 2019')
+        SingleStyledText('Release v1.6a May, 2019')
 #### DownExpandingContainer('footer')
   Footer('8		Chapter 2.  Opslog Usage')
        > (0,0,0,0,2) footer
@@ -2823,7 +2841,43 @@
                    > (0,0,0,1,2) (pygments)Token.Operator
               Token('cat', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
-              Token('\n\n', type=Token.Text)
+              Token('\n\n           ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Date', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('         ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Operator', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('       ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Flag', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('PAA', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('IPs', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Command', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Syntax', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Executed', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('              ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Note', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('\n', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
               Token('2019', type=Token.Literal.Number.Integer)
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
@@ -2847,16 +2901,16 @@
                    > (0,0,0,1,2) (pygments)Token.Punctuation
               Token('10', type=Token.Literal.Number.Integer)
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token(';', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('  ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('Example', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token(' ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
               Token('Operator', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
-              Token(';;;;;;', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('                                ...', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('This', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token(' ', type=Token.Text)
@@ -2881,55 +2935,10 @@
                    > (0,0,0,1,2) (pygments)Token.Name
               Token('\n', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
-            Paragraph('Example 2:')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:43 <paragraph>
+            Paragraph('Example 2:')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:44 <paragraph>
                  > (0,0,0,0,2) body
               MixedStyledText('Example 2:')
                 SingleStyledText('Example 2:')
-            CodeBlock('> opslog -c 'ping 1.2.3.4' -n 'T...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:45 <literal_block>
-                 > (1,0,0,0,2) code block
-                   (0,0,0,0,1) body
-              Token('>', type=Token.Operator)
-                   > (0,0,0,1,2) (pygments)Token.Operator
-              Token(' ', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-              Token('opslog', type=Token.Name)
-                   > (0,0,0,1,2) (pygments)Token.Name
-              Token(' ', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-              Token('-', type=Token.Operator)
-                   > (0,0,0,1,2) (pygments)Token.Operator
-              Token('c', type=Token.Name)
-                   > (0,0,0,1,2) (pygments)Token.Name
-              Token(' ', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-              Token(''ping 1.2.3.4'', type=Token.Literal.String.Single)
-                   > (0,0,0,1,2) (pygments)Token.Literal.String.Single
-              Token(' ', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-              Token('-', type=Token.Operator)
-                   > (0,0,0,1,2) (pygments)Token.Operator
-              Token('n', type=Token.Name)
-                   > (0,0,0,1,2) (pygments)Token.Name
-              Token(' ', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-              Token(''This entry includes a command'', type=Token.Literal.String.Single)
-                   > (0,0,0,1,2) (pygments)Token.Literal.String.Single
-              Token('\n', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-              Token('>', type=Token.Operator)
-                   > (0,0,0,1,2) (pygments)Token.Operator
-              Token(' ', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-              Token('opslog', type=Token.Name)
-                   > (0,0,0,1,2) (pygments)Token.Name
-              Token(' ', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-              Token('--', type=Token.Operator)
-                   > (0,0,0,1,2) (pygments)Token.Operator
-              Token('cat', type=Token.Name)
-                   > (0,0,0,1,2) (pygments)Token.Name
-              Token('\n\n', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
 #### DownExpandingContainer('footer')
   Footer('		9')
        > (0,0,0,0,2) footer
@@ -2947,14 +2956,14 @@
         (continued) Section(id='%Examples#opslog-examples')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:2 <section>
              > (0,0,0,1,2) chapter
           (continued) Section(id='%Examples#creating-log-entries')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:30 <section>
-            (continued) CodeBlock('> opslog -c 'ping 1.2.3.4' -n 'T...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:45 <literal_block>
+            CodeBlock('> opslog -c 'ping 1.2.3.4' -n 'T...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:46 <literal_block>
                  > (1,0,0,0,2) code block
                    (0,0,0,0,1) body
-            Paragraph('Example 3:')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:50 <paragraph>
+            Paragraph('Example 3:')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:53 <paragraph>
                  > (0,0,0,0,2) body
               MixedStyledText('Example 3:')
                 SingleStyledText('Example 3:')
-            CodeBlock('> opslog -p 1 -i '127.0.0.1' -C ...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:52 <literal_block>
+            CodeBlock('> opslog -p 1 -i '127.0.0.1' -C ...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:55 <literal_block>
                  > (1,0,0,0,2) code block
                    (0,0,0,0,1) body
               Token('>', type=Token.Operator)
@@ -3393,7 +3402,43 @@
                    > (0,0,0,1,2) (pygments)Token.Operator
               Token('cat', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
-              Token('\n\n', type=Token.Text)
+              Token('\n\n    ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Date', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('                ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Operator', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('        ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Flag', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('     ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('PAA', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('     ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('IPs', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('            ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Command', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Syntax', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('    ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Executed', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('              ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Note', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('\n', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
               Token('2019', type=Token.Literal.Number.Integer)
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
@@ -3411,38 +3456,38 @@
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
               Token(':', type=Token.Punctuation)
                    > (0,0,0,1,2) (pygments)Token.Punctuation
-              Token('49', type=Token.Literal.Number.Integer)
+              Token('48', type=Token.Literal.Number.Integer)
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
               Token(':', type=Token.Punctuation)
                    > (0,0,0,1,2) (pygments)Token.Punctuation
-              Token('14', type=Token.Literal.Number.Integer)
+              Token('36', type=Token.Literal.Number.Integer)
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token(';', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('  ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('Example', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token(' ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
               Token('Operator', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
-              Token(';', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('  ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('testing', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
-              Token(';', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('     ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('1', type=Token.Literal.Number.Integer)
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token(';', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('   ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('127.0', type=Token.Literal.Number.Float)
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Float
               Token('.', type=Token.Operator)
                    > (0,0,0,1,2) (pygments)Token.Operator
               Token('0.1', type=Token.Literal.Number.Float)
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Float
-              Token(';', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('     ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('ping', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token(' ', type=Token.Text)
@@ -3457,18 +3502,18 @@
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
               Token(' ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
-              Token('127.0', type=Token.Literal.Number.Float)
+              Token('1.2', type=Token.Literal.Number.Float)
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Float
               Token('.', type=Token.Operator)
                    > (0,0,0,1,2) (pygments)Token.Operator
-              Token('0.1', type=Token.Literal.Number.Float)
+              Token('3.4', type=Token.Literal.Number.Float)
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Float
-              Token(';', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('      ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('yes', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
-              Token(';', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('     ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('This', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token(' ', type=Token.Text)
@@ -3499,11 +3544,9 @@
                    > (0,0,0,1,2) (pygments)Token.Text
               Token('execution', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
-              Token('.', type=Token.Operator)
-                   > (0,0,0,1,2) (pygments)Token.Operator
               Token('\n', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
-            Paragraph('Note 1: In all three examples. t...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:66 <paragraph>
+            Paragraph('Note 1: In all three examples. t...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:70 <paragraph>
                  > (0,0,0,0,2) body
               MixedStyledText('Note 1: In all three examples. t...')
                 SingleStyledText('Note 1: In all three examples. t...')
@@ -3511,7 +3554,7 @@
                      > (0,0,1,0,1) monospaced
                   SingleStyledText('opslog --cat')
                 SingleStyledText(' command is executed to show the...')
-            Paragraph('Note 2: In example 2, the 7th fi...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:68 <paragraph>
+            Paragraph('Note 2: In example 2, the 7th fi...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:72 <paragraph>
                  > (0,0,0,0,2) body
               MixedStyledText('Note 2: In example 2, the 7th fi...')
                 SingleStyledText('Note 2: In example 2, the 7th fi...')
@@ -3519,7 +3562,7 @@
                      > (0,0,1,0,1) monospaced
                   SingleStyledText('-c')
                 SingleStyledText(' option. This option only logs t...')
-            Paragraph('Note 3: In example 3, the 7th fi...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:71 <paragraph>
+            Paragraph('Note 3: In example 3, the 7th fi...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:75 <paragraph>
                  > (0,0,0,0,2) body
               MixedStyledText('Note 3: In example 3, the 7th fi...')
                 SingleStyledText('Note 3: In example 3, the 7th fi...')
@@ -3527,15 +3570,15 @@
                      > (0,0,1,0,1) monospaced
                   SingleStyledText('-C')
                 SingleStyledText(' option. This option creates the...')
-          Section(id='%Examples#displaying-and-searching-the-log')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:76 <section>
-            Heading('3.3 Displaying and Searching the...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:76 <title>
+          Section(id='%Examples#displaying-and-searching-the-log')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:80 <section>
+            Heading('3.3 Displaying and Searching the...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:80 <title>
                  > (0,0,0,1,2) heading level 2
                    (0,0,0,0,2) other heading levels
                 MixedStyledText('3.3 Displaying and Searching the...')
                   SingleStyledText('3.3')
                   SingleStyledText(' ')
                   SingleStyledText('Displaying and Searching the Log')
-            Paragraph('Logs can be easily displayed usi...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:78 <paragraph>
+            Paragraph('Logs can be easily displayed usi...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:82 <paragraph>
                  > (0,0,0,0,2) body
               MixedStyledText('Logs can be easily displayed usi...')
                 SingleStyledText('Logs can be easily displayed usi...')
@@ -3555,11 +3598,11 @@
                      > (0,0,1,0,1) monospaced
                   SingleStyledText('grep')
                 SingleStyledText('.')
-            Paragraph('Example 1:')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:82 <paragraph>
+            Paragraph('Example 1:')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:86 <paragraph>
                  > (0,0,0,0,2) body
               MixedStyledText('Example 1:')
                 SingleStyledText('Example 1:')
-            CodeBlock('> opslog -o\nExample Operator\n> o...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:84 <literal_block>
+            CodeBlock('> opslog -o\nExample Operator\n> o...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:88 <literal_block>
                  > (1,0,0,0,2) code block
                    (0,0,0,0,1) body
               Token('>', type=Token.Operator)
@@ -3596,7 +3639,47 @@
                    > (0,0,0,1,2) (pygments)Token.Operator
               Token('cat', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
-              Token('\n\n', type=Token.Text)
+              Token('\n\n          ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Date', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('              ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Operator', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('            ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Flag', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('        ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('PAA', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('IPs', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Command', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Syntax', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Executed', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('              ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Note', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('\n', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('1', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token('  ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
               Token('2019', type=Token.Literal.Number.Integer)
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
@@ -3620,16 +3703,16 @@
                    > (0,0,0,1,2) (pygments)Token.Punctuation
               Token('03', type=Token.Literal.Number.Integer)
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token(';', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('  ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('Example', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token(' ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
               Token('Operator', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
-              Token(';;;;;;', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('                                ...', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('Sample', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token(' ', type=Token.Text)
@@ -3641,6 +3724,10 @@
               Token('1', type=Token.Literal.Number.Integer)
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
               Token('\n', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('2', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token('  ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
               Token('2019', type=Token.Literal.Number.Integer)
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
@@ -3664,16 +3751,16 @@
                    > (0,0,0,1,2) (pygments)Token.Punctuation
               Token('06', type=Token.Literal.Number.Integer)
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token(';', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('  ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('Example', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token(' ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
               Token('Operator', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
-              Token(';;;;;;', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('                                ...', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('Sample', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token(' ', type=Token.Text)
@@ -3685,6 +3772,10 @@
               Token('2', type=Token.Literal.Number.Integer)
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
               Token('\n', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('3', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token('  ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
               Token('2019', type=Token.Literal.Number.Integer)
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
@@ -3708,20 +3799,20 @@
                    > (0,0,0,1,2) (pygments)Token.Punctuation
               Token('31', type=Token.Literal.Number.Integer)
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token(';', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('  ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('Example', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token(' ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
               Token('Operator', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
-              Token(';', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('  ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('mission', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
-              Token(';;;;;', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('                                ...', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('Sample', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token(' ', type=Token.Text)
@@ -3743,6 +3834,10 @@
               Token('flag', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token('\n', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('4', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token('  ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
               Token('2019', type=Token.Literal.Number.Integer)
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
@@ -3766,303 +3861,62 @@
                    > (0,0,0,1,2) (pygments)Token.Punctuation
               Token('38', type=Token.Literal.Number.Integer)
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token(';', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('  ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('Example', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token(' ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
               Token('Operator', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
-              Token(';', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
-              Token('mission', type=Token.Name)
-                   > (0,0,0,1,2) (pygments)Token.Name
-              Token(';;;;;', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
-              Token('Sample', type=Token.Name)
-                   > (0,0,0,1,2) (pygments)Token.Name
-              Token(' ', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-              Token('Entry', type=Token.Name)
-                   > (0,0,0,1,2) (pygments)Token.Name
-              Token(' ', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-              Token('4', type=Token.Literal.Number.Integer)
-                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token(',', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
-              Token(' ', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-              Token('with', type=Token.Keyword)
-                   > (0,0,0,1,2) (pygments)Token.Keyword
-              Token(' ', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-              Token('flag', type=Token.Name)
-                   > (0,0,0,1,2) (pygments)Token.Name
-              Token('\n', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-              Token('2019', type=Token.Literal.Number.Integer)
-                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token('-', type=Token.Operator)
-                   > (0,0,0,1,2) (pygments)Token.Operator
-              Token('04', type=Token.Literal.Number.Integer)
-                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token('-', type=Token.Operator)
-                   > (0,0,0,1,2) (pygments)Token.Operator
-              Token('30', type=Token.Literal.Number.Integer)
-                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token(' ', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-              Token('14', type=Token.Literal.Number.Integer)
-                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token(':', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
-              Token('00', type=Token.Literal.Number.Integer)
-                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token(':', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
-              Token('49', type=Token.Literal.Number.Integer)
-                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token(';', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
-              Token('Example', type=Token.Name)
-                   > (0,0,0,1,2) (pygments)Token.Name
-              Token(' ', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-              Token('Operator', type=Token.Name)
-                   > (0,0,0,1,2) (pygments)Token.Name
-              Token(';', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
-              Token('opschecks', type=Token.Name)
-                   > (0,0,0,1,2) (pygments)Token.Name
-              Token(';;;;;', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
-              Token('Sample', type=Token.Name)
-                   > (0,0,0,1,2) (pygments)Token.Name
-              Token(' ', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-              Token('Entry', type=Token.Name)
-                   > (0,0,0,1,2) (pygments)Token.Name
-              Token(' ', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-              Token('5', type=Token.Literal.Number.Integer)
-                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token(',', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
-              Token(' ', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-              Token('with', type=Token.Keyword)
-                   > (0,0,0,1,2) (pygments)Token.Keyword
-              Token(' ', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-              Token('flag', type=Token.Name)
-                   > (0,0,0,1,2) (pygments)Token.Name
-              Token(' ', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-              Token('2', type=Token.Literal.Number.Integer)
-                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token('\n', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-              Token('2019', type=Token.Literal.Number.Integer)
-                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token('-', type=Token.Operator)
-                   > (0,0,0,1,2) (pygments)Token.Operator
-              Token('04', type=Token.Literal.Number.Integer)
-                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token('-', type=Token.Operator)
-                   > (0,0,0,1,2) (pygments)Token.Operator
-              Token('30', type=Token.Literal.Number.Integer)
-                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token(' ', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-              Token('14', type=Token.Literal.Number.Integer)
-                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token(':', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
-              Token('00', type=Token.Literal.Number.Integer)
-                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token(':', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
-              Token('52', type=Token.Literal.Number.Integer)
-                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token(';', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
-              Token('Example', type=Token.Name)
-                   > (0,0,0,1,2) (pygments)Token.Name
-              Token(' ', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-              Token('Operator', type=Token.Name)
-                   > (0,0,0,1,2) (pygments)Token.Name
-              Token(';', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
-              Token('opschecks', type=Token.Name)
-                   > (0,0,0,1,2) (pygments)Token.Name
-              Token(';;;;;', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
-              Token('Sample', type=Token.Name)
-                   > (0,0,0,1,2) (pygments)Token.Name
-              Token(' ', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-              Token('Entry', type=Token.Name)
-                   > (0,0,0,1,2) (pygments)Token.Name
-              Token(' ', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-              Token('6', type=Token.Literal.Number.Integer)
-                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token(',', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
-              Token(' ', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-              Token('with', type=Token.Keyword)
-                   > (0,0,0,1,2) (pygments)Token.Keyword
-              Token(' ', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-              Token('flag', type=Token.Name)
-                   > (0,0,0,1,2) (pygments)Token.Name
-              Token(' ', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-              Token('2', type=Token.Literal.Number.Integer)
-                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token('\n', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-              Token('2019', type=Token.Literal.Number.Integer)
-                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token('-', type=Token.Operator)
-                   > (0,0,0,1,2) (pygments)Token.Operator
-              Token('04', type=Token.Literal.Number.Integer)
-                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token('-', type=Token.Operator)
-                   > (0,0,0,1,2) (pygments)Token.Operator
-              Token('30', type=Token.Literal.Number.Integer)
-                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token(' ', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-              Token('14', type=Token.Literal.Number.Integer)
-                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token(':', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
-              Token('01', type=Token.Literal.Number.Integer)
-                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token(':', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
-              Token('14', type=Token.Literal.Number.Integer)
-                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token(';', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
-              Token('Example', type=Token.Name)
-                   > (0,0,0,1,2) (pygments)Token.Name
-              Token(' ', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-              Token('Operator', type=Token.Name)
-                   > (0,0,0,1,2) (pygments)Token.Name
-              Token(';', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
-              Token('example', type=Token.Name)
-                   > (0,0,0,1,2) (pygments)Token.Name
-              Token(' ', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-              Token('opschecks', type=Token.Name)
-                   > (0,0,0,1,2) (pygments)Token.Name
-              Token(';;;;;', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
-              Token('Sample', type=Token.Name)
-                   > (0,0,0,1,2) (pygments)Token.Name
-              Token(' ', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-              Token('Entry', type=Token.Name)
-                   > (0,0,0,1,2) (pygments)Token.Name
-              Token(' ', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-              Token('7', type=Token.Literal.Number.Integer)
-                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token(',', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
-              Token(' ', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-              Token('with', type=Token.Keyword)
-                   > (0,0,0,1,2) (pygments)Token.Keyword
-              Token(' ', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-              Token('2', type=Token.Literal.Number.Integer)
-                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token(' ', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-              Token('flag', type=Token.Name)
-                   > (0,0,0,1,2) (pygments)Token.Name
-              Token('\n', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-              Token('2019', type=Token.Literal.Number.Integer)
-                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token('-', type=Token.Operator)
-                   > (0,0,0,1,2) (pygments)Token.Operator
-              Token('04', type=Token.Literal.Number.Integer)
-                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token('-', type=Token.Operator)
-                   > (0,0,0,1,2) (pygments)Token.Operator
-              Token('30', type=Token.Literal.Number.Integer)
-                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token(' ', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-              Token('14', type=Token.Literal.Number.Integer)
-                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token(':', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
-              Token('01', type=Token.Literal.Number.Integer)
-                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token(':', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
-              Token('25', type=Token.Literal.Number.Integer)
-                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token(';', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
-              Token('Example', type=Token.Name)
-                   > (0,0,0,1,2) (pygments)Token.Name
-              Token(' ', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-              Token('Operator', type=Token.Name)
-                   > (0,0,0,1,2) (pygments)Token.Name
-              Token(';', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
-              Token('example', type=Token.Name)
-                   > (0,0,0,1,2) (pygments)Token.Name
-              Token(' ', type=Token.Text)
+              Token('  ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
               Token('mission', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
-              Token(';;;;;', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
-              Token('Sample', type=Token.Name)
-                   > (0,0,0,1,2) (pygments)Token.Name
-              Token(' ', type=Token.Text)
+              Token('                                ...', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
-              Token('Entry', type=Token.Name)
-                   > (0,0,0,1,2) (pygments)Token.Name
-              Token(' ', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-              Token('8', type=Token.Literal.Number.Integer)
-                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token(',', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
-              Token(' ', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-              Token('with', type=Token.Keyword)
-                   > (0,0,0,1,2) (pygments)Token.Keyword
-              Token(' ', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-              Token('2', type=Token.Literal.Number.Integer)
-                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token(' ', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-              Token('flag', type=Token.Name)
-                   > (0,0,0,1,2) (pygments)Token.Name
-              Token('\n', type=Token.Text)
-                   > (0,0,0,1,2) (pygments)Token.Text
-            Paragraph('Example 2:')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:97 <paragraph>
+#### UpExpandingContainer('header')
+  Header('OpsLog Documentation, Release v1...')
+       > (0,0,0,0,2) header
+         (0,0,0,0,1) body
+    MixedStyledText('OpsLog Documentation, Release v1...')
+      Field('OpsLog Documentation')
+        SingleStyledText('OpsLog Documentation')
+      SingleStyledText(', ')
+      Field('Release v1.6a May, 2019')
+        SingleStyledText('Release v1.6a May, 2019')
+#### DownExpandingContainer('footer')
+  Footer('10		Chapter 3.  Opslog Examples')
+       > (0,0,0,0,2) footer
+         (0,0,0,0,1) body
+    MixedStyledText('10		Chapter 3.  Opslog Examples')
+      Field('10')
+        SingleStyledText('10')
+      Tab('	')
+      Tab('	')
+      StringField('Chapter')
+      SingleStyledText(' ')
+      Field('3')
+        SingleStyledText('3')
+      SingleStyledText('.  ')
+      Field('Opslog Examples')
+        SingleStyledText('Opslog Examples')
+---------------------------------- page 11 ----------------------------------
+#### ChainedContainer('column1')
+  (continued) DocumentTree()
+    (continued) StaticGroupedFlowables()   /home/assessor/working_dir/python_projects/opslog/docs/index.rst:0 <compound>
+      (continued) StaticGroupedFlowables(id='%Examples')   None:None <start_of_file>
+        (continued) Section(id='%Examples#opslog-examples')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:2 <section>
+             > (0,0,0,1,2) chapter
+          (continued) Section(id='%Examples#displaying-and-searching-the-log')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:80 <section>
+            (continued) CodeBlock('> opslog -o\nExample Operator\n> o...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:88 <literal_block>
+                 > (1,0,0,0,2) code block
+                   (0,0,0,0,1) body
+            Paragraph('Example 2:')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:102 <paragraph>
                  > (0,0,0,0,2) body
               MixedStyledText('Example 2:')
                 SingleStyledText('Example 2:')
-            CodeBlock('> opslog --cat | head -n4\n\n2019-...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:99 <literal_block>
+            CodeBlock('> opslog --cat | head -n4\n\n     ...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:104 <literal_block>
                  > (1,0,0,0,2) code block
                    (0,0,0,0,1) body
               Token('>', type=Token.Operator)
@@ -4091,7 +3945,47 @@
                    > (0,0,0,1,2) (pygments)Token.Operator
               Token('n4', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
-              Token('\n\n', type=Token.Text)
+              Token('\n\n      ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Date', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('              ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Operator', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('            ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Flag', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('        ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('PAA', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('IPs', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Command', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Syntax', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Executed', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('              ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Note', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('\n', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('1', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token('  ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
               Token('2019', type=Token.Literal.Number.Integer)
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
@@ -4115,16 +4009,16 @@
                    > (0,0,0,1,2) (pygments)Token.Punctuation
               Token('03', type=Token.Literal.Number.Integer)
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token(';', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('  ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('Example', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token(' ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
               Token('Operator', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
-              Token(';;;;;;', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('                                ...', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('Sample', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token(' ', type=Token.Text)
@@ -4136,6 +4030,10 @@
               Token('1', type=Token.Literal.Number.Integer)
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
               Token('\n', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('2', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token('  ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
               Token('2019', type=Token.Literal.Number.Integer)
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
@@ -4159,16 +4057,16 @@
                    > (0,0,0,1,2) (pygments)Token.Punctuation
               Token('06', type=Token.Literal.Number.Integer)
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token(';', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('  ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('Example', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token(' ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
               Token('Operator', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
-              Token(';;;;;;', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('                                ...', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('Sample', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token(' ', type=Token.Text)
@@ -4180,6 +4078,10 @@
               Token('2', type=Token.Literal.Number.Integer)
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
               Token('\n', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('3', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token('  ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
               Token('2019', type=Token.Literal.Number.Integer)
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
@@ -4203,20 +4105,20 @@
                    > (0,0,0,1,2) (pygments)Token.Punctuation
               Token('31', type=Token.Literal.Number.Integer)
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token(';', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('  ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('Example', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token(' ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
               Token('Operator', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
-              Token(';', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('  ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('mission', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
-              Token(';;;;;', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('                                ...', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('Sample', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token(' ', type=Token.Text)
@@ -4239,44 +4141,7 @@
                    > (0,0,0,1,2) (pygments)Token.Name
               Token('\n', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
-#### UpExpandingContainer('header')
-  Header('OpsLog Documentation, Release v1...')
-       > (0,0,0,0,2) header
-         (0,0,0,0,1) body
-    MixedStyledText('OpsLog Documentation, Release v1...')
-      Field('OpsLog Documentation')
-        SingleStyledText('OpsLog Documentation')
-      SingleStyledText(', ')
-      Field('Release v1.1a May, 2019')
-        SingleStyledText('Release v1.1a May, 2019')
-#### DownExpandingContainer('footer')
-  Footer('10		Chapter 3.  Opslog Examples')
-       > (0,0,0,0,2) footer
-         (0,0,0,0,1) body
-    MixedStyledText('10		Chapter 3.  Opslog Examples')
-      Field('10')
-        SingleStyledText('10')
-      Tab('	')
-      Tab('	')
-      StringField('Chapter')
-      SingleStyledText(' ')
-      Field('3')
-        SingleStyledText('3')
-      SingleStyledText('.  ')
-      Field('Opslog Examples')
-        SingleStyledText('Opslog Examples')
----------------------------------- page 11 ----------------------------------
-#### ChainedContainer('column1')
-  (continued) DocumentTree()
-    (continued) StaticGroupedFlowables()   /home/assessor/working_dir/python_projects/opslog/docs/index.rst:0 <compound>
-      (continued) StaticGroupedFlowables(id='%Examples')   None:None <start_of_file>
-        (continued) Section(id='%Examples#opslog-examples')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:2 <section>
-             > (0,0,0,1,2) chapter
-          (continued) Section(id='%Examples#displaying-and-searching-the-log')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:76 <section>
-            (continued) CodeBlock('> opslog --cat | head -n4\n\n2019-...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:99 <literal_block>
-                 > (1,0,0,0,2) code block
-                   (0,0,0,0,1) body
-            Paragraph('Although the logs can be searche...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:105 <paragraph>
+            Paragraph('Although the logs can be searche...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:111 <paragraph>
                  > (0,0,0,0,2) body
               MixedStyledText('Although the logs can be searche...')
                 SingleStyledText('Although the logs can be searche...')
@@ -4284,11 +4149,11 @@
                      > (0,0,1,0,1) monospaced
                   SingleStyledText('opslog -lf')
                 SingleStyledText(' command.')
-            Paragraph('Example:')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:109 <paragraph>
+            Paragraph('Example:')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:115 <paragraph>
                  > (0,0,0,0,2) body
               MixedStyledText('Example:')
                 SingleStyledText('Example:')
-            CodeBlock('> opslog --lf\n\n    Below are the...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:111 <literal_block>
+            CodeBlock('> opslog --lf\n\n    Below are the...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:117 <literal_block>
                  > (1,0,0,0,2) code block
                    (0,0,0,0,1) body
               Token('>', type=Token.Operator)
@@ -4447,7 +4312,7 @@
                    > (0,0,0,1,2) (pygments)Token.Punctuation
               Token('\n', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
-            Paragraph('You can also search for and disp...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:121 <paragraph>
+            Paragraph('You can also search for and disp...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:127 <paragraph>
                  > (0,0,0,0,2) body
               MixedStyledText('You can also search for and disp...')
                 SingleStyledText('You can also search for and disp...')
@@ -4455,11 +4320,11 @@
                      > (0,0,1,0,1) monospaced
                   SingleStyledText('opslog -sf flag')
                 SingleStyledText(' command. The command can accept...')
-            Paragraph('Example 1:')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:124 <paragraph>
+            Paragraph('Example 1:')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:130 <paragraph>
                  > (0,0,0,0,2) body
               MixedStyledText('Example 1:')
                 SingleStyledText('Example 1:')
-            CodeBlock('> opslog -sf opschecks\n\n2019-04-...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:126 <literal_block>
+            CodeBlock('> opslog -sf opschecks\n\n        ...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:132 <literal_block>
                  > (1,0,0,0,2) code block
                    (0,0,0,0,1) body
               Token('>', type=Token.Operator)
@@ -4478,7 +4343,47 @@
                    > (0,0,0,1,2) (pygments)Token.Text
               Token('opschecks', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
-              Token('\n\n', type=Token.Text)
+              Token('\n\n        ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Date', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('              ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Operator', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('            ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Flag', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('        ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('PAA', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('IPs', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Command', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Syntax', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Executed', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('              ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Note', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('\n', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('5', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token('  ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
               Token('2019', type=Token.Literal.Number.Integer)
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
@@ -4502,20 +4407,20 @@
                    > (0,0,0,1,2) (pygments)Token.Punctuation
               Token('49', type=Token.Literal.Number.Integer)
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token(';', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('  ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('Example', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token(' ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
               Token('Operator', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
-              Token(';', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('  ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('opschecks', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
-              Token(';;;;;', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('                                ...', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('Sample', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token(' ', type=Token.Text)
@@ -4542,6 +4447,10 @@
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
               Token('\n', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
+              Token('6', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token('  ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('2019', type=Token.Literal.Number.Integer)
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
               Token('-', type=Token.Operator)
@@ -4564,20 +4473,20 @@
                    > (0,0,0,1,2) (pygments)Token.Punctuation
               Token('52', type=Token.Literal.Number.Integer)
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token(';', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('  ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('Example', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token(' ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
               Token('Operator', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
-              Token(';', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('  ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('opschecks', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
-              Token(';;;;;', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('                                ...', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('Sample', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token(' ', type=Token.Text)
@@ -4604,6 +4513,10 @@
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
               Token('\n', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
+              Token('7', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token('  ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('2019', type=Token.Literal.Number.Integer)
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
               Token('-', type=Token.Operator)
@@ -4626,24 +4539,24 @@
                    > (0,0,0,1,2) (pygments)Token.Punctuation
               Token('14', type=Token.Literal.Number.Integer)
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token(';', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('  ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('Example', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token(' ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
               Token('Operator', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
-              Token(';', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('  ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('example', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token(' ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
               Token('opschecks', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
-              Token(';;;;;', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('                                ...', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('Sample', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token(' ', type=Token.Text)
@@ -4666,15 +4579,15 @@
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
               Token(' ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
-              Token('flag', type=Token.Name)
+              Token('flags', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token('\n', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
-            Paragraph('Example 2:')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:132 <paragraph>
+            Paragraph('Example 2:')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:139 <paragraph>
                  > (0,0,0,0,2) body
               MixedStyledText('Example 2:')
                 SingleStyledText('Example 2:')
-            CodeBlock('> opslog -sf example mission\n\n20...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:134 <literal_block>
+            CodeBlock('> opslog -sf example mission\n\n  ...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:141 <literal_block>
                  > (1,0,0,0,2) code block
                    (0,0,0,0,1) body
               Token('>', type=Token.Operator)
@@ -4697,7 +4610,411 @@
                    > (0,0,0,1,2) (pygments)Token.Text
               Token('mission', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
-              Token('\n\n', type=Token.Text)
+              Token('\n\n        ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Date', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('              ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Operator', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('            ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Flag', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('        ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('PAA', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('IPs', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Command', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Syntax', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Executed', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('              ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+#### UpExpandingContainer('header')
+  Header('		OpsLog Documentation, Release ...')
+       > (0,0,0,0,2) header
+         (0,0,0,0,1) body
+    MixedStyledText('		OpsLog Documentation, Release ...')
+      Tab('	')
+      Tab('	')
+      Field('OpsLog Documentation')
+        SingleStyledText('OpsLog Documentation')
+      SingleStyledText(', ')
+      Field('Release v1.6a May, 2019')
+        SingleStyledText('Release v1.6a May, 2019')
+#### DownExpandingContainer('footer')
+  Footer('3.3.  Displaying and Searching t...')
+       > (0,0,0,0,2) footer
+         (0,0,0,0,1) body
+    MixedStyledText('3.3.  Displaying and Searching t...')
+      Field('3.3')
+        SingleStyledText('3.3')
+      SingleStyledText('.  ')
+      Field('Displaying and Searching the Log')
+        SingleStyledText('Displaying and Searching the Log')
+      Tab('	')
+      Tab('	')
+      Field('11')
+        SingleStyledText('11')
+---------------------------------- page 12 ----------------------------------
+#### ChainedContainer('column1')
+  (continued) DocumentTree()
+    (continued) StaticGroupedFlowables()   /home/assessor/working_dir/python_projects/opslog/docs/index.rst:0 <compound>
+      (continued) StaticGroupedFlowables(id='%Examples')   None:None <start_of_file>
+        (continued) Section(id='%Examples#opslog-examples')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:2 <section>
+             > (0,0,0,1,2) chapter
+          (continued) Section(id='%Examples#displaying-and-searching-the-log')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:80 <section>
+            (continued) CodeBlock('> opslog -sf example mission\n\n  ...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:141 <literal_block>
+                 > (1,0,0,0,2) code block
+                   (0,0,0,0,1) body
+          Section(id='%Examples#exporting-and-merging-logs')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:151 <section>
+            Heading('3.4 Exporting and Merging Logs')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:151 <title>
+                 > (0,0,0,1,2) heading level 2
+                   (0,0,0,0,2) other heading levels
+                MixedStyledText('3.4 Exporting and Merging Logs')
+                  SingleStyledText('3.4')
+                  SingleStyledText(' ')
+                  SingleStyledText('Exporting and Merging Logs')
+            Paragraph('Once the logs are complete, the ...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:153 <paragraph>
+                 > (0,0,0,0,2) body
+              MixedStyledText('Once the logs are complete, the ...')
+                SingleStyledText('Once the logs are complete, the ...')
+                MixedStyledText('opslog --export', style='monospaced')   None:None <literal>
+                     > (0,0,1,0,1) monospaced
+                  SingleStyledText('opslog --export')
+                SingleStyledText(' command and specifying the expo...')
+            Paragraph('Example:')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:158 <paragraph>
+                 > (0,0,0,0,2) body
+              MixedStyledText('Example:')
+                SingleStyledText('Example:')
+            CodeBlock('> ls -l ~/tmp/\ntotal 0\n> opslog ...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:160 <literal_block>
+                 > (1,0,0,0,2) code block
+                   (0,0,0,0,1) body
+              Token('>', type=Token.Operator)
+                   > (0,0,0,1,2) (pygments)Token.Operator
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('ls', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('-', type=Token.Operator)
+                   > (0,0,0,1,2) (pygments)Token.Operator
+              Token('l', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('~/', type=Token.Operator)
+                   > (0,0,0,1,2) (pygments)Token.Operator
+              Token('tmp', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('/', type=Token.Operator)
+                   > (0,0,0,1,2) (pygments)Token.Operator
+              Token('\n', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('total', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('0', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token('\n', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('>', type=Token.Operator)
+                   > (0,0,0,1,2) (pygments)Token.Operator
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('opslog', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('--', type=Token.Operator)
+                   > (0,0,0,1,2) (pygments)Token.Operator
+              Token('export', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('~/', type=Token.Operator)
+                   > (0,0,0,1,2) (pygments)Token.Operator
+              Token('tmp', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('/', type=Token.Operator)
+                   > (0,0,0,1,2) (pygments)Token.Operator
+              Token('log', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('\n', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Log', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('file', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('successfully', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('exported', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('\n', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('>', type=Token.Operator)
+                   > (0,0,0,1,2) (pygments)Token.Operator
+              Token('ls', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('-', type=Token.Operator)
+                   > (0,0,0,1,2) (pygments)Token.Operator
+              Token('l', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('~/', type=Token.Operator)
+                   > (0,0,0,1,2) (pygments)Token.Operator
+              Token('tmp', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('/', type=Token.Operator)
+                   > (0,0,0,1,2) (pygments)Token.Operator
+              Token('\n', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('total', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('4', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token('\n', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('-', type=Token.Operator)
+                   > (0,0,0,1,2) (pygments)Token.Operator
+              Token('rw', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('-', type=Token.Operator)
+                   > (0,0,0,1,2) (pygments)Token.Operator
+              Token('r', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('--', type=Token.Operator)
+                   > (0,0,0,1,2) (pygments)Token.Operator
+              Token('r', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('--', type=Token.Operator)
+                   > (0,0,0,1,2) (pygments)Token.Operator
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('1', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('assessor', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('assessor', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('594', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Apr', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('30', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('10', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token(':', type=Token.Punctuation)
+                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('24', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('log', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('.', type=Token.Operator)
+                   > (0,0,0,1,2) (pygments)Token.Operator
+              Token('csv', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('\n', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('>', type=Token.Operator)
+                   > (0,0,0,1,2) (pygments)Token.Operator
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('cat', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('~/', type=Token.Operator)
+                   > (0,0,0,1,2) (pygments)Token.Operator
+              Token('tmp', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('/', type=Token.Operator)
+                   > (0,0,0,1,2) (pygments)Token.Operator
+              Token('log', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('.', type=Token.Operator)
+                   > (0,0,0,1,2) (pygments)Token.Operator
+              Token('csv', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('\n          ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Date', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('              ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Operator', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('            ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Flag', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('        ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('PAA', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('IPs', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Command', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Syntax', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Executed', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('              ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Note', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('\n', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('1', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token('  ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('2019', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token('-', type=Token.Operator)
+                   > (0,0,0,1,2) (pygments)Token.Operator
+              Token('04', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token('-', type=Token.Operator)
+                   > (0,0,0,1,2) (pygments)Token.Operator
+              Token('30', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('14', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token(':', type=Token.Punctuation)
+                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('00', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token(':', type=Token.Punctuation)
+                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('03', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token('  ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Example', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Operator', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('                                ...', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Sample', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Entry', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('1', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token('\n', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('2', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token('  ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('2019', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token('-', type=Token.Operator)
+                   > (0,0,0,1,2) (pygments)Token.Operator
+              Token('04', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token('-', type=Token.Operator)
+                   > (0,0,0,1,2) (pygments)Token.Operator
+              Token('30', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('14', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token(':', type=Token.Punctuation)
+                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('00', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token(':', type=Token.Punctuation)
+                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('06', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token('  ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Example', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Operator', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('                                ...', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Sample', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Entry', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('2', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token('\n', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('3', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token('  ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
               Token('2019', type=Token.Literal.Number.Integer)
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
@@ -4721,20 +5038,20 @@
                    > (0,0,0,1,2) (pygments)Token.Punctuation
               Token('31', type=Token.Literal.Number.Integer)
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token(';', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('  ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('Example', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token(' ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
               Token('Operator', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
-              Token(';', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('  ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('mission', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
-              Token(';;;;;', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('                                ...', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('Sample', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token(' ', type=Token.Text)
@@ -4756,6 +5073,10 @@
               Token('flag', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token('\n', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('4', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token('  ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
               Token('2019', type=Token.Literal.Number.Integer)
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
@@ -4779,20 +5100,20 @@
                    > (0,0,0,1,2) (pygments)Token.Punctuation
               Token('38', type=Token.Literal.Number.Integer)
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token(';', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('  ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('Example', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token(' ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
               Token('Operator', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
-              Token(';', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('  ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('mission', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
-              Token(';;;;;', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('                                ...', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('Sample', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token(' ', type=Token.Text)
@@ -4814,6 +5135,142 @@
               Token('flag', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token('\n', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('5', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token('  ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('2019', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token('-', type=Token.Operator)
+                   > (0,0,0,1,2) (pygments)Token.Operator
+              Token('04', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token('-', type=Token.Operator)
+                   > (0,0,0,1,2) (pygments)Token.Operator
+              Token('30', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('14', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token(':', type=Token.Punctuation)
+                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('00', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token(':', type=Token.Punctuation)
+                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('49', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token('  ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Example', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Operator', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('  ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('opschecks', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('                                ...', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Sample', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Entry', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('5', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token(',', type=Token.Punctuation)
+                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('with', type=Token.Keyword)
+                   > (0,0,0,1,2) (pygments)Token.Keyword
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('flag', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('2', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token('\n', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('6', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token('  ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('2019', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token('-', type=Token.Operator)
+                   > (0,0,0,1,2) (pygments)Token.Operator
+              Token('04', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token('-', type=Token.Operator)
+                   > (0,0,0,1,2) (pygments)Token.Operator
+              Token('30', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('14', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token(':', type=Token.Punctuation)
+                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('00', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token(':', type=Token.Punctuation)
+                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('52', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token('  ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Example', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Operator', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('  ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('opschecks', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('                                ...', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Sample', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('Entry', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('6', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token(',', type=Token.Punctuation)
+                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('with', type=Token.Keyword)
+                   > (0,0,0,1,2) (pygments)Token.Keyword
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('flag', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('2', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token('\n', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('7', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token('  ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
               Token('2019', type=Token.Literal.Number.Integer)
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
@@ -4837,24 +5294,24 @@
                    > (0,0,0,1,2) (pygments)Token.Punctuation
               Token('14', type=Token.Literal.Number.Integer)
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token(';', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('  ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('Example', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token(' ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
               Token('Operator', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
-              Token(';', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('  ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('example', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token(' ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
               Token('opschecks', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
-              Token(';;;;;', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('                                ...', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('Sample', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token(' ', type=Token.Text)
@@ -4877,9 +5334,13 @@
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
               Token(' ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
-              Token('flag', type=Token.Name)
+              Token('flags', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token('\n', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('8', type=Token.Literal.Number.Integer)
+                   > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
+              Token('  ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
               Token('2019', type=Token.Literal.Number.Integer)
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
@@ -4903,24 +5364,24 @@
                    > (0,0,0,1,2) (pygments)Token.Punctuation
               Token('25', type=Token.Literal.Number.Integer)
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
-              Token(';', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('  ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('Example', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token(' ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
               Token('Operator', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
-              Token(';', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('  ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('example', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token(' ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
               Token('mission', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
-              Token(';;;;;', type=Token.Punctuation)
-                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('                                ...', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('Sample', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token(' ', type=Token.Text)
@@ -4943,31 +5404,15 @@
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
               Token(' ', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
-              Token('flag', type=Token.Name)
+              Token('flags', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token('\n', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
-          Section(id='%Examples#exporting-and-merging-logs')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:143 <section>
-            Heading('3.4 Exporting and Merging Logs')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:143 <title>
-                 > (0,0,0,1,2) heading level 2
-                   (0,0,0,0,2) other heading levels
-                MixedStyledText('3.4 Exporting and Merging Logs')
-                  SingleStyledText('3.4')
-                  SingleStyledText(' ')
-                  SingleStyledText('Exporting and Merging Logs')
-            Paragraph('Once the logs are complete, the ...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:145 <paragraph>
+            Paragraph('Example 2:')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:178 <paragraph>
                  > (0,0,0,0,2) body
-              MixedStyledText('Once the logs are complete, the ...')
-                SingleStyledText('Once the logs are complete, the ...')
-                MixedStyledText('opslog --export', style='monospaced')   None:None <literal>
-                     > (0,0,1,0,1) monospaced
-                  SingleStyledText('opslog --export')
-                SingleStyledText(' command and specifying the expo...')
-            Paragraph('Example:')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:149 <paragraph>
-                 > (0,0,0,0,2) body
-              MixedStyledText('Example:')
-                SingleStyledText('Example:')
-            CodeBlock('> ls -l ~/tmp/\ntotal 0\n> opslog ...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:151 <literal_block>
+              MixedStyledText('Example 2:')
+                SingleStyledText('Example 2:')
+            CodeBlock('> ls -l ~/tmp/\ntotal 0\n> opslog ...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:180 <literal_block>
                  > (1,0,0,0,2) code block
                    (0,0,0,0,1) body
               Token('>', type=Token.Operator)
@@ -5024,6 +5469,16 @@
                    > (0,0,0,1,2) (pygments)Token.Name
               Token('.', type=Token.Operator)
                    > (0,0,0,1,2) (pygments)Token.Operator
+              Token('csv', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('--', type=Token.Operator)
+                   > (0,0,0,1,2) (pygments)Token.Operator
+              Token('format', type=Token.Name.Builtin)
+                   > (0,0,0,1,2) (pygments)Token.Name.Builtin
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('csv', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token('\n', type=Token.Text)
@@ -5239,43 +5694,43 @@
               Token('\n', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
 #### UpExpandingContainer('header')
-  Header('		OpsLog Documentation, Release ...')
+  Header('OpsLog Documentation, Release v1...')
        > (0,0,0,0,2) header
          (0,0,0,0,1) body
-    MixedStyledText('		OpsLog Documentation, Release ...')
-      Tab('	')
-      Tab('	')
+    MixedStyledText('OpsLog Documentation, Release v1...')
       Field('OpsLog Documentation')
         SingleStyledText('OpsLog Documentation')
       SingleStyledText(', ')
-      Field('Release v1.1a May, 2019')
-        SingleStyledText('Release v1.1a May, 2019')
+      Field('Release v1.6a May, 2019')
+        SingleStyledText('Release v1.6a May, 2019')
 #### DownExpandingContainer('footer')
-  Footer('3.4.  Exporting and Merging Logs...')
+  Footer('12		Chapter 3.  Opslog Examples')
        > (0,0,0,0,2) footer
          (0,0,0,0,1) body
-    MixedStyledText('3.4.  Exporting and Merging Logs...')
-      Field('3.4')
-        SingleStyledText('3.4')
+    MixedStyledText('12		Chapter 3.  Opslog Examples')
+      Field('12')
+        SingleStyledText('12')
+      Tab('	')
+      Tab('	')
+      StringField('Chapter')
+      SingleStyledText(' ')
+      Field('3')
+        SingleStyledText('3')
       SingleStyledText('.  ')
-      Field('Exporting and Merging Logs')
-        SingleStyledText('Exporting and Merging Logs')
-      Tab('	')
-      Tab('	')
-      Field('11')
-        SingleStyledText('11')
----------------------------------- page 12 ----------------------------------
+      Field('Opslog Examples')
+        SingleStyledText('Opslog Examples')
+---------------------------------- page 13 ----------------------------------
 #### ChainedContainer('column1')
   (continued) DocumentTree()
     (continued) StaticGroupedFlowables()   /home/assessor/working_dir/python_projects/opslog/docs/index.rst:0 <compound>
       (continued) StaticGroupedFlowables(id='%Examples')   None:None <start_of_file>
         (continued) Section(id='%Examples#opslog-examples')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:2 <section>
              > (0,0,0,1,2) chapter
-          (continued) Section(id='%Examples#exporting-and-merging-logs')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:143 <section>
-            (continued) CodeBlock('> ls -l ~/tmp/\ntotal 0\n> opslog ...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:151 <literal_block>
+          (continued) Section(id='%Examples#exporting-and-merging-logs')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:151 <section>
+            (continued) CodeBlock('> ls -l ~/tmp/\ntotal 0\n> opslog ...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:180 <literal_block>
                  > (1,0,0,0,2) code block
                    (0,0,0,0,1) body
-            Paragraph('If for any reason multiple logs ...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:168 <paragraph>
+            Paragraph('If for any reason multiple logs ...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:197 <paragraph>
                  > (0,0,0,0,2) body
               MixedStyledText('If for any reason multiple logs ...')
                 SingleStyledText('If for any reason multiple logs ...')
@@ -5283,11 +5738,11 @@
                      > (0,0,1,0,1) monospaced
                   SingleStyledText('opslog --merge')
                 SingleStyledText(' command can do so. The command ...')
-            Paragraph('Example:')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:172 <paragraph>
+            Paragraph('Example:')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:201 <paragraph>
                  > (0,0,0,0,2) body
               MixedStyledText('Example:')
                 SingleStyledText('Example:')
-            CodeBlock('> ls -l\ntotal 8\n-rw-r--r-- 1 ass...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:174 <literal_block>
+            CodeBlock('> ls -l\ntotal 8\n-rw-r--r-- 1 ass...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:203 <literal_block>
                  > (1,0,0,0,2) code block
                    (0,0,0,0,1) body
               Token('>', type=Token.Operator)
@@ -5740,6 +6195,44 @@
                    > (0,0,0,1,2) (pygments)Token.Name
               Token('\n', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
+              Token('Enter', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('destination', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('log', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('format', type=Token.Name.Builtin)
+                   > (0,0,0,1,2) (pygments)Token.Name.Builtin
+              Token('(', type=Token.Punctuation)
+                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token('default', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(',', type=Token.Punctuation)
+                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('csv', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token(',', type=Token.Punctuation)
+                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('json', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('):', type=Token.Punctuation)
+                   > (0,0,0,1,2) (pygments)Token.Punctuation
+              Token(' ', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
+              Token('csv', type=Token.Name)
+                   > (0,0,0,1,2) (pygments)Token.Name
+              Token('\n', type=Token.Text)
+                   > (0,0,0,1,2) (pygments)Token.Text
               Token('Merge', type=Token.Name)
                    > (0,0,0,1,2) (pygments)Token.Name
               Token(' ', type=Token.Text)
@@ -6154,41 +6647,45 @@
                    > (0,0,0,1,2) (pygments)Token.Literal.Number.Integer
               Token('\n', type=Token.Text)
                    > (0,0,0,1,2) (pygments)Token.Text
+            Paragraph('Note 1: Currently, all logs you ...')   /home/assessor/working_dir/python_projects/opslog/docs/Examples.rst:232 <paragraph>
+                 > (0,0,0,0,2) body
+              MixedStyledText('Note 1: Currently, all logs you ...')
+                SingleStyledText('Note 1: Currently, all logs you ...')
 #### UpExpandingContainer('header')
-  Header('OpsLog Documentation, Release v1...')
+  Header('		OpsLog Documentation, Release ...')
        > (0,0,0,0,2) header
          (0,0,0,0,1) body
-    MixedStyledText('OpsLog Documentation, Release v1...')
+    MixedStyledText('		OpsLog Documentation, Release ...')
+      Tab('	')
+      Tab('	')
       Field('OpsLog Documentation')
         SingleStyledText('OpsLog Documentation')
       SingleStyledText(', ')
-      Field('Release v1.1a May, 2019')
-        SingleStyledText('Release v1.1a May, 2019')
+      Field('Release v1.6a May, 2019')
+        SingleStyledText('Release v1.6a May, 2019')
 #### DownExpandingContainer('footer')
-  Footer('12		Chapter 3.  Opslog Examples')
+  Footer('3.4.  Exporting and Merging Logs...')
        > (0,0,0,0,2) footer
          (0,0,0,0,1) body
-    MixedStyledText('12		Chapter 3.  Opslog Examples')
-      Field('12')
-        SingleStyledText('12')
-      Tab('	')
-      Tab('	')
-      StringField('Chapter')
-      SingleStyledText(' ')
-      Field('3')
-        SingleStyledText('3')
+    MixedStyledText('3.4.  Exporting and Merging Logs...')
+      Field('3.4')
+        SingleStyledText('3.4')
       SingleStyledText('.  ')
-      Field('Opslog Examples')
-        SingleStyledText('Opslog Examples')
----------------------------------- page 13 ----------------------------------
-#### ChainedContainer('column1')
-  StaticGroupedFlowables()
-#### DownExpandingContainer('footer')
-  Footer('		13')
-       > (0,0,0,0,2) footer
-         (0,0,0,0,1) body
-    MixedStyledText('		13')
+      Field('Exporting and Merging Logs')
+        SingleStyledText('Exporting and Merging Logs')
       Tab('	')
       Tab('	')
       Field('13')
         SingleStyledText('13')
+---------------------------------- page 15 ----------------------------------
+#### ChainedContainer('column1')
+  StaticGroupedFlowables()
+#### DownExpandingContainer('footer')
+  Footer('		15')
+       > (0,0,0,0,2) footer
+         (0,0,0,0,1) body
+    MixedStyledText('		15')
+      Tab('	')
+      Tab('	')
+      Field('15')
+        SingleStyledText('15')

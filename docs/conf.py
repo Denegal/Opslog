@@ -24,9 +24,9 @@ copyright = '2019, Jacob Coburn'
 author = 'Jacob Coburn'
 
 # The short X.Y version
-version = '1.1'
+version = '1.6'
 # The full version, including alpha/beta/rc tags
-release = 'v1.1a May, 2019'
+release = 'v1.6a May, 2019'
 
 
 # -- General configuration ---------------------------------------------------

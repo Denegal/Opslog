@@ -23,8 +23,8 @@ Install Location
 opslog is installed to the /usr/lib/ops_log/ directory.
 The folder is created with root privileges and the sticky bit set.
 This allows the program to access it's configuration file and create
-operator logs regardless regardless of the user running it (root privileges
-are not required to run the program or create logs.)
+operator logs regardless of the user running it (after install, root
+privileges are not required to run the program or create logs.)
 
 Inside the ops_log/ folder are the config.ini file which the script
 uses for tracking the current operator, and a operator_logs/ folder
@@ -44,7 +44,7 @@ Below is an sample directory listing of the install location::
     /usr/lib/ops_log/:
     total 8
     -rw-rw-rw- 1 root root   54 Apr 29 10:49 config.ini
-    drwxrwxr-x 4 root root  4096 Apr 29 15:35 html
+    drwxrwxr-x 4 root root  4096 Apr 29 15:35 help
     drwsrwxrwx 2 root root 4096 Apr 29 10:50 operator_logs
     -rwxrwxr-- 1 root root 15216 Apr 29 15:47 opslog.py
 
@@ -62,7 +62,7 @@ using the shortcut alias 'opslog'. This is due to an alias being created in the 
 directory in the opslog_alias.sh file.
 
 If for any reason this does not work and users are unable to use the 'opslog'
-shortcut after installation, you can manually create this alias by adding the line::
+shortcut after installation, users can manually create this alias by adding the line::
 
     alias opslog='/usr/lib/ops_log/opslog.py'
 

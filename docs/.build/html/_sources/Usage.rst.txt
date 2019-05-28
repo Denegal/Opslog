@@ -63,13 +63,13 @@ Most useful are the -o and -so arguments which are used to show/set the operator
 Management Arguments
 ====================
 
-The following arguments are mutually exclusive and are used to export or merge
+The following arguments are used to export or merge
 operator logs.
 
 The management arguments are::
 
-  --export FILE     Export the current log
-  --export-json FILE    Export the current log in json format
+  --export FILE         Export the current log
+  --format FILETYPE     Format to use when exporting the log(csv, json, or default)
   --merge File1 File2   Merge multiple log files together into one
 
 Note: The files can be given in absolute or relative path. If no path is specified

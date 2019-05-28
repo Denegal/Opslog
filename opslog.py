@@ -72,9 +72,10 @@ Output Arguments:
 Management Arguments:
   Use the following commands to manage the operator log
 
-  --export FILE         Export the current log
-  --export-json FILE    Export the current log in json format
-  --merge F1 F2 [F3...] Merge multiple log files together into one log
+    --export FILE         Export the current log
+    --format FILETYPE     Format to use when exporting the log(csv, json, or default)
+    --merge F1 F2 [F3...] Merge multiple log files together into one log
+
 
 
 
@@ -334,7 +335,7 @@ def _merge_logs(logs_list):
     # If all files specified match log format, ask user for output location.
     print("All files matches log format.")
     dest_file = input("Enter destination filename: ")
-    dest_format = input("enter destination log format(default, csv, json): ")
+    dest_format = input("Enter destination log format(default, csv, json): ")
     output = str()
 
     for file in logs_list:

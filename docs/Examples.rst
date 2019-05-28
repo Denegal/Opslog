@@ -215,6 +215,7 @@ Example::
     Checking files...
     All files matches log format.
     Enter destination filename: merged_log.csv
+    Enter destination log format(default, csv, json): csv
     Merge Successful
     > ls -l
     total 12
@@ -228,3 +229,4 @@ Example::
     2019-04-30 15:29:03;merg2;;;;;;Sample entry 4
     2019-04-30 15:29:19;merg1;;;;;;Sample entry 5
 
+Note 1: Currently, all logs you are attempting to merge MUST be in csv format or the merge will fail.

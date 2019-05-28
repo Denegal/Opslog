@@ -1,6 +1,6 @@
 .\" Man page generated from reStructuredText.
 .
-.TH "OPSLOG" "1" "May 03, 2019" "1.1" "OpsLog"
+.TH "OPSLOG" "1" "May 28, 2019" "1.6" "OpsLog"
 .SH NAME
 opslog \- OpsLog Documentation
 .
@@ -100,8 +100,8 @@ Follow the prompts to install the program
 opslog is installed to the /usr/lib/ops_log/ directory.
 The folder is created with root privileges and the sticky bit set.
 This allows the program to access it’s configuration file and create
-operator logs regardless regardless of the user running it (root privileges
-are not required to run the program or create logs.)
+operator logs regardless of the user running it (after install, root
+privileges are not required to run the program or create logs.)
 .sp
 Inside the ops_log/ folder are the config.ini file which the script
 uses for tracking the current operator, and a operator_logs/ folder
@@ -125,7 +125,7 @@ drwsrwxrwx  3 root root     4096 Apr 29 13:16 ops_log
 /usr/lib/ops_log/:
 total 8
 \-rw\-rw\-rw\- 1 root root   54 Apr 29 10:49 config.ini
-drwxrwxr\-x 4 root root  4096 Apr 29 15:35 html
+drwxrwxr\-x 4 root root  4096 Apr 29 15:35 help
 drwsrwxrwx 2 root root 4096 Apr 29 10:50 operator_logs
 \-rwxrwxr\-\- 1 root root 15216 Apr 29 15:47 opslog.py
 
@@ -144,7 +144,7 @@ using the shortcut alias ‘opslog’. This is due to an alias being created in 
 directory in the opslog_alias.sh file.
 .sp
 If for any reason this does not work and users are unable to use the ‘opslog’
-shortcut after installation, you can manually create this alias by adding the line:
+shortcut after installation, users can manually create this alias by adding the line:
 .INDENT 0.0
 .INDENT 3.5
 .sp
@@ -254,7 +254,7 @@ The admin arguments are:
 Most useful are the \-o and \-so arguments which are used to show/set the operator
 .SS Management Arguments
 .sp
-The following arguments are mutually exclusive and are used to export or merge
+The following arguments are used to export or merge
 operator logs.
 .sp
 The management arguments are:
@@ -263,8 +263,8 @@ The management arguments are:
 .sp
 .nf
 .ft C
-\-\-export FILE     Export the current log
-\-\-export\-json FILE    Export the current log in json format
+\-\-export FILE         Export the current log
+\-\-format FILETYPE     Format to use when exporting the log(csv, json, or default)
 \-\-merge File1 File2   Merge multiple log files together into one
 .ft P
 .fi
@@ -396,7 +396,8 @@ Example 1:
 > opslog \-n \(aqThis is a simple operator note\(aq
 > opslog \-\-cat
 
-2019\-04\-30 13:44:10;Example Operator;;;;;;This is a simple operator note
+           Date         Operator       Flag PAA IPs Command Syntax Executed              Note
+2019\-04\-30 13:44:10  Example Operator                                        This is a simple operator note
 .ft P
 .fi
 .UNINDENT
@@ -411,7 +412,8 @@ Example 2:
 > opslog \-c \(aqping 1.2.3.4\(aq \-n \(aqThis entry includes a command\(aq
 > opslog \-\-cat
 
-2019\-04\-30 13:45:53;Example Operator;;;;ping 1.2.3.4;no;This entry includes a command
+       Date             Operator       Flag PAA IPs   Command Syntax  Executed              Note
+2019\-04\-30 13:46:42  Example Operator                ping 1.2.3.4         no     This entry includes a command
 .ft P
 .fi
 .UNINDENT
@@ -435,7 +437,8 @@ PING 127.0.0.1 (127.0.0.1) 56(84) bytes of data.
 rtt min/avg/max/mdev = 0.027/0.034/0.038/0.007 ms
 > opslog \-\-cat
 
-2019\-04\-30 13:49:14;Example Operator;testing;1;127.0.0.1;ping \-c 4 127.0.0.1;yes;This is a full note with command execution.
+    Date                Operator        Flag     PAA     IPs            Command Syntax    Executed              Note
+2019\-04\-30 13:48:36  Example Operator  testing     1   127.0.0.1     ping \-c 4 1.2.3.4      yes     This is a full note with command execution
 .ft P
 .fi
 .UNINDENT
@@ -465,14 +468,15 @@ Example 1:
 Example Operator
 > opslog \-\-cat
 
-2019\-04\-30 14:00:03;Example Operator;;;;;;Sample Entry 1
-2019\-04\-30 14:00:06;Example Operator;;;;;;Sample Entry 2
-2019\-04\-30 14:00:31;Example Operator;mission;;;;;Sample Entry 3, with flag
-2019\-04\-30 14:00:38;Example Operator;mission;;;;;Sample Entry 4, with flag
-2019\-04\-30 14:00:49;Example Operator;opschecks;;;;;Sample Entry 5, with flag 2
-2019\-04\-30 14:00:52;Example Operator;opschecks;;;;;Sample Entry 6, with flag 2
-2019\-04\-30 14:01:14;Example Operator;example opschecks;;;;;Sample Entry 7, with 2 flag
-2019\-04\-30 14:01:25;Example Operator;example mission;;;;;Sample Entry 8, with 2 flag
+          Date              Operator            Flag        PAA IPs Command Syntax Executed              Note
+1  2019\-04\-30 14:00:03  Example Operator                                                     Sample Entry 1
+2  2019\-04\-30 14:00:06  Example Operator                                                     Sample Entry 2
+3  2019\-04\-30 14:00:31  Example Operator  mission                                            Sample Entry 3, with flag
+4  2019\-04\-30 14:00:38  Example Operator  mission                                            Sample Entry 4, with flag
+5  2019\-04\-30 14:00:49  Example Operator  opschecks                                          Sample Entry 5, with flag 2
+6  2019\-04\-30 14:00:52  Example Operator  opschecks                                          Sample Entry 6, with flag 2
+7  2019\-04\-30 14:01:14  Example Operator  example opschecks                                  Sample Entry 7, with 2 flags
+8  2019\-04\-30 14:01:25  Example Operator  example mission                                    Sample Entry 8, with 2 flags
 .ft P
 .fi
 .UNINDENT
@@ -486,9 +490,10 @@ Example 2:
 .ft C
 > opslog \-\-cat | head \-n4
 
-2019\-04\-30 14:00:03;Example Operator;;;;;;Sample Entry 1
-2019\-04\-30 14:00:06;Example Operator;;;;;;Sample Entry 2
-2019\-04\-30 14:00:31;Example Operator;mission;;;;;Sample Entry 3, with flag
+      Date              Operator            Flag        PAA IPs Command Syntax Executed              Note
+1  2019\-04\-30 14:00:03  Example Operator                                                     Sample Entry 1
+2  2019\-04\-30 14:00:06  Example Operator                                                     Sample Entry 2
+3  2019\-04\-30 14:00:31  Example Operator  mission                                            Sample Entry 3, with flag
 .ft P
 .fi
 .UNINDENT
@@ -529,9 +534,10 @@ Example 1:
 .ft C
 > opslog \-sf opschecks
 
-2019\-04\-30 14:00:49;Example Operator;opschecks;;;;;Sample Entry 5, with flag 2
-2019\-04\-30 14:00:52;Example Operator;opschecks;;;;;Sample Entry 6, with flag 2
-2019\-04\-30 14:01:14;Example Operator;example opschecks;;;;;Sample Entry 7, with 2 flag
+        Date              Operator            Flag        PAA IPs Command Syntax Executed              Note
+5  2019\-04\-30 14:00:49  Example Operator  opschecks                                          Sample Entry 5, with flag 2
+6  2019\-04\-30 14:00:52  Example Operator  opschecks                                          Sample Entry 6, with flag 2
+7  2019\-04\-30 14:01:14  Example Operator  example opschecks                                  Sample Entry 7, with 2 flags
 .ft P
 .fi
 .UNINDENT
@@ -545,10 +551,11 @@ Example 2:
 .ft C
 > opslog \-sf example mission
 
-2019\-04\-30 14:00:31;Example Operator;mission;;;;;Sample Entry 3, with flag
-2019\-04\-30 14:00:38;Example Operator;mission;;;;;Sample Entry 4, with flag
-2019\-04\-30 14:01:14;Example Operator;example opschecks;;;;;Sample Entry 7, with 2 flag
-2019\-04\-30 14:01:25;Example Operator;example mission;;;;;Sample Entry 8, with 2 flag
+        Date              Operator            Flag        PAA IPs Command Syntax Executed              Note
+3  2019\-04\-30 14:00:31  Example Operator  mission                                            Sample Entry 3, with flag
+4  2019\-04\-30 14:00:38  Example Operator  mission                                            Sample Entry 4, with flag
+7  2019\-04\-30 14:01:14  Example Operator  example opschecks                                  Sample Entry 7, with 2 flags
+8  2019\-04\-30 14:01:25  Example Operator  example mission                                    Sample Entry 8, with 2 flags
 .ft P
 .fi
 .UNINDENT
@@ -556,7 +563,7 @@ Example 2:
 .SS Exporting and Merging Logs
 .sp
 Once the logs are complete, the can be exported by using the \fBopslog \-\-export\fP command
-and specifying the export location. The location can use absolute or relative path, and will
+and specifying the export location and optionally a format. The location can use absolute or relative path, and will
 output to the current directory if only a filename is given
 .sp
 Example:
@@ -567,7 +574,35 @@ Example:
 .ft C
 > ls \-l ~/tmp/
 total 0
-> opslog \-\-export ~/tmp/log.csv
+> opslog \-\-export ~/tmp/log
+Log file successfully exported
+>ls \-l ~/tmp/
+total 4
+\-rw\-r\-\-r\-\- 1 assessor assessor 594 Apr 30 10:24 log.csv
+> cat ~/tmp/log.csv
+          Date              Operator            Flag        PAA IPs Command Syntax Executed              Note
+1  2019\-04\-30 14:00:03  Example Operator                                                     Sample Entry 1
+2  2019\-04\-30 14:00:06  Example Operator                                                     Sample Entry 2
+3  2019\-04\-30 14:00:31  Example Operator  mission                                            Sample Entry 3, with flag
+4  2019\-04\-30 14:00:38  Example Operator  mission                                            Sample Entry 4, with flag
+5  2019\-04\-30 14:00:49  Example Operator  opschecks                                          Sample Entry 5, with flag 2
+6  2019\-04\-30 14:00:52  Example Operator  opschecks                                          Sample Entry 6, with flag 2
+7  2019\-04\-30 14:01:14  Example Operator  example opschecks                                  Sample Entry 7, with 2 flags
+8  2019\-04\-30 14:01:25  Example Operator  example mission                                    Sample Entry 8, with 2 flags
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Example 2:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+> ls \-l ~/tmp/
+total 0
+> opslog \-\-export ~/tmp/log.csv \-\-format csv
 Log file successfully exported
 >ls \-l ~/tmp/
 total 4
@@ -588,7 +623,7 @@ total 4
 .sp
 If for any reason multiple logs need to be combined, the \fBopslog \-\-merge\fP command can
 do so. The command takes any number of files as arguments, checks these files to ensure they
-are properly formated log files, and merges them together into one log.
+are csv formated log files, and merges them together into one log.
 .sp
 Example:
 .INDENT 0.0
@@ -611,6 +646,7 @@ total 8
 Checking files...
 All files matches log format.
 Enter destination filename: merged_log.csv
+Enter destination log format(default, csv, json): csv
 Merge Successful
 > ls \-l
 total 12
@@ -627,6 +663,8 @@ total 12
 .fi
 .UNINDENT
 .UNINDENT
+.sp
+Note 1: Currently, all logs you are attempting to merge MUST be in csv format or the merge will fail.
 .SH AUTHOR
 Jacob Coburn
 .SH COPYRIGHT
