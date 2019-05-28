@@ -1,5 +1,9 @@
+from __future__ import print_function
 import argparse
-import configparser
+try:
+    from configparser import ConfigParser
+except Exception:
+    import ConfigParser
 import re
 import datetime
 import sys
@@ -11,6 +15,7 @@ import os
 import subprocess
 import pandas
 import tempfile
+
 
 
 _desc = """
@@ -153,14 +158,14 @@ def _install_opslog():
 
 def get_operator():
     # print(os.getenv('OPS_LOG_USER'))
-    config = configparser.ConfigParser()
+    config = ConfigParser()
     config.read(_configfile)
     return config.get("Operator Settings", "Current Operator")
 
 
 def set_operator(value):
 
-    config = configparser.ConfigParser()
+    config = ConfigParser()
     config.read(_configfile)
     config.set("Operator Settings", "Current Operator", value)
     with open(_configfile, 'w') as cfgfile:
