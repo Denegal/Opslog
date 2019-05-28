@@ -2,27 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e35e272-57d4-456c-ba8f-5dccd6754c3a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/doctrees/Examples.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/doctrees/Examples.doctree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/doctrees/Installation.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/doctrees/Installation.doctree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/doctrees/Usage.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/doctrees/Usage.doctree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/doctrees/environment.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/doctrees/environment.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/html/Examples.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/html/Examples.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/html/Installation.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/html/Installation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/html/Usage.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/html/Usage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/html/_sources/Examples.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/html/_sources/Examples.rst.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/html/_sources/Installation.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/html/_sources/Installation.rst.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/html/_sources/Usage.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/html/_sources/Usage.rst.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/html/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/html/objects.inv" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/html/objects.inv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/html/searchindex.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/html/searchindex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/man/opslog.1" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/man/opslog.1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/rinoh/OpsLog.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/rinoh/OpsLog.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/rinoh/OpsLog.rtc" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/rinoh/OpsLog.rtc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/rinoh/OpsLog.stylelog" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/rinoh/OpsLog.stylelog" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Examples.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Examples.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Installation.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Installation.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs/conf.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/opslog.py" beforeDir="false" afterPath="$PROJECT_DIR$/opslog.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,8 +15,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/opslog.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="337" column="74" selection-start-line="337" selection-start-column="25" selection-end-line="337" selection-end-column="74" />
+            <state relative-caret-position="405">
+              <caret line="193" lean-forward="true" selection-start-line="193" selection-end-line="193" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -53,7 +32,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/docs/conf.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1838">
+            <state relative-caret-position="420">
               <caret line="28" column="15" selection-start-line="28" selection-start-column="15" selection-end-line="28" selection-end-column="15" />
             </state>
           </provider>
@@ -73,7 +52,7 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="427">
+              <first_editor relative-caret-position="1065">
                 <caret line="71" selection-start-line="68" selection-start-column="4" selection-end-line="71" />
               </first_editor>
               <second_editor />
@@ -101,10 +80,10 @@
       <list>
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/docs/Usage.rst" />
-        <option value="$PROJECT_DIR$/opslog.py" />
         <option value="$PROJECT_DIR$/docs/Examples.rst" />
         <option value="$PROJECT_DIR$/docs/Installation.rst" />
         <option value="$PROJECT_DIR$/docs/conf.py" />
+        <option value="$PROJECT_DIR$/opslog.py" />
       </list>
     </option>
   </component>
@@ -119,7 +98,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -136,6 +114,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="RunDashboard">
@@ -170,7 +149,7 @@
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3290993" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -186,47 +165,47 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/docs/index.rst">
-      <provider selected="true" editor-type-id="restructured-text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="427">
-            <caret line="71" selection-start-line="68" selection-start-column="4" selection-end-line="71" />
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/opslog.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="193" lean-forward="true" selection-start-line="193" selection-end-line="193" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/Usage.rst">
-      <provider selected="true" editor-type-id="restructured-text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/Installation.rst">
-      <provider selected="true" editor-type-id="restructured-text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/Examples.rst">
-      <provider selected="true" editor-type-id="restructured-text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/docs/Makefile">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/docs/conf.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1838">
+        <state relative-caret-position="420">
           <caret line="28" column="15" selection-start-line="28" selection-start-column="15" selection-end-line="28" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/opslog.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="337" column="74" selection-start-line="337" selection-start-column="25" selection-end-line="337" selection-end-column="74" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
+    <entry file="file://$PROJECT_DIR$/docs/index.rst">
+      <provider selected="true" editor-type-id="restructured-text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/Examples.rst">
+      <provider selected="true" editor-type-id="restructured-text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="1065">
+            <caret line="71" selection-start-line="68" selection-start-column="4" selection-end-line="71" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/Installation.rst">
+      <provider selected="true" editor-type-id="restructured-text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/Usage.rst">
+      <provider selected="true" editor-type-id="restructured-text-editor" />
     </entry>
   </component>
 </project>

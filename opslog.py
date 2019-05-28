@@ -13,12 +13,6 @@ import pandas
 import tempfile
 
 
-def _setup():
-    """This function will setup the program to use aliases, setup initial operator, and create missing folders/files"""
-    print('Begin setup of operator and program')
-    exit()
-
-
 _desc = """
 usage: opslog.py [-h | -v | -o | -lo | -so operator] [-p #] [-i a.b.c.d/f]
                  [-C 'Command' | -c 'Command'] [-n 'text']
@@ -81,7 +75,8 @@ Management Arguments:
 
 The man page can be accessed with the command 'man opslog'.
 
-Complete documentation can be found in the /usr/lib/ops_log/html/index.html webfile
+Complete documentation can be found in the /usr/lib/ops_log/help/index.html webfile
+or in the /usr/lib/ops_log/help/OpsLog.pdf user manual.
 
 """
 
@@ -91,6 +86,69 @@ _aliasfile = '/etc/profile.d/opslog_alias.sh'
 _configfile = '/usr/lib/ops_log/config.ini'
 pandas.set_option('display.expand_frame_repr', False)
 pandas.set_option('display.colheader_justify', 'center')
+
+
+def _install_opslog():
+    response = input("opslog has not yet been installed. Would you like to install now? (y/n)")
+
+    if not response.lower().startswith("y"):
+        print("Exiting")
+        exit()
+
+    print("Beginning Install...")
+    if not os.path.isdir('/usr/lib/ops_log/'):
+        try:
+            os.mkdir('/usr/lib/ops_log/')
+            os.chmod('/usr/lib/ops_log', 0o4777)  # this line must be changed to work with python 2.7 (04777)
+
+            os.mkdir(_logdir)
+            os.chmod(_logdir, 0o4777)  # this line must be changed to work with python 2.7 (04777)
+
+            input_operator = input("Enter operator name: ")
+            config = configparser.ConfigParser()
+            config.add_section('Operator Settings')
+            config.set('Operator Settings', 'Current Operator', input_operator)
+
+            with open("/usr/lib/ops_log/config.ini", 'w') as cfgfile:
+                config.write(cfgfile)
+
+            os.chmod("/usr/lib/ops_log/config.ini", 0o666)  # this line must be changed to work with python 2.7 (644)
+
+            with open(_aliasfile, '+a') as create_alias:
+                create_alias.write("\nfunction opslog()\n{\npython ")
+                create_alias.write("/usr/lib/ops_log/opslog.py")
+                create_alias.write(r' "$@"')
+                create_alias.write('\n}\nexport opslog')
+
+            # Add man page to system
+            copyfile('install/opslog.1', '/usr/share/man/man1/opslog.1')
+
+            # Add html documentation to install folder
+            copytree('install/help/', '/usr/lib/ops_log/help/')
+            os.chmod("/usr/lib/ops_log/help/", 0o775)  # this line must be changed to work with python 2.7 (771)
+            for root, dirs, files in os.walk("/usr/lib/ops_log/help/"):
+                for momo in dirs:
+                    os.chmod(os.path.join(root, momo), 0o775)  # this line must be changed to work with python 2.7 (771)
+                for momo in files:
+                    os.chmod(os.path.join(root, momo), 0o774)  # this line must be changed to work with python 2.7 (771)
+                    
+            copyfile('install/OpsLog.pdf', '/usr/lib/ops_log/help/OpsLog.pdf')
+            os.chmod("/usr/lib/ops_log/help/OpsLog.pdf", 0o774)  # this line must be changed to work with python 2.7 (771)
+            copyfile(os.getcwd() + "/opslog.py", "/usr/lib/ops_log/opslog.py")
+            os.chmod("/usr/lib/ops_log/opslog.py", 0o774)  # this line must be changed to work with python 2.7 (771)
+
+            print("""Program successfully installed to /usr/lib/ops_log/
+            After restarting terminal, logs may now be created using shortcut command 'opslog'.
+
+               Example: opslog -n 'operator note'
+
+            """)
+
+        except PermissionError:
+            print("Install failed due to insufficient permissions.")
+            print("  ->opslog must be installed as root or with sudo.")
+
+    exit()
 
 
 def get_operator():
@@ -131,7 +189,11 @@ def _get_log():
     return log
 
 
-def display_log(log = _get_log()):
+def display_log(log=None):
+
+    if isinstance(log, type(None)):
+        log = _get_log()
+
     left_justify = {"Operator": '{{:<{}s}}'.format(log['Operator'].str.len().max()).format,
                     "Flag": '{{:<{}s}}'.format(log['Flag'].str.len().max()).format,
                     "Command Syntax": '{{:<{}s}}'.format(log['Command Syntax'].str.len().max()).format,
@@ -146,6 +208,7 @@ def display_log(log = _get_log()):
 
 
 def list_flags():
+
     log = _get_log()
 
     # Creates a set which contains all the unique flags found in entries
@@ -200,71 +263,10 @@ def search_log(flags):
     return log[entrylist]
 
 
-def _install_opslog():
+def _export_log(location, style, log=None):
 
-    response = input("opslog has not yet been installed. Would you like to install now? (y/n)")
-
-    if not response.lower().startswith("y"):
-        print("Exiting")
-        exit()
-
-    print("Beginning Install...")
-    if not os.path.isdir('/usr/lib/ops_log/'):
-        try:
-            os.mkdir('/usr/lib/ops_log/')
-            os.chmod('/usr/lib/ops_log', 0o4777)  # this line must be changed to work with python 2.7 (04777)
-
-            os.mkdir(_logdir)
-            os.chmod(_logdir, 0o4777)  # this line must be changed to work with python 2.7 (04777)
-
-            cfgfile = open("/usr/lib/ops_log/config.ini", 'w')
-            input_operator = input("Enter operator name: ")
-            config = configparser.ConfigParser()
-            config.add_section('Operator Settings')
-            config.set('Operator Settings', 'Current Operator', input_operator)
-            config.write(cfgfile)
-
-            cfgfile.close()
-
-            os.chmod("/usr/lib/ops_log/config.ini", 0o666)  # this line must be changed to work with python 2.7 (644)
-
-            create_alias = open(_aliasfile, '+a')
-            create_alias.write("\nfunction opslog()\n{\npython ")
-            create_alias.write("/usr/lib/ops_log/opslog.py")
-            create_alias.write(r' "$@"')
-            create_alias.write('\n}\nexport opslog')
-            create_alias.close()
-
-            # Add man page to system
-            copyfile('install/opslog.1', '/usr/share/man/man1/opslog.1')
-
-            # Add html documentation to install folder
-            copytree('install/help/', '/usr/lib/ops_log/help/')
-            os.chmod("/usr/lib/ops_log/help/", 0o775)  # this line must be changed to work with python 2.7 (771)
-            for root, dirs, files in os.walk("/usr/lib/ops_log/html/"):
-                for momo in dirs:
-                    os.chmod(os.path.join(root, momo), 0o775)  # this line must be changed to work with python 2.7 (771)
-                for momo in files:
-                    os.chmod(os.path.join(root, momo), 0o775)  # this line must be changed to work with python 2.7 (771)
-
-            copyfile(os.getcwd() + "/opslog.py", "/usr/lib/ops_log/opslog.py")
-            os.chmod("/usr/lib/ops_log/opslog.py", 0o774)  # this line must be changed to work with python 2.7 (771)
-
-            print("""Program successfully installed to /usr/lib/ops_log/
-            After restarting terminal, logs may now be created using shortcut command 'opslog'.
-            
-               Example: opslog -n 'operator note'
-            
-            """)
-
-        except PermissionError:
-            print("Install failed due to insufficient permissions.")
-            print("  ->opslog must be installed as root or with sudo.")
-
-    exit()
-
-
-def _export_log(location, style, log=os.path.join(_logdir, get_operator() + "_ops_log.csv")):
+    if isinstance(log, type(None)):
+        log = os.path.join(_logdir, get_operator() + "_ops_log.csv")
 
     # First check to see if file already exists and if it does, make sure user wishes to overwrite
     if os.path.isfile(location):
@@ -518,7 +520,7 @@ if __name__ == '__main__':
     display_group.add_argument(
         '-lf',
         action='store_const',
-        const=list_flags(),
+        const=list_flags,
         help='List all flags used in current operators log'
     )
     display_group.add_argument(
