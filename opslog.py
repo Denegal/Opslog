@@ -438,7 +438,7 @@ if __name__ == '__main__':
     root_group.add_argument(
         '-v', '--version',
         action='version',
-        version='%(prog)s version 1.0\n\nCreated by: \n  Jacob Coburn\n  834COS\\DOB\n  jacob.coburn.1@us.af.mil'
+        version='%(prog)s version 1.5\n\nCreated by: \n  Jacob Coburn\n  834COS\\DOB\n  jacob.coburn.1@us.af.mil'
     )
     root_group.add_argument(
         '-o', '--operator',
