@@ -1,21 +1,16 @@
-from __future__ import print_function
 import argparse
-try:
-    from configparser import ConfigParser
-except Exception:
-    import ConfigParser
+from configparser import ConfigParser
 import re
 import datetime
 import sys
-import csv
+from csv import DictReader
 import json
 from shutil import copyfile
 from shutil import copytree
 import os
 import subprocess
-import pandas
-import tempfile
-
+from pandas import read_csv, set_option
+from tempfile import NamedTemporaryFile
 
 
 _desc = """
@@ -89,8 +84,8 @@ or in the /usr/lib/ops_log/help/OpsLog.pdf user manual.
 _logdir = '/usr/lib/ops_log/operator_logs/'
 _aliasfile = '/etc/profile.d/opslog_alias.sh'
 _configfile = '/usr/lib/ops_log/config.ini'
-pandas.set_option('display.expand_frame_repr', False)
-pandas.set_option('display.colheader_justify', 'center')
+set_option('display.expand_frame_repr', False)
+set_option('display.colheader_justify', 'center')
 
 
 def _install_opslog():
@@ -98,7 +93,7 @@ def _install_opslog():
 
     if not response.lower().startswith("y"):
         print("Exiting")
-        exit()
+        sys.exit()
 
     print("Beginning Install...")
     if not os.path.isdir('/usr/lib/ops_log/'):
@@ -153,7 +148,7 @@ def _install_opslog():
             print("Install failed due to insufficient permissions.")
             print("  ->opslog must be installed as root or with sudo.")
 
-    exit()
+    sys.exit()
 
 
 def get_operator():
@@ -171,7 +166,7 @@ def set_operator(value):
     with open(_configfile, 'w') as cfgfile:
         config.write(cfgfile)
     print("New operator set")
-    exit()
+    sys.exit()
 
 
 def list_operators():
@@ -179,18 +174,18 @@ def list_operators():
     operators = os.listdir(_logdir)
     for name in operators:
         print("\t" + re.split("_ops_log.csv", name)[0])
-    exit()
+    sys.exit()
 
 
 def _get_log():
 
     try:
 
-        log = pandas.read_csv(os.path.join(_logdir, get_operator() + "_ops_log.csv"), delimiter=';').fillna('')
+        log = read_csv(os.path.join(_logdir, get_operator() + "_ops_log.csv"), delimiter=';').fillna('')
         log.index += 1
     except FileNotFoundError:
         print("No log for current operator.")
-        exit()
+        sys.exit()
     return log
 
 
@@ -209,7 +204,7 @@ def display_log(log=None):
     else:
         print("\nThere are no entries in current log tagged with any of the provided flags.")
         print("Use 'opslog -lf' to list all currently used flags\n")
-    exit()
+    sys.exit()
 
 
 def list_flags():
@@ -278,14 +273,14 @@ def _export_log(location, style, log=None):
         response = input(location + " already exists. Do you wish to overwrite? (y/n)")
         if not response.startswith('y'):
             print("Aborting export of log file")
-            exit()
+            sys.exit()
 
     try:
 
         # if no format was specified or if default was specified, output in pandas matrix format
         if style == 'default' or style == 'd':
             with open(location, 'w+') as f:
-                f.write(display_log(pandas.read_csv(log, delimiter=';').fillna('')))
+                f.write(display_log(read_csv(log, delimiter=';').fillna('')))
                 f.write("\n")
 
         # If csv format was specified, simply copy the log file to output location
@@ -299,7 +294,7 @@ def _export_log(location, style, log=None):
 
             csv_rows = []
             with open(input_file) as csvfile:
-                reader = csv.DictReader(csvfile, delimiter=';')
+                reader = DictReader(csvfile, delimiter=';')
                 title = reader.fieldnames
                 for row in reader:
                     csv_rows.extend([{title[i]: row[title[i]] for i in range(len(title))}])
@@ -337,7 +332,7 @@ def _merge_logs(logs_list):
             for line in log.readlines():
                 if not patern.match(line) and not line == "":
                     print("ERROR: file {} does not match logging format. Unable to merge".format(file))
-                    exit()
+                    sys.exit()
 
     # If all files specified match log format, ask user for output location.
     print("All files matches log format.")
@@ -352,7 +347,7 @@ def _merge_logs(logs_list):
             output = output + str(log.read())
     result = sorted(output.splitlines())
 
-    merged_file = tempfile.NamedTemporaryFile(delete=False)
+    merged_file = NamedTemporaryFile(delete=False)
     # Write header to new file followed by lines from all input files
     with open(merged_file.name, "+a") as newlog:
         newlog.writelines('Date;Operator;Flag;PAA;IPs;Command Syntax;Executed;Note\n')
@@ -362,7 +357,7 @@ def _merge_logs(logs_list):
     _export_log(dest_file, dest_format, merged_file.name)
     merged_file.close()
 
-    exit()
+    sys.exit()
 
 
 def _run_command(command):
@@ -424,7 +419,7 @@ def main(args):
     if args.C:
         _run_command(command)
 
-    exit()
+    sys.exit()
 
 
 if __name__ == '__main__':
@@ -563,18 +558,19 @@ if __name__ == '__main__':
 
     if not len(sys.argv) > 1:
         print(_desc)
-        exit()
+        sys.exit()
 
     args = parser.parse_args()
 
     if args.sf:
         print(display_log(search_log(args.sf)))
-        exit()
+        sys.exit()
     if args.set_operator:
         set_operator(args.set_operator[0])
-        exit()
+        sys.exit()
     if args.filename:
         _export_log(args.filename[0], args.filetype[0])
+        sys.exit()
     if args.mergefile:
         _merge_logs(args.mergefile)
 
