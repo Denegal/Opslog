@@ -105,7 +105,7 @@ def _install_opslog():
             os.chmod(_logdir, 0o4777)  # this line must be changed to work with python 2.7 (04777)
 
             input_operator = input("Enter operator name: ")
-            config = configparser.ConfigParser()
+            config = ConfigParser()
             config.add_section('Operator Settings')
             config.set('Operator Settings', 'Current Operator', input_operator)
 
