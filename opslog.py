@@ -135,7 +135,7 @@ def _install_opslog():
             copyfile('install/OpsLog.pdf', '/usr/lib/ops_log/help/OpsLog.pdf')
             os.chmod("/usr/lib/ops_log/help/OpsLog.pdf", 0o774)
             copyfile(os.getcwd() + "/opslog", "/usr/lib/ops_log/opslog")
-            os.chmod("/usr/lib/ops_log/opslog.py", 0o775)
+            os.chmod("/usr/lib/ops_log/opslog", 0o775)
 
             print("""Program successfully installed to /usr/lib/ops_log/
             After restarting terminal, logs may now be created using shortcut command 'opslog'.
