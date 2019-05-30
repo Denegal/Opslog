@@ -99,10 +99,10 @@ def _install_opslog():
     if not os.path.isdir('/usr/lib/ops_log/'):
         try:
             os.mkdir('/usr/lib/ops_log/')
-            os.chmod('/usr/lib/ops_log', 0o4777)  # this line must be changed to work with python 2.7 (04777)
+            os.chmod('/usr/lib/ops_log', 0o4777)
 
             os.mkdir(_logdir)
-            os.chmod(_logdir, 0o4777)  # this line must be changed to work with python 2.7 (04777)
+            os.chmod(_logdir, 0o4777)
 
             input_operator = input("Enter operator name: ")
             config = ConfigParser()
@@ -112,11 +112,11 @@ def _install_opslog():
             with open("/usr/lib/ops_log/config.ini", 'w') as cfgfile:
                 config.write(cfgfile)
 
-            os.chmod("/usr/lib/ops_log/config.ini", 0o666)  # this line must be changed to work with python 2.7 (644)
+            os.chmod("/usr/lib/ops_log/config.ini", 0o666)
 
             with open(_aliasfile, '+a') as create_alias:
-                create_alias.write("\nfunction opslog()\n{\npython ")
-                create_alias.write("/usr/lib/ops_log/opslog.py")
+                create_alias.write("\nfunction opslog()\n{\n")
+                create_alias.write("/usr/lib/ops_log/opslog")
                 create_alias.write(r' "$@"')
                 create_alias.write('\n}\nexport opslog')
 
@@ -125,17 +125,17 @@ def _install_opslog():
 
             # Add html documentation to install folder
             copytree('install/help/', '/usr/lib/ops_log/help/')
-            os.chmod("/usr/lib/ops_log/help/", 0o775)  # this line must be changed to work with python 2.7 (771)
+            os.chmod("/usr/lib/ops_log/help/", 0o775)
             for root, dirs, files in os.walk("/usr/lib/ops_log/help/"):
                 for momo in dirs:
-                    os.chmod(os.path.join(root, momo), 0o775)  # this line must be changed to work with python 2.7 (771)
+                    os.chmod(os.path.join(root, momo), 0o775)
                 for momo in files:
-                    os.chmod(os.path.join(root, momo), 0o774)  # this line must be changed to work with python 2.7 (771)
+                    os.chmod(os.path.join(root, momo), 0o774)
                     
             copyfile('install/OpsLog.pdf', '/usr/lib/ops_log/help/OpsLog.pdf')
-            os.chmod("/usr/lib/ops_log/help/OpsLog.pdf", 0o774)  # this line must be changed to work with python 2.7 (771)
-            copyfile(os.getcwd() + "/opslog.py", "/usr/lib/ops_log/opslog.py")
-            os.chmod("/usr/lib/ops_log/opslog.py", 0o774)  # this line must be changed to work with python 2.7 (771)
+            os.chmod("/usr/lib/ops_log/help/OpsLog.pdf", 0o774)
+            copyfile(os.getcwd() + "/opslog", "/usr/lib/ops_log/opslog")
+            os.chmod("/usr/lib/ops_log/opslog.py", 0o775)
 
             print("""Program successfully installed to /usr/lib/ops_log/
             After restarting terminal, logs may now be created using shortcut command 'opslog'.
@@ -441,7 +441,7 @@ if __name__ == '__main__':
     root_group.add_argument(
         '-v', '--version',
         action='version',
-        version='%(prog)s version 1.5\n\nCreated by: \n  Jacob Coburn\n  834COS\\DOB\n  jacob.coburn.1@us.af.mil'
+        version='%(prog)s version 1.7\n\nCreated by: \n  Jacob Coburn\n  834COS\\DOB\n  jacob.coburn.1@us.af.mil'
     )
     root_group.add_argument(
         '-o', '--operator',
@@ -563,7 +563,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     if args.sf:
-        print(display_log(search_log(args.sf)))
+        print("\n" + display_log(search_log(args.sf)) + "\n")
         sys.exit()
     if args.set_operator:
         set_operator(args.set_operator[0])
@@ -577,5 +577,5 @@ if __name__ == '__main__':
     print(list_flags()[0], list_flags()[1]) if args.lf \
         else print(get_operator()) if args.operator \
         else print(args.list_operators()) if args.list_operators \
-        else print(display_log()) if args.cat \
+        else print("\n" + display_log() + "\n") if args.cat \
         else main(args)

@@ -69,3 +69,10 @@ Management Arguments:
     --export FILE         Export the current log
     --format FILETYPE     Format to use when exporting the log(csv, json, or default)
     --merge F1 F2 [F3...] Merge multiple log files together into one log
+
+
+
+The man page can be accessed with the command 'man opslog'.
+
+Complete documentation can be found in the /usr/lib/ops_log/help/index.html webfile
+or in the /usr/lib/ops_log/help/OpsLog.pdf user manual.
