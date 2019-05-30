@@ -6,15 +6,18 @@ Overview on How to Install and setup this Script
 Simple Installation
 ===================
 
-1. Ensure python3 is installed on the system
+1. Download the opslog program and extract zip file
 
-2. Copy the opslog.py file to your chosen folder and move to it
-    - It is recommended not to move the program file after install
-    - A folder dedicated to custom scripts is recommended
+2. Inside the opslog folder run the opslog program as
+root or with sudo privileges.
 
-3. run ``python opslog.py``
+- Example: ``sudo ./opslog``
 
-4. Follow the prompts to install the program
+3. Follow the prompts to complete install of the program
+
+4. Restart terminal and ensure alias is working by running ``opslog``
+    -If the opslog program help is displayed, the program installed correctly
+    -The original folder can now be removed if desired
 
 
 Install Location
@@ -46,7 +49,7 @@ Below is an sample directory listing of the install location::
     -rw-rw-rw- 1 root root   54 Apr 29 10:49 config.ini
     drwxrwxr-x 4 root root  4096 Apr 29 15:35 help
     drwsrwxrwx 2 root root 4096 Apr 29 10:50 operator_logs
-    -rwxrwxr-- 1 root root 15216 Apr 29 15:47 opslog.py
+    -rwxrwxr-x 1 root root 15216 Apr 29 15:47 opslog
 
     /usr/lib/ops_log/operator_logs:
     total 4
@@ -64,12 +67,33 @@ directory in the opslog_alias.sh file.
 If for any reason this does not work and users are unable to use the 'opslog'
 shortcut after installation, users can manually create this alias by adding the line::
 
-    alias opslog='/usr/lib/ops_log/opslog.py'
+    alias opslog='/usr/lib/ops_log/opslog'
 
 in their .bashrc file found in their home directory.
 
 
-A man page is also created for the program and can be access with the command::
+A man page is created for the program and can be access with the command::
 
     man opslog
 
+
+Simple Uninstall
+===================
+
+1. Ensure all log file are backed up by exporting or copying logs
+
+-Example 1: ``opslog --export ~/Desktop/log_backup --format csv``
+
+-Example 2: ``cp /usr/lib/ops_log/operator_logs/* ~/Desktop/log_backups/``
+
+2. Run the following commands to remove the opslog program files, alias file, and man page
+
+- ``sudo rm -rf /usr/lib/ops_log/``
+
+- ``sudo rm /etc/profile.d/opslog_alias.sh``
+
+- ``sudo /usr/share/man/man1/opslog.1``
+
+3. Restart terminal
+
+- The opslog program is now uninstalled

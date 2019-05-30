@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Overview on How to Install and setup this Script &#8212; OpsLog v1.6a May, 2019 documentation</title>
+    <title>Overview on How to Install and setup this Script &#8212; OpsLog v1.7a May, 2019 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -33,7 +33,7 @@
         <li class="right" >
           <a href="index.html" title="Welcome to OpsLog’s documentation!"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">OpsLog v1.6a May, 2019 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">OpsLog v1.7a May, 2019 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -47,18 +47,21 @@
 <div class="section" id="simple-installation">
 <h2>Simple Installation<a class="headerlink" href="#simple-installation" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li>Ensure python3 is installed on the system</li>
-<li><dl class="first docutils">
-<dt>Copy the opslog.py file to your chosen folder and move to it</dt>
-<dd><ul class="first last">
-<li>It is recommended not to move the program file after install</li>
-<li>A folder dedicated to custom scripts is recommended</li>
+<li>Download the opslog program and extract zip file</li>
+</ol>
+<p>2. Inside the opslog folder run the opslog program as
+root or with sudo privileges.</p>
+<ul class="simple">
+<li>Example: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">./opslog</span></code></li>
 </ul>
-</dd>
+<ol class="arabic simple" start="3">
+<li>Follow the prompts to complete install of the program</li>
+<li><dl class="first docutils">
+<dt>Restart terminal and ensure alias is working by running <code class="docutils literal notranslate"><span class="pre">opslog</span></code></dt>
+<dd>-If the opslog program help is displayed, the program installed correctly
+-The original folder can now be removed if desired</dd>
 </dl>
 </li>
-<li>run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">opslog.py</span></code></li>
-<li>Follow the prompts to install the program</li>
 </ol>
 </div>
 <div class="section" id="install-location">
@@ -86,7 +89,7 @@ created while another user was logged in.</p>
 <span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">rw</span><span class="o">-</span> <span class="mi">1</span> <span class="n">root</span> <span class="n">root</span>   <span class="mi">54</span> <span class="n">Apr</span> <span class="mi">29</span> <span class="mi">10</span><span class="p">:</span><span class="mi">49</span> <span class="n">config</span><span class="o">.</span><span class="n">ini</span>
 <span class="n">drwxrwxr</span><span class="o">-</span><span class="n">x</span> <span class="mi">4</span> <span class="n">root</span> <span class="n">root</span>  <span class="mi">4096</span> <span class="n">Apr</span> <span class="mi">29</span> <span class="mi">15</span><span class="p">:</span><span class="mi">35</span> <span class="n">help</span>
 <span class="n">drwsrwxrwx</span> <span class="mi">2</span> <span class="n">root</span> <span class="n">root</span> <span class="mi">4096</span> <span class="n">Apr</span> <span class="mi">29</span> <span class="mi">10</span><span class="p">:</span><span class="mi">50</span> <span class="n">operator_logs</span>
-<span class="o">-</span><span class="n">rwxrwxr</span><span class="o">--</span> <span class="mi">1</span> <span class="n">root</span> <span class="n">root</span> <span class="mi">15216</span> <span class="n">Apr</span> <span class="mi">29</span> <span class="mi">15</span><span class="p">:</span><span class="mi">47</span> <span class="n">opslog</span><span class="o">.</span><span class="n">py</span>
+<span class="o">-</span><span class="n">rwxrwxr</span><span class="o">-</span><span class="n">x</span> <span class="mi">1</span> <span class="n">root</span> <span class="n">root</span> <span class="mi">15216</span> <span class="n">Apr</span> <span class="mi">29</span> <span class="mi">15</span><span class="p">:</span><span class="mi">47</span> <span class="n">opslog</span>
 
 <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">ops_log</span><span class="o">/</span><span class="n">operator_logs</span><span class="p">:</span>
 <span class="n">total</span> <span class="mi">4</span>
@@ -102,14 +105,36 @@ using the shortcut alias ‘opslog’. This is due to an alias being created in 
 directory in the opslog_alias.sh file.</p>
 <p>If for any reason this does not work and users are unable to use the ‘opslog’
 shortcut after installation, users can manually create this alias by adding the line:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">alias</span> <span class="n">opslog</span><span class="o">=</span><span class="s1">&#39;/usr/lib/ops_log/opslog.py&#39;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">alias</span> <span class="n">opslog</span><span class="o">=</span><span class="s1">&#39;/usr/lib/ops_log/opslog&#39;</span>
 </pre></div>
 </div>
 <p>in their .bashrc file found in their home directory.</p>
-<p>A man page is also created for the program and can be access with the command:</p>
+<p>A man page is created for the program and can be access with the command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">man</span> <span class="n">opslog</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="simple-uninstall">
+<h2>Simple Uninstall<a class="headerlink" href="#simple-uninstall" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Ensure all log file are backed up by exporting or copying logs</li>
+</ol>
+<p>-Example 1: <code class="docutils literal notranslate"><span class="pre">opslog</span> <span class="pre">--export</span> <span class="pre">~/Desktop/log_backup</span> <span class="pre">--format</span> <span class="pre">csv</span></code></p>
+<p>-Example 2: <code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">/usr/lib/ops_log/operator_logs/*</span> <span class="pre">~/Desktop/log_backups/</span></code></p>
+<ol class="arabic simple" start="2">
+<li>Run the following commands to remove the opslog program files, alias file, and man page</li>
+</ol>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">rm</span> <span class="pre">-rf</span> <span class="pre">/usr/lib/ops_log/</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">rm</span> <span class="pre">/etc/profile.d/opslog_alias.sh</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">/usr/share/man/man1/opslog.1</span></code></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li>Restart terminal</li>
+</ol>
+<ul class="simple">
+<li>The opslog program is now uninstalled</li>
+</ul>
 </div>
 </div>
 
@@ -125,6 +150,7 @@ shortcut after installation, users can manually create this alias by adding the 
 <li><a class="reference internal" href="#simple-installation">Simple Installation</a></li>
 <li><a class="reference internal" href="#install-location">Install Location</a></li>
 <li><a class="reference internal" href="#post-install">Post Install</a></li>
+<li><a class="reference internal" href="#simple-uninstall">Simple Uninstall</a></li>
 </ul>
 </li>
 </ul>
@@ -170,7 +196,7 @@ shortcut after installation, users can manually create this alias by adding the 
         <li class="right" >
           <a href="index.html" title="Welcome to OpsLog’s documentation!"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">OpsLog v1.6a May, 2019 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">OpsLog v1.7a May, 2019 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
