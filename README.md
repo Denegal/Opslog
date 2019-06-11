@@ -21,6 +21,7 @@ Date format:
   
      
 Admin arguments:
+
  
   Use the following commands to retrieve program information or set operator
 
@@ -72,7 +73,6 @@ Management Arguments:
 
 
 
-The man page can be accessed with the command 'man opslog'.
+- The man page can be accessed with the command 'man opslog'.
 
-Complete documentation can be found in the /usr/lib/ops_log/help/index.html webfile
-or in the /usr/lib/ops_log/help/OpsLog.pdf user manual.
+- Complete documentation can be found in the /usr/lib/ops_log/help/index.html webfile or in the /usr/lib/ops_log/help/OpsLog.pdf user manual.

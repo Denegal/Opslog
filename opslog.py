@@ -106,6 +106,8 @@ def _install_opslog():
 
             input_operator = input("Enter operator name: ")
             config = ConfigParser()
+            config.add_section('Program Info')
+            config.set('Program Info', 'Version', '%(prog)s version 1.7')
             config.add_section('Operator Settings')
             config.set('Operator Settings', 'Current Operator', input_operator)
 
@@ -278,17 +280,17 @@ def _export_log(location, style, log=None):
     try:
 
         # if no format was specified or if default was specified, output in pandas matrix format
-        if style == 'default' or style == 'd':
+        if style.lower() == 'default' or style.lower() == 'd':
             with open(location, 'w+') as f:
                 f.write(display_log(read_csv(log, delimiter=';').fillna('')))
                 f.write("\n")
 
         # If csv format was specified, simply copy the log file to output location
-        elif style == 'csv':
+        elif style.lower() == 'csv':
             copyfile(log, location)
 
         # if json format was specified, create json file from csv and save to output location
-        elif style == 'json':
+        elif style.lower() == 'json':
             input_file = log
             output_file = location
 
@@ -336,8 +338,12 @@ def _merge_logs(logs_list):
 
     # If all files specified match log format, ask user for output location.
     print("All files matches log format.")
+
     dest_file = input("Enter destination filename: ")
     dest_format = input("Enter destination log format(default, csv, json): ")
+    if dest_format == "":
+        dest_format = 'default'
+
     output = str()
 
     for file in logs_list:
@@ -348,6 +354,7 @@ def _merge_logs(logs_list):
     result = sorted(output.splitlines())
 
     merged_file = NamedTemporaryFile(delete=False)
+
     # Write header to new file followed by lines from all input files
     with open(merged_file.name, "+a") as newlog:
         newlog.writelines('Date;Operator;Flag;PAA;IPs;Command Syntax;Executed;Note\n')

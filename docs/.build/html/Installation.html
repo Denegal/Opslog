@@ -46,21 +46,25 @@
 <h1>Overview on How to Install and setup this Script<a class="headerlink" href="#overview-on-how-to-install-and-setup-this-script" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="simple-installation">
 <h2>Simple Installation<a class="headerlink" href="#simple-installation" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic simple">
-<li>Download the opslog program and extract zip file</li>
-</ol>
-<p>2. Inside the opslog folder run the opslog program as
-root or with sudo privileges.</p>
-<ul class="simple">
+<ol class="arabic">
+<li><p class="first">Download the opslog program and extract zip file</p>
+</li>
+<li><p class="first">Inside the opslog folder run the opslog program as root or with sudo privileges.</p>
+<blockquote>
+<div><ul class="simple">
 <li>Example: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">./opslog</span></code></li>
 </ul>
-<ol class="arabic simple" start="3">
-<li>Follow the prompts to complete install of the program</li>
-<li><dl class="first docutils">
-<dt>Restart terminal and ensure alias is working by running <code class="docutils literal notranslate"><span class="pre">opslog</span></code></dt>
-<dd>-If the opslog program help is displayed, the program installed correctly
--The original folder can now be removed if desired</dd>
-</dl>
+</div></blockquote>
+</li>
+<li><p class="first">Follow the prompts to complete install of the program</p>
+</li>
+<li><p class="first">Restart terminal and ensure alias is working by running <code class="docutils literal notranslate"><span class="pre">opslog</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li>If the opslog program help is displayed, the program installed correctly</li>
+<li>The original folder can now be removed if desired</li>
+</ul>
+</div></blockquote>
 </li>
 </ol>
 </div>
@@ -116,25 +120,32 @@ shortcut after installation, users can manually create this alias by adding the 
 </div>
 <div class="section" id="simple-uninstall">
 <h2>Simple Uninstall<a class="headerlink" href="#simple-uninstall" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic simple">
-<li>Ensure all log file are backed up by exporting or copying logs</li>
-</ol>
-<p>-Example 1: <code class="docutils literal notranslate"><span class="pre">opslog</span> <span class="pre">--export</span> <span class="pre">~/Desktop/log_backup</span> <span class="pre">--format</span> <span class="pre">csv</span></code></p>
-<p>-Example 2: <code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">/usr/lib/ops_log/operator_logs/*</span> <span class="pre">~/Desktop/log_backups/</span></code></p>
-<ol class="arabic simple" start="2">
-<li>Run the following commands to remove the opslog program files, alias file, and man page</li>
-</ol>
-<ul class="simple">
+<ol class="arabic">
+<li><p class="first">Ensure all log file are backed up by exporting or copying logs</p>
+<blockquote>
+<div><ul class="simple">
+<li>Example: <code class="docutils literal notranslate"><span class="pre">opslog</span> <span class="pre">--export</span> <span class="pre">~/Desktop/log_backup</span> <span class="pre">--format</span> <span class="pre">csv</span></code></li>
+<li>Example: <code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">/usr/lib/ops_log/operator_logs/*</span> <span class="pre">~/Desktop/log_backups/</span></code></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Run the following commands to remove the opslog program files, alias file, and man page</p>
+<blockquote>
+<div><ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">rm</span> <span class="pre">-rf</span> <span class="pre">/usr/lib/ops_log/</span></code></li>
 <li><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">rm</span> <span class="pre">/etc/profile.d/opslog_alias.sh</span></code></li>
 <li><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">/usr/share/man/man1/opslog.1</span></code></li>
 </ul>
-<ol class="arabic simple" start="3">
-<li>Restart terminal</li>
-</ol>
-<ul class="simple">
+</div></blockquote>
+</li>
+<li><p class="first">Restart terminal</p>
+<blockquote>
+<div><ul class="simple">
 <li>The opslog program is now uninstalled</li>
 </ul>
+</div></blockquote>
+</li>
+</ol>
 </div>
 </div>
 

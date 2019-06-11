@@ -107,10 +107,10 @@ operator logs.</p>
 <span class="o">--</span><span class="n">merge</span> <span class="n">File1</span> <span class="n">File2</span>   <span class="n">Merge</span> <span class="n">multiple</span> <span class="n">log</span> <span class="n">files</span> <span class="n">together</span> <span class="n">into</span> <span class="n">one</span>
 </pre></div>
 </div>
-<p>Note: The files can be given in absolute or relative path. If no path is specified
-the file will output to the current directory.</p>
-<p>Note 2: The merge command can accept any number of log files. It will first check to ensure all
-supplied files are in the correct format, and then ask for the output log name before merging.</p>
+<ul class="simple">
+<li>Note 1: The files can be given in absolute or relative path. If no path is specified the file will output to the current directory.</li>
+<li>Note 2: The merge command can accept any number of log files. It will first check to ensure all supplied files are in the correct format, and then ask for the output log name before merging.</li>
+</ul>
 </div>
 <div class="section" id="output-arguments">
 <h2>Output Arguments<a class="headerlink" href="#output-arguments" title="Permalink to this headline">¶</a></h2>
@@ -139,19 +139,27 @@ all of the arguments may be used in any order.</p>
 <span class="o">-</span><span class="n">f</span> <span class="n">Flag</span> <span class="p">[</span><span class="n">Flag</span> <span class="o">...</span><span class="p">]</span>    <span class="n">Flag</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="n">used</span> <span class="n">to</span> <span class="n">tag</span> <span class="n">the</span> <span class="n">log</span> <span class="n">entry</span>
 </pre></div>
 </div>
-<p>Note 1: When inputting command syntax and notes, use of single quote marks (‘) are recommended to
-prevent your shell from interpreting it before logging.</p>
-<p>Note 1 Example:</p>
+<ul>
+<li><p class="first">Note 1: When inputting command syntax and notes, use of single quote marks (‘) are recommended to prevent your shell from interpreting it before logging.</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Note 1 Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;IP=&#39;1.2.3.4&#39;
 &gt;opslog -c &quot;ping $IP&quot; -n &quot;Testing connectivity to the $IP variable&quot;
 &gt;opslog -c &#39;ping $IP&#39; -n &#39;Testing connectivity to the $IP variable&#39;
 &gt;opslog --cat
 
-2019-04-29 18:59:24;argument_tests;;;;ping 1.2.3.4;no;Testing connectivity to the ip 1.2.3.4 variable
+2019-04-29 18:59:24;argument_tests;;;;ping 1.2.3.4;no;Testing connectivity to the 1.2.3.4 variable
 2019-04-29 18:59:42;argument_tests;;;;ping $IP;no;Testing connectivity to the $IP variable
 </pre></div>
 </div>
-<p>Note 2: Flags can be added with the -f option. Multiple flags may be used if space separated.</p>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Note 2: Flags can be added with the -f option. Multiple flags may be used if space separated.</p>
+</li>
+</ul>
 </div>
 </div>
 

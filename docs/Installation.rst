@@ -8,16 +8,18 @@ Simple Installation
 
 1. Download the opslog program and extract zip file
 
-2. Inside the opslog folder run the opslog program as
-root or with sudo privileges.
+2. Inside the opslog folder run the opslog program as root or with sudo privileges.
 
-- Example: ``sudo ./opslog``
+    - Example: ``sudo ./opslog``
 
 3. Follow the prompts to complete install of the program
 
 4. Restart terminal and ensure alias is working by running ``opslog``
-    -If the opslog program help is displayed, the program installed correctly
-    -The original folder can now be removed if desired
+
+    - If the opslog program help is displayed, the program installed correctly
+    - The original folder can now be removed if desired
+
+
 
 
 Install Location
@@ -82,18 +84,18 @@ Simple Uninstall
 
 1. Ensure all log file are backed up by exporting or copying logs
 
--Example 1: ``opslog --export ~/Desktop/log_backup --format csv``
+    - Example: ``opslog --export ~/Desktop/log_backup --format csv``
 
--Example 2: ``cp /usr/lib/ops_log/operator_logs/* ~/Desktop/log_backups/``
+    - Example: ``cp /usr/lib/ops_log/operator_logs/* ~/Desktop/log_backups/``
 
 2. Run the following commands to remove the opslog program files, alias file, and man page
 
-- ``sudo rm -rf /usr/lib/ops_log/``
+    - ``sudo rm -rf /usr/lib/ops_log/``
 
-- ``sudo rm /etc/profile.d/opslog_alias.sh``
+    - ``sudo rm /etc/profile.d/opslog_alias.sh``
 
-- ``sudo /usr/share/man/man1/opslog.1``
+    - ``sudo /usr/share/man/man1/opslog.1``
 
 3. Restart terminal
 
-- The opslog program is now uninstalled
+    - The opslog program is now uninstalled

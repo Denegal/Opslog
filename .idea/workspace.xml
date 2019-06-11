@@ -4,7 +4,22 @@
     <list default="true" id="3e35e272-57d4-456c-ba8f-5dccd6754c3a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/.build/doctrees/Examples.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/doctrees/Examples.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/.build/doctrees/Installation.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/doctrees/Installation.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/.build/doctrees/Usage.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/doctrees/Usage.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/.build/doctrees/environment.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/doctrees/environment.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/.build/html/Examples.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/html/Examples.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/.build/html/Installation.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/html/Installation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/.build/html/Usage.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/html/Usage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/.build/html/_sources/Examples.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/html/_sources/Examples.rst.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/.build/html/_sources/Installation.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/html/_sources/Installation.rst.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/.build/html/_sources/Usage.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/html/_sources/Usage.rst.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/.build/man/opslog.1" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/man/opslog.1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/.build/rinoh/OpsLog.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/rinoh/OpsLog.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/.build/rinoh/OpsLog.stylelog" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/rinoh/OpsLog.stylelog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Examples.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Examples.rst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/Installation.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Installation.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Usage.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Usage.rst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs/conf.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/opslog.py" beforeDir="false" afterPath="$PROJECT_DIR$/opslog.py" afterDir="false" />
     </list>
@@ -19,8 +34,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/opslog.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="443" column="37" selection-start-line="443" selection-start-column="37" selection-end-line="443" selection-end-column="37" />
+            <state relative-caret-position="405">
+              <caret line="114" column="31" selection-start-line="114" selection-start-column="31" selection-end-line="114" selection-end-column="31" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -36,8 +51,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/docs/conf.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="23" lean-forward="true" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+            <state relative-caret-position="2114">
+              <caret line="157" column="21" selection-start-line="157" selection-start-column="21" selection-end-line="157" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -56,8 +71,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="787">
-                <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
+              <first_editor relative-caret-position="345">
+                <caret line="23" selection-start-line="23" selection-end-line="23" />
               </first_editor>
               <second_editor />
             </state>
@@ -82,17 +97,17 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/docs/Usage.rst" />
-        <option value="$PROJECT_DIR$/docs/Examples.rst" />
-        <option value="$PROJECT_DIR$/docs/Installation.rst" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/opslog.py" />
+        <option value="$PROJECT_DIR$/docs/Usage.rst" />
+        <option value="$PROJECT_DIR$/docs/Installation.rst" />
+        <option value="$PROJECT_DIR$/docs/Examples.rst" />
         <option value="$PROJECT_DIR$/docs/conf.py" />
+        <option value="$PROJECT_DIR$/opslog.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="423" />
+    <option name="x" value="491" />
     <option name="y" value="32" />
     <option name="width" value="1413" />
     <option name="height" value="994" />
@@ -147,7 +162,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="423" y="32" width="1413" height="994" extended-state="0" />
+    <frame x="491" y="32" width="1413" height="994" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -160,7 +176,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.32794458" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.33718246" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32794458" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -172,39 +188,39 @@
     <entry file="file://$PROJECT_DIR$/docs/Makefile">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/conf.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="23" lean-forward="true" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="345">
+            <caret line="23" selection-start-line="23" selection-end-line="23" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/docs/index.rst">
       <provider selected="true" editor-type-id="restructured-text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/Examples.rst">
+    <entry file="file://$PROJECT_DIR$/docs/Usage.rst">
       <provider selected="true" editor-type-id="restructured-text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="787">
-            <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/docs/Examples.rst">
+      <provider selected="true" editor-type-id="restructured-text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/docs/Installation.rst">
       <provider selected="true" editor-type-id="restructured-text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/Usage.rst">
-      <provider selected="true" editor-type-id="restructured-text-editor" />
+    <entry file="file://$PROJECT_DIR$/docs/conf.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2114">
+          <caret line="157" column="21" selection-start-line="157" selection-start-column="21" selection-end-line="157" selection-end-column="21" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/opslog.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="443" column="37" selection-start-line="443" selection-start-column="37" selection-end-line="443" selection-end-column="37" />
+        <state relative-caret-position="405">
+          <caret line="114" column="31" selection-start-line="114" selection-start-column="31" selection-end-line="114" selection-end-column="31" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>

@@ -154,8 +154,8 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
     (master_doc, 'OpsLog', 'OpsLog Documentation',
-     author, 'OpsLog', 'One line description of project.',
-     'Miscellaneous'),
+     author, 'OpsLog', 'Standardized creation of operator notes and logs.',
+     'Log Creation'),
 ]
 
 

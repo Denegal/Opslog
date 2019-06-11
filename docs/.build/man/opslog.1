@@ -1,6 +1,6 @@
 .\" Man page generated from reStructuredText.
 .
-.TH "OPSLOG" "1" "May 30, 2019" "1.7" "OpsLog"
+.TH "OPSLOG" "1" "Jun 10, 2019" "1.7" "OpsLog"
 .SH NAME
 opslog \- OpsLog Documentation
 .
@@ -79,23 +79,29 @@ one concise log.
 .INDENT 0.0
 .IP 1. 3
 Download the opslog program and extract zip file
-.UNINDENT
-.sp
-2. Inside the opslog folder run the opslog program as
-root or with sudo privileges.
+.IP 2. 3
+Inside the opslog folder run the opslog program as root or with sudo privileges.
+.INDENT 3.0
+.INDENT 3.5
 .INDENT 0.0
 .IP \(bu 2
 Example: \fBsudo ./opslog\fP
 .UNINDENT
-.INDENT 0.0
+.UNINDENT
+.UNINDENT
 .IP 3. 3
 Follow the prompts to complete install of the program
 .IP 4. 3
+Restart terminal and ensure alias is working by running \fBopslog\fP
 .INDENT 3.0
-.TP
-.B Restart terminal and ensure alias is working by running \fBopslog\fP
-\-If the opslog program help is displayed, the program installed correctly
-\-The original folder can now be removed if desired
+.INDENT 3.5
+.INDENT 0.0
+.IP \(bu 2
+If the opslog program help is displayed, the program installed correctly
+.IP \(bu 2
+The original folder can now be removed if desired
+.UNINDENT
+.UNINDENT
 .UNINDENT
 .UNINDENT
 .SS Install Location
@@ -176,15 +182,20 @@ man opslog
 .INDENT 0.0
 .IP 1. 3
 Ensure all log file are backed up by exporting or copying logs
-.UNINDENT
-.sp
-\-Example 1: \fBopslog \-\-export ~/Desktop/log_backup \-\-format csv\fP
-.sp
-\-Example 2: \fBcp /usr/lib/ops_log/operator_logs/* ~/Desktop/log_backups/\fP
+.INDENT 3.0
+.INDENT 3.5
 .INDENT 0.0
+.IP \(bu 2
+Example: \fBopslog \-\-export ~/Desktop/log_backup \-\-format csv\fP
+.IP \(bu 2
+Example: \fBcp /usr/lib/ops_log/operator_logs/* ~/Desktop/log_backups/\fP
+.UNINDENT
+.UNINDENT
+.UNINDENT
 .IP 2. 3
 Run the following commands to remove the opslog program files, alias file, and man page
-.UNINDENT
+.INDENT 3.0
+.INDENT 3.5
 .INDENT 0.0
 .IP \(bu 2
 \fBsudo rm \-rf /usr/lib/ops_log/\fP
@@ -193,13 +204,18 @@ Run the following commands to remove the opslog program files, alias file, and m
 .IP \(bu 2
 \fBsudo /usr/share/man/man1/opslog.1\fP
 .UNINDENT
-.INDENT 0.0
+.UNINDENT
+.UNINDENT
 .IP 3. 3
 Restart terminal
-.UNINDENT
+.INDENT 3.0
+.INDENT 3.5
 .INDENT 0.0
 .IP \(bu 2
 The opslog program is now uninstalled
+.UNINDENT
+.UNINDENT
+.UNINDENT
 .UNINDENT
 .SH OPSLOG USAGE
 .sp
@@ -302,12 +318,12 @@ The management arguments are:
 .fi
 .UNINDENT
 .UNINDENT
-.sp
-Note: The files can be given in absolute or relative path. If no path is specified
-the file will output to the current directory.
-.sp
-Note 2: The merge command can accept any number of log files. It will first check to ensure all
-supplied files are in the correct format, and then ask for the output log name before merging.
+.INDENT 0.0
+.IP \(bu 2
+Note 1: The files can be given in absolute or relative path. If no path is specified the file will output to the current directory.
+.IP \(bu 2
+Note 2: The merge command can accept any number of log files. It will first check to ensure all supplied files are in the correct format, and then ask for the output log name before merging.
+.UNINDENT
 .SS Output Arguments
 .sp
 The following arguments are mutually exclusive and display the current operator’s
@@ -350,12 +366,15 @@ The logging arguments are:
 .fi
 .UNINDENT
 .UNINDENT
-.sp
-Note 1: When inputting command syntax and notes, use of single quote marks (‘) are recommended to
-prevent your shell from interpreting it before logging.
-.sp
-Note 1 Example:
 .INDENT 0.0
+.IP \(bu 2
+Note 1: When inputting command syntax and notes, use of single quote marks (‘) are recommended to prevent your shell from interpreting it before logging.
+.INDENT 2.0
+.INDENT 3.5
+.INDENT 0.0
+.IP \(bu 2
+Note 1 Example:
+.INDENT 2.0
 .INDENT 3.5
 .sp
 .nf
@@ -365,23 +384,28 @@ Note 1 Example:
 >opslog \-c \(aqping $IP\(aq \-n \(aqTesting connectivity to the $IP variable\(aq
 >opslog \-\-cat
 
-2019\-04\-29 18:59:24;argument_tests;;;;ping 1.2.3.4;no;Testing connectivity to the ip 1.2.3.4 variable
+2019\-04\-29 18:59:24;argument_tests;;;;ping 1.2.3.4;no;Testing connectivity to the 1.2.3.4 variable
 2019\-04\-29 18:59:42;argument_tests;;;;ping $IP;no;Testing connectivity to the $IP variable
 .ft P
 .fi
 .UNINDENT
 .UNINDENT
-.sp
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.IP \(bu 2
 Note 2: Flags can be added with the \-f option. Multiple flags may be used if space separated.
+.UNINDENT
 .SH OPSLOG EXAMPLES
 .SS Displaying and Changing the Current Operator
 .sp
 The current operator is stored in the programs configuration file and is
 referenced whenever log entries are made or the log is queried. You can
 find the current operator by using the \fBopslog \-o\fP command.
-.sp
-Example:
 .INDENT 0.0
+.IP \(bu 2
+Example:
+.INDENT 2.0
 .INDENT 3.5
 .sp
 .nf
@@ -392,13 +416,15 @@ test_operator
 .fi
 .UNINDENT
 .UNINDENT
+.UNINDENT
 .sp
 Whenever the current operator is changed, the configuration file is updated to
 reflect the new operator. You can change the current operator using the
 \fBopslog \-so\fP command.
-.sp
-Example:
 .INDENT 0.0
+.IP \(bu 2
+Example:
+.INDENT 2.0
 .INDENT 3.5
 .sp
 .nf
@@ -413,14 +439,16 @@ new_operator
 .fi
 .UNINDENT
 .UNINDENT
+.UNINDENT
 .SS Creating Log Entries
 .sp
-Log entires are created by using any or all of the Logging\-Arguments\&.
+Log entires are created by using any or all of the \fILogging\-Arguments\fP\&.
 These can be as simple as a timestamped note using \fBopslog \-n \(aqnote\(aq\fP command,
 or as complicated as a full entry using all six arguments.
-.sp
-Example 1:
 .INDENT 0.0
+.IP \(bu 2
+Example 1:
+.INDENT 2.0
 .INDENT 3.5
 .sp
 .nf
@@ -434,9 +462,9 @@ Example 1:
 .fi
 .UNINDENT
 .UNINDENT
-.sp
+.IP \(bu 2
 Example 2:
-.INDENT 0.0
+.INDENT 2.0
 .INDENT 3.5
 .sp
 .nf
@@ -450,9 +478,9 @@ Example 2:
 .fi
 .UNINDENT
 .UNINDENT
-.sp
+.IP \(bu 2
 Example 3:
-.INDENT 0.0
+.INDENT 2.0
 .INDENT 3.5
 .sp
 .nf
@@ -475,23 +503,24 @@ rtt min/avg/max/mdev = 0.027/0.034/0.038/0.007 ms
 .fi
 .UNINDENT
 .UNINDENT
-.sp
+.INDENT 2.0
+.IP \(bu 2
 Note 1: In all three examples. the \fBopslog \-\-cat\fP command is executed to show the contents of the log.
-.sp
-Note 2: In example 2, the 7th field(executed) lists ‘no’ because the command syntax was entered
-with the \fB\-c\fP option. This option only logs the command but does not attempt to execute it.
-.sp
-Note 3: In example 3, the 7th field(executed) lists ‘yes’ because the command syntax was entered
-with the \fB\-C\fP option. This option creates the log entry and then attempts to execute the command
-exactly as entered. Example 3 also shows the results of the executed command.
+.IP \(bu 2
+Note 2: In example 2, the 7th field(executed) lists ‘no’ because the command syntax was entered with the \fB\-c\fP option. This option only logs the command but does not attempt to execute it.
+.IP \(bu 2
+Note 3: In example 3, the 7th field(executed) lists ‘yes’ because the command syntax was entered with the \fB\-C\fP option. This option creates the log entry and then attempts to execute the command exactly as entered. Example 3 also shows the results of the executed command.
+.UNINDENT
+.UNINDENT
 .SS Displaying and Searching the Log
 .sp
 Logs can be easily displayed using the \fBopslog \-\-cat\fP command. The log displayed will always
 be the current operators log only. the output from this command can be piped into other commands
 as needed such as \fBhead\fP, \fBless\fP, or \fBgrep\fP\&.
-.sp
-Example 1:
 .INDENT 0.0
+.IP \(bu 2
+Example 1:
+.INDENT 2.0
 .INDENT 3.5
 .sp
 .nf
@@ -513,9 +542,9 @@ Example Operator
 .fi
 .UNINDENT
 .UNINDENT
-.sp
+.IP \(bu 2
 Example 2:
-.INDENT 0.0
+.INDENT 2.0
 .INDENT 3.5
 .sp
 .nf
@@ -530,13 +559,15 @@ Example 2:
 .fi
 .UNINDENT
 .UNINDENT
+.UNINDENT
 .sp
 Although the logs can be searched by piping to grep, Flags provide a much more efficient way of
 tagging entries of particular interest. You can list out all the flags used in the current log
 using the \fBopslog \-lf\fP command.
-.sp
-Example:
 .INDENT 0.0
+.IP \(bu 2
+Example:
+.INDENT 2.0
 .INDENT 3.5
 .sp
 .nf
@@ -554,12 +585,14 @@ Example:
 .fi
 .UNINDENT
 .UNINDENT
+.UNINDENT
 .sp
 You can also search for and display log entries based on the flags the entry was tagged with using
 the \fBopslog \-sf flag\fP command. The command can accept multiple flags in it’s search.
-.sp
-Example 1:
 .INDENT 0.0
+.IP \(bu 2
+Example 1:
+.INDENT 2.0
 .INDENT 3.5
 .sp
 .nf
@@ -574,9 +607,9 @@ Example 1:
 .fi
 .UNINDENT
 .UNINDENT
-.sp
+.IP \(bu 2
 Example 2:
-.INDENT 0.0
+.INDENT 2.0
 .INDENT 3.5
 .sp
 .nf
@@ -592,14 +625,16 @@ Example 2:
 .fi
 .UNINDENT
 .UNINDENT
+.UNINDENT
 .SS Exporting and Merging Logs
 .sp
-Once the logs are complete, the can be exported by using the \fBopslog \-\-export\fP command
+Once the logs are complete, they can be exported by using the \fBopslog \-\-export\fP command
 and specifying the export location and optionally a format. The location can use absolute or relative path, and will
 output to the current directory if only a filename is given
-.sp
-Example:
 .INDENT 0.0
+.IP \(bu 2
+Example:
+.INDENT 2.0
 .INDENT 3.5
 .sp
 .nf
@@ -610,8 +645,8 @@ total 0
 Log file successfully exported
 >ls \-l ~/tmp/
 total 4
-\-rw\-r\-\-r\-\- 1 assessor assessor 594 Apr 30 10:24 log.csv
-> cat ~/tmp/log.csv
+\-rw\-r\-\-r\-\- 1 assessor assessor 594 Apr 30 10:24 log
+> cat ~/tmp/log
           Date              Operator            Flag        PAA IPs Command Syntax Executed              Note
 1  2019\-04\-30 14:00:03  Example Operator                                                     Sample Entry 1
 2  2019\-04\-30 14:00:06  Example Operator                                                     Sample Entry 2
@@ -625,9 +660,9 @@ total 4
 .fi
 .UNINDENT
 .UNINDENT
-.sp
+.IP \(bu 2
 Example 2:
-.INDENT 0.0
+.INDENT 2.0
 .INDENT 3.5
 .sp
 .nf
@@ -646,46 +681,59 @@ total 4
 2019\-04\-30 14:00:38;Example Operator;mission;;;;;Sample Entry 4, with flag
 2019\-04\-30 14:00:49;Example Operator;opschecks;;;;;Sample Entry 5, with flag 2
 2019\-04\-30 14:00:52;Example Operator;opschecks;;;;;Sample Entry 6, with flag 2
-2019\-04\-30 14:01:14;Example Operator;example opschecks;;;;;Sample Entry 7, with 2 flag
-2019\-04\-30 14:01:25;Example Operator;example mission;;;;;Sample Entry 8, with 2 flag
+2019\-04\-30 14:01:14;Example Operator;example opschecks;;;;;Sample Entry 7, with 2 flags
+2019\-04\-30 14:01:25;Example Operator;example mission;;;;;Sample Entry 8, with 2 flags
 .ft P
 .fi
+.UNINDENT
 .UNINDENT
 .UNINDENT
 .sp
 If for any reason multiple logs need to be combined, the \fBopslog \-\-merge\fP command can
 do so. The command takes any number of files as arguments, checks these files to ensure they
 are csv formated log files, and merges them together into one log.
-.sp
-Example:
 .INDENT 0.0
+.IP \(bu 2
+Example:
+.INDENT 2.0
 .INDENT 3.5
 .sp
 .nf
 .ft C
 > ls \-l
+
 total 8
 \-rw\-r\-\-r\-\- 1 assessor assessor 138 Apr 30 10:29 merg1_log.csv
 \-rw\-r\-\-r\-\- 1 assessor assessor  92 Apr 30 10:30 merg2_log.csv
+
 > cat merg1_log.csv
+
 2019\-04\-30 15:28:32;merg1;;;;;;Sample entry 1
 2019\-04\-30 15:28:41;merg1;;;;;;Sample entry 2
 2019\-04\-30 15:29:19;merg1;;;;;;Sample entry 5
+
 > cat merg2_log.csv
+
 2019\-04\-30 15:28:55;merg2;;;;;;Sample entry 3
 2019\-04\-30 15:29:03;merg2;;;;;;Sample entry 4
+
 > opslog \-\-merge merg1_log.csv merg2_log.csv
+
 Checking files...
 All files matches log format.
 Enter destination filename: merged_log.csv
 Enter destination log format(default, csv, json): csv
 Merge Successful
+
 > ls \-l
+
 total 12
 \-rw\-r\-\-r\-\- 1 assessor assessor 138 Apr 30 10:29 merg1_log.csv
 \-rw\-r\-\-r\-\- 1 assessor assessor  92 Apr 30 10:30 merg2_log.csv
 \-rw\-r\-\-r\-\- 1 assessor assessor 230 Apr 30 10:33 merged_log.csv
+
 > cat merged_log.csv
+
 2019\-04\-30 15:28:32;merg1;;;;;;Sample entry 1
 2019\-04\-30 15:28:41;merg1;;;;;;Sample entry 2
 2019\-04\-30 15:28:55;merg2;;;;;;Sample entry 3
@@ -695,8 +743,11 @@ total 12
 .fi
 .UNINDENT
 .UNINDENT
-.sp
+.INDENT 2.0
+.IP \(bu 2
 Note 1: Currently, all logs you are attempting to merge MUST be in csv format or the merge will fail.
+.UNINDENT
+.UNINDENT
 .SH AUTHOR
 Jacob Coburn
 .SH COPYRIGHT
