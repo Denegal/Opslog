@@ -1,16 +1,17 @@
 import argparse
-import configparser
+from configparser import ConfigParser
 import re
 import datetime
 import sys
-import csv
+from csv import DictReader
 import json
 from shutil import copyfile
 from shutil import copytree
+from shutil import rmtree
 import os
 import subprocess
-import pandas
-import tempfile
+from pandas import read_csv, set_option
+from tempfile import NamedTemporaryFile
 
 
 _desc = """
@@ -84,89 +85,159 @@ or in the /usr/lib/ops_log/help/OpsLog.pdf user manual.
 _logdir = '/usr/lib/ops_log/operator_logs/'
 _aliasfile = '/etc/profile.d/opslog_alias.sh'
 _configfile = '/usr/lib/ops_log/config.ini'
-pandas.set_option('display.expand_frame_repr', False)
-pandas.set_option('display.colheader_justify', 'center')
+_version = 1.8
+set_option('display.expand_frame_repr', False)
+set_option('display.colheader_justify', 'center')
+
+
+def _upgrade_opslog():
+    config = ConfigParser()
+    config.read(_configfile)
+
+    try:
+        current_version = float(config.get('Program Info', 'Version'))
+    except KeyError:
+        current_version = 0
+    if current_version < _version:
+        response = input("Opslog version {} is already installed. Would you like to upgrade to version {}? ".format(
+            current_version, _version))
+        if response.lower().startswith('y'):
+
+            if os.geteuid() != 0:
+                print("Upgrade failed due to insufficient permissions.")
+                print("  ->opslog must be upgraded as root or with sudo.")
+                sys.exit()
+
+            print("Beginning Upgrade...")
+            try:
+                # Copy the new opslog program to the opslog directory, overwritting original
+                copyfile(os.getcwd() + '/' + str(__file__), "/usr/lib/ops_log/opslog")
+                os.chmod("/usr/lib/ops_log/opslog", 0o775)
+
+                # Copy new man page over old one
+                copyfile('install/opslog.1', '/usr/share/man/man1/opslog.1')
+
+                # Remove the help folder from the opslog directory and then copy the new docs into their place
+                rmtree('/usr/lib/ops_log/help/', ignore_errors=True)
+                copytree('install/help/', '/usr/lib/ops_log/help/')
+                os.chmod("/usr/lib/ops_log/help/", 0o775)
+                for root, dirs, files in os.walk("/usr/lib/ops_log/help/"):
+                    for momo in dirs:
+                        os.chmod(os.path.join(root, momo), 0o775)
+                    for momo in files:
+                        os.chmod(os.path.join(root, momo), 0o774)
+
+                # if everything so far was successful, update config.ini with new version number
+                config.set("Program Info", "Version", str(_version))
+                with open(_configfile, 'w') as cfgfile:
+                    config.write(cfgfile)
+
+                print('Upgrade Successful')
+
+            except Exception as e:
+                print("Installation failed due to error:")
+                print(e)
+                sys.exit()
+
+    else:
+        print("A newer version of the Opslog program is already installed.")
+        exit()
+
+    sys.exit()
 
 
 def _install_opslog():
+
     response = input("opslog has not yet been installed. Would you like to install now? (y/n)")
 
     if not response.lower().startswith("y"):
         print("Exiting")
-        exit()
+        sys.exit()
+
+    if os.geteuid() != 0:
+        print("Install failed due to insufficient permissions.")
+        print("  ->opslog must be installed as root or with sudo.")
+        sys.exit()
 
     print("Beginning Install...")
-    if not os.path.isdir('/usr/lib/ops_log/'):
-        try:
-            os.mkdir('/usr/lib/ops_log/')
-            os.chmod('/usr/lib/ops_log', 0o4777)  # this line must be changed to work with python 2.7 (04777)
+    try:
+        os.mkdir('/usr/lib/ops_log/')
+        os.chmod('/usr/lib/ops_log', 0o4777)
 
-            os.mkdir(_logdir)
-            os.chmod(_logdir, 0o4777)  # this line must be changed to work with python 2.7 (04777)
+        os.mkdir(_logdir)
+        os.chmod(_logdir, 0o4777)
 
-            input_operator = input("Enter operator name: ")
-            config = configparser.ConfigParser()
-            config.add_section('Operator Settings')
-            config.set('Operator Settings', 'Current Operator', input_operator)
+        input_operator = input("Enter operator name: ")
+        config = ConfigParser()
+        config.add_section('Program Info')
+        config.set('Program Info', 'Version', str(_version))
+        config.add_section('Operator Settings')
+        config.set('Operator Settings', 'Current Operator', input_operator)
 
-            with open("/usr/lib/ops_log/config.ini", 'w') as cfgfile:
-                config.write(cfgfile)
+        with open("/usr/lib/ops_log/config.ini", 'w') as cfgfile:
+            config.write(cfgfile)
 
-            os.chmod("/usr/lib/ops_log/config.ini", 0o666)  # this line must be changed to work with python 2.7 (644)
+        os.chmod("/usr/lib/ops_log/config.ini", 0o666)
 
-            with open(_aliasfile, '+a') as create_alias:
-                create_alias.write("\nfunction opslog()\n{\npython ")
-                create_alias.write("/usr/lib/ops_log/opslog.py")
-                create_alias.write(r' "$@"')
-                create_alias.write('\n}\nexport opslog')
+        with open(_aliasfile, '+a') as create_alias:
+            create_alias.write("\nfunction opslog()\n{\n")
+            create_alias.write("/usr/lib/ops_log/opslog")
+            create_alias.write(r' "$@"')
+            create_alias.write('\n}\nexport opslog')
 
-            # Add man page to system
-            copyfile('install/opslog.1', '/usr/share/man/man1/opslog.1')
+        # Add man page to system
+        copyfile('install/opslog.1', '/usr/share/man/man1/opslog.1')
 
-            # Add html documentation to install folder
-            copytree('install/help/', '/usr/lib/ops_log/help/')
-            os.chmod("/usr/lib/ops_log/help/", 0o775)  # this line must be changed to work with python 2.7 (771)
-            for root, dirs, files in os.walk("/usr/lib/ops_log/help/"):
-                for momo in dirs:
-                    os.chmod(os.path.join(root, momo), 0o775)  # this line must be changed to work with python 2.7 (771)
-                for momo in files:
-                    os.chmod(os.path.join(root, momo), 0o774)  # this line must be changed to work with python 2.7 (771)
-                    
-            copyfile('install/OpsLog.pdf', '/usr/lib/ops_log/help/OpsLog.pdf')
-            os.chmod("/usr/lib/ops_log/help/OpsLog.pdf", 0o774)  # this line must be changed to work with python 2.7 (771)
-            copyfile(os.getcwd() + "/opslog.py", "/usr/lib/ops_log/opslog.py")
-            os.chmod("/usr/lib/ops_log/opslog.py", 0o774)  # this line must be changed to work with python 2.7 (771)
+        # Add html documentation to install folder
+        copytree('install/help/', '/usr/lib/ops_log/help/')
+        os.chmod("/usr/lib/ops_log/help/", 0o775)
+        for root, dirs, files in os.walk("/usr/lib/ops_log/help/"):
+            for momo in dirs:
+                os.chmod(os.path.join(root, momo), 0o775)
+            for momo in files:
+                os.chmod(os.path.join(root, momo), 0o774)
 
-            print("""Program successfully installed to /usr/lib/ops_log/
-            After restarting terminal, logs may now be created using shortcut command 'opslog'.
+        copyfile('install/OpsLog.pdf', '/usr/lib/ops_log/help/OpsLog.pdf')
+        os.chmod("/usr/lib/ops_log/help/OpsLog.pdf", 0o774)
+        copyfile(os.getcwd() + '/' + str(__file__), "/usr/lib/ops_log/opslog")
+        os.chmod("/usr/lib/ops_log/opslog", 0o775)
 
-               Example: opslog -n 'operator note'
+        print("""Program successfully installed to /usr/lib/ops_log/
+        After restarting terminal, logs may now be created using shortcut command 'opslog'.
 
-            """)
+           Example: opslog -n 'operator note'
 
-        except PermissionError:
-            print("Install failed due to insufficient permissions.")
-            print("  ->opslog must be installed as root or with sudo.")
+        """)
 
-    exit()
+    except Exception as e:
+        print("Installation failed due to error:")
+        print(e)
+
+        # if install started but failed, clean up any files that were created
+        if os.path.exists('/usr/share/man/man1/opslog.1'):
+            os.remove('/usr/share/man/man1/opslog.1')
+        if os.path.exists('/usr/lib/ops_log'):
+            rmtree('/usr/lib/ops_log', ignore_errors=True)
+
+    sys.exit()
 
 
 def get_operator():
     # print(os.getenv('OPS_LOG_USER'))
-    config = configparser.ConfigParser()
+    config = ConfigParser()
     config.read(_configfile)
     return config.get("Operator Settings", "Current Operator")
 
 
 def set_operator(value):
 
-    config = configparser.ConfigParser()
+    config = ConfigParser()
     config.read(_configfile)
     config.set("Operator Settings", "Current Operator", value)
     with open(_configfile, 'w') as cfgfile:
         config.write(cfgfile)
     print("New operator set")
-    exit()
+    sys.exit()
 
 
 def list_operators():
@@ -174,18 +245,18 @@ def list_operators():
     operators = os.listdir(_logdir)
     for name in operators:
         print("\t" + re.split("_ops_log.csv", name)[0])
-    exit()
+    sys.exit()
 
 
 def _get_log():
 
     try:
 
-        log = pandas.read_csv(os.path.join(_logdir, get_operator() + "_ops_log.csv"), delimiter=';').fillna('')
+        log = read_csv(os.path.join(_logdir, get_operator() + "_ops_log.csv"), delimiter=';').fillna('')
         log.index += 1
     except FileNotFoundError:
         print("No log for current operator.")
-        exit()
+        sys.exit()
     return log
 
 
@@ -204,7 +275,7 @@ def display_log(log=None):
     else:
         print("\nThere are no entries in current log tagged with any of the provided flags.")
         print("Use 'opslog -lf' to list all currently used flags\n")
-    exit()
+    sys.exit()
 
 
 def list_flags():
@@ -273,28 +344,28 @@ def _export_log(location, style, log=None):
         response = input(location + " already exists. Do you wish to overwrite? (y/n)")
         if not response.startswith('y'):
             print("Aborting export of log file")
-            exit()
+            sys.exit()
 
     try:
 
         # if no format was specified or if default was specified, output in pandas matrix format
-        if style == 'default' or style == 'd':
+        if style.lower() == 'default' or style.lower() == 'd':
             with open(location, 'w+') as f:
-                f.write(display_log(pandas.read_csv(log, delimiter=';').fillna('')))
+                f.write(display_log(read_csv(log, delimiter=';').fillna('')))
                 f.write("\n")
 
         # If csv format was specified, simply copy the log file to output location
-        elif style == 'csv':
+        elif style.lower() == 'csv':
             copyfile(log, location)
 
         # if json format was specified, create json file from csv and save to output location
-        elif style == 'json':
+        elif style.lower() == 'json':
             input_file = log
             output_file = location
 
             csv_rows = []
             with open(input_file) as csvfile:
-                reader = csv.DictReader(csvfile, delimiter=';')
+                reader = DictReader(csvfile, delimiter=';')
                 title = reader.fieldnames
                 for row in reader:
                     csv_rows.extend([{title[i]: row[title[i]] for i in range(len(title))}])
@@ -332,12 +403,29 @@ def _merge_logs(logs_list):
             for line in log.readlines():
                 if not patern.match(line) and not line == "":
                     print("ERROR: file {} does not match logging format. Unable to merge".format(file))
-                    exit()
+                    sys.exit()
 
     # If all files specified match log format, ask user for output location.
     print("All files matches log format.")
+
+    # After the user provides the output location, replace provided string with common aliases:
+    # ./ for current dir, ../ for parent dir, and ~ for home dir
     dest_file = input("Enter destination filename: ")
+    dest_file = dest_file.replace('../', os.path.dirname(os.getcwd()) + '/').replace('./', os.getcwd() + '/').replace('~', os.getenv("HOME"))
+
+    # test to ensure provided string is an approprite directory the user has permission for
+    # this also doubles as input validation
+    if not os.path.isdir(os.path.dirname(dest_file)):
+        print("ERROR: Destination {} does not exist or you do not have permissions to save files to it".format(dest_file))
+        exit()
+
+    # Once output destination is validated, ask for output format
+    # if no format is provided, set to default
     dest_format = input("Enter destination log format(default, csv, json): ")
+    if dest_format.lower() not in list("default", "csv", "json"):
+        print("Unrecognized output format. Using default format.")
+        dest_format = 'default'
+
     output = str()
 
     for file in logs_list:
@@ -345,9 +433,10 @@ def _merge_logs(logs_list):
             # for each file, skip first line(header), then copy all other lines to output variable
             log.readline()
             output = output + str(log.read())
-    result = sorted(output.splitlines())
+    result = sorted(set(output.splitlines()))
 
-    merged_file = tempfile.NamedTemporaryFile(delete=False)
+    merged_file = NamedTemporaryFile(delete=False)
+
     # Write header to new file followed by lines from all input files
     with open(merged_file.name, "+a") as newlog:
         newlog.writelines('Date;Operator;Flag;PAA;IPs;Command Syntax;Executed;Note\n')
@@ -357,7 +446,7 @@ def _merge_logs(logs_list):
     _export_log(dest_file, dest_format, merged_file.name)
     merged_file.close()
 
-    exit()
+    sys.exit()
 
 
 def _run_command(command):
@@ -419,13 +508,15 @@ def main(args):
     if args.C:
         _run_command(command)
 
-    exit()
+    sys.exit()
 
 
 if __name__ == '__main__':
 
     if not os.path.isfile(_configfile):
         _install_opslog()
+    elif __file__ == 'opslog_installer':
+        _upgrade_opslog()
 
     parser = argparse.ArgumentParser(formatter_class=argparse.RawDescriptionHelpFormatter,
                                      description=_desc,
@@ -441,7 +532,8 @@ if __name__ == '__main__':
     root_group.add_argument(
         '-v', '--version',
         action='version',
-        version='%(prog)s version 1.5\n\nCreated by: \n  Jacob Coburn\n  834COS\\DOB\n  jacob.coburn.1@us.af.mil'
+        version='%(prog)s version {}\n\nCreated by: \n  Jacob Coburn\n  834COS\\DOB\n  jacob.coburn.1@us.af.mil'.format(
+            _version)
     )
     root_group.add_argument(
         '-o', '--operator',
@@ -558,23 +650,24 @@ if __name__ == '__main__':
 
     if not len(sys.argv) > 1:
         print(_desc)
-        exit()
+        sys.exit()
 
     args = parser.parse_args()
 
     if args.sf:
-        print(display_log(search_log(args.sf)))
-        exit()
+        print("\n" + display_log(search_log(args.sf)) + "\n")
+        sys.exit()
     if args.set_operator:
         set_operator(args.set_operator[0])
-        exit()
+        sys.exit()
     if args.filename:
         _export_log(args.filename[0], args.filetype[0])
+        sys.exit()
     if args.mergefile:
         _merge_logs(args.mergefile)
 
     print(list_flags()[0], list_flags()[1]) if args.lf \
         else print(get_operator()) if args.operator \
         else print(args.list_operators()) if args.list_operators \
-        else print(display_log()) if args.cat \
+        else print("\n" + display_log() + "\n") if args.cat \
         else main(args)
