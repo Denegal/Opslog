@@ -4,18 +4,18 @@
        > (0,0,1,0,2) title page title
          (0,0,0,0,2) body
     SingleStyledText('OpsLog Documentation')
-  Paragraph('Release v1.7a May, 2019', style='title page subtitle')
+  Paragraph('Release v1.8 May, 2019', style='title page subtitle')
        > (0,0,1,0,2) title page subtitle
          (0,0,0,0,2) body
-    SingleStyledText('Release v1.7a May, 2019')
+    SingleStyledText('Release v1.8 May, 2019')
   Paragraph('Jacob Coburn', style='title page author')
        > (0,0,1,0,2) title page author
          (0,0,0,0,2) body
     SingleStyledText('Jacob Coburn')
-  Paragraph('June 10, 2019', style='title page date')
+  Paragraph('June 11, 2019', style='title page date')
        > (0,0,1,0,2) title page date
          (0,0,0,0,2) body
-    SingleStyledText('June 10, 2019')
+    SingleStyledText('June 11, 2019')
 ---------------------------------- page i ----------------------------------
 #### FlowablesContainer('chapter title')
   Paragraph('Table of Contents', style='front matter section title')
@@ -46,18 +46,18 @@
                  x (0,0,0,1,3) toc linked reference
                  > (0,0,0,1,1) linked reference
               SingleStyledText('3')
-      TableOfContentsEntry('1.1	Simple Installation	3')
+      TableOfContentsEntry('1.1	Simple Installation/Upgrade	...')
            > (0,0,0,1,2) toc level 2
-          MixedStyledText('1.1	Simple Installation	3')
+          MixedStyledText('1.1	Simple Installation/Upgrade	...')
             ReferenceField('1.1')
                  x (0,0,0,1,3) toc linked reference
                  > (0,0,0,1,1) linked reference
               SingleStyledText('1.1')
             Tab('	')
-            ReferenceField('Simple Installation')
+            ReferenceField('Simple Installation/Upgrade')
                  x (0,0,0,1,3) toc linked reference
                  > (0,0,0,1,1) linked reference
-              SingleStyledText('Simple Installation')
+              SingleStyledText('Simple Installation/Upgrade')
             Tab('	')
             ReferenceField('3')
                  x (0,0,0,1,3) toc linked reference
@@ -459,8 +459,8 @@
       Field('OpsLog Documentation')
         SingleStyledText('OpsLog Documentation')
       SingleStyledText(', ')
-      Field('Release v1.7a May, 2019')
-        SingleStyledText('Release v1.7a May, 2019')
+      Field('Release v1.8 May, 2019')
+        SingleStyledText('Release v1.8 May, 2019')
 #### DownExpandingContainer('footer')
   Footer('2		Chapter ​.  ​')
        > (0,0,0,0,2) footer
@@ -500,14 +500,14 @@
       StaticGroupedFlowables(id='%Installation')   None:None <start_of_file>
         Section(id='%Installation#overview-on-how-to-install-and-setup-this-script')   /home/assessor/working_dir/python_projects/opslog/docs/Installation.rst:4 <section>
              > (0,0,0,1,2) chapter
-          Section(id='%Installation#simple-installation')   /home/assessor/working_dir/python_projects/opslog/docs/Installation.rst:7 <section>
-            Heading('1.1 Simple Installation')   /home/assessor/working_dir/python_projects/opslog/docs/Installation.rst:7 <title>
+          Section(id='%Installation#simple-installation-upgrade')   /home/assessor/working_dir/python_projects/opslog/docs/Installation.rst:7 <section>
+            Heading('1.1 Simple Installation/Upgrade')   /home/assessor/working_dir/python_projects/opslog/docs/Installation.rst:7 <title>
                  > (0,0,0,1,2) heading level 2
                    (0,0,0,0,2) other heading levels
-                MixedStyledText('1.1 Simple Installation')
+                MixedStyledText('1.1 Simple Installation/Upgrade')
                   SingleStyledText('1.1')
                   SingleStyledText(' ')
-                  SingleStyledText('Simple Installation')
+                  SingleStyledText('Simple Installation/Upgrade')
             List(style='enumerated')   /home/assessor/working_dir/python_projects/opslog/docs/Installation.rst:9 <enumerated_list>
                  > (0,0,1,0,2) enumerated list
               ListItem()
@@ -558,14 +558,14 @@
                               SingleStyledText('')
                         StaticGroupedFlowables()   None:None <list_item>
                              > (0,0,0,0,3) list item body
-                          Paragraph('Example: sudo ./opslog')   /home/assessor/working_dir/python_projects/opslog/docs/Installation.rst:13 <paragraph>
+                          Paragraph('Example: sudo ./opslog_installer')   /home/assessor/working_dir/python_projects/opslog/docs/Installation.rst:13 <paragraph>
                                > (0,0,0,0,5) list item paragraph
                                  (0,0,0,0,2) body
-                            MixedStyledText('Example: sudo ./opslog')
+                            MixedStyledText('Example: sudo ./opslog_installer')
                               SingleStyledText('Example: ')
-                              MixedStyledText('sudo ./opslog', style='monospaced')   None:None <literal>
+                              MixedStyledText('sudo ./opslog_installer', style='monospaced')   None:None <literal>
                                    > (0,0,1,0,1) monospaced
-                                SingleStyledText('sudo ./opslog')
+                                SingleStyledText('sudo ./opslog_installer')
               ListItem()
                    x (0,0,1,0,4) enumerated list item
                    > fallback to default style
@@ -593,11 +593,11 @@
                       SingleStyledText('.')
                 StaticGroupedFlowables()   /home/assessor/working_dir/python_projects/opslog/docs/Installation.rst:None <list_item>
                      > (0,0,0,0,3) list item body
-                  Paragraph('Restart terminal and ensure alia...')   /home/assessor/working_dir/python_projects/opslog/docs/Installation.rst:17 <paragraph>
+                  Paragraph('If installing, restart terminal ...')   /home/assessor/working_dir/python_projects/opslog/docs/Installation.rst:17 <paragraph>
                        > (0,0,0,0,5) list item paragraph
                          (0,0,0,0,2) body
-                    MixedStyledText('Restart terminal and ensure alia...')
-                      SingleStyledText('Restart terminal and ensure alia...')
+                    MixedStyledText('If installing, restart terminal ...')
+                      SingleStyledText('If installing, restart terminal ...')
                       MixedStyledText('opslog', style='monospaced')   None:None <literal>
                            > (0,0,1,0,1) monospaced
                         SingleStyledText('opslog')
@@ -1120,8 +1120,8 @@
       Field('OpsLog Documentation')
         SingleStyledText('OpsLog Documentation')
       SingleStyledText(', ')
-      Field('Release v1.7a May, 2019')
-        SingleStyledText('Release v1.7a May, 2019')
+      Field('Release v1.8 May, 2019')
+        SingleStyledText('Release v1.8 May, 2019')
 #### DownExpandingContainer('footer')
   Footer('4		Chapter 1.  Overview on How t...')
        > (0,0,0,0,2) footer
@@ -2483,8 +2483,8 @@
       Field('OpsLog Documentation')
         SingleStyledText('OpsLog Documentation')
       SingleStyledText(', ')
-      Field('Release v1.7a May, 2019')
-        SingleStyledText('Release v1.7a May, 2019')
+      Field('Release v1.8 May, 2019')
+        SingleStyledText('Release v1.8 May, 2019')
 #### DownExpandingContainer('footer')
   Footer('6		Chapter 2.  Opslog Usage')
        > (0,0,0,0,2) footer
@@ -2812,8 +2812,8 @@
       Field('OpsLog Documentation')
         SingleStyledText('OpsLog Documentation')
       SingleStyledText(', ')
-      Field('Release v1.7a May, 2019')
-        SingleStyledText('Release v1.7a May, 2019')
+      Field('Release v1.8 May, 2019')
+        SingleStyledText('Release v1.8 May, 2019')
 #### DownExpandingContainer('footer')
   Footer('2.6.  Logging Arguments		7')
        > (0,0,0,0,2) footer
@@ -2840,8 +2840,8 @@
       Field('OpsLog Documentation')
         SingleStyledText('OpsLog Documentation')
       SingleStyledText(', ')
-      Field('Release v1.7a May, 2019')
-        SingleStyledText('Release v1.7a May, 2019')
+      Field('Release v1.8 May, 2019')
+        SingleStyledText('Release v1.8 May, 2019')
 #### DownExpandingContainer('footer')
   Footer('8		Chapter 2.  Opslog Usage')
        > (0,0,0,0,2) footer
@@ -4257,8 +4257,8 @@
       Field('OpsLog Documentation')
         SingleStyledText('OpsLog Documentation')
       SingleStyledText(', ')
-      Field('Release v1.7a May, 2019')
-        SingleStyledText('Release v1.7a May, 2019')
+      Field('Release v1.8 May, 2019')
+        SingleStyledText('Release v1.8 May, 2019')
 #### DownExpandingContainer('footer')
   Footer('10		Chapter 3.  Opslog Examples')
        > (0,0,0,0,2) footer
@@ -5021,8 +5021,8 @@
       Field('OpsLog Documentation')
         SingleStyledText('OpsLog Documentation')
       SingleStyledText(', ')
-      Field('Release v1.7a May, 2019')
-        SingleStyledText('Release v1.7a May, 2019')
+      Field('Release v1.8 May, 2019')
+        SingleStyledText('Release v1.8 May, 2019')
 #### DownExpandingContainer('footer')
   Footer('3.3.  Displaying and Searching t...')
        > (0,0,0,0,2) footer
@@ -6231,8 +6231,8 @@
       Field('OpsLog Documentation')
         SingleStyledText('OpsLog Documentation')
       SingleStyledText(', ')
-      Field('Release v1.7a May, 2019')
-        SingleStyledText('Release v1.7a May, 2019')
+      Field('Release v1.8 May, 2019')
+        SingleStyledText('Release v1.8 May, 2019')
 #### DownExpandingContainer('footer')
   Footer('12		Chapter 3.  Opslog Examples')
        > (0,0,0,0,2) footer
@@ -7131,8 +7131,8 @@
       Field('OpsLog Documentation')
         SingleStyledText('OpsLog Documentation')
       SingleStyledText(', ')
-      Field('Release v1.7a May, 2019')
-        SingleStyledText('Release v1.7a May, 2019')
+      Field('Release v1.8 May, 2019')
+        SingleStyledText('Release v1.8 May, 2019')
 #### DownExpandingContainer('footer')
   Footer('3.4.  Exporting and Merging Logs...')
        > (0,0,0,0,2) footer
@@ -7193,8 +7193,8 @@
       Field('OpsLog Documentation')
         SingleStyledText('OpsLog Documentation')
       SingleStyledText(', ')
-      Field('Release v1.7a May, 2019')
-        SingleStyledText('Release v1.7a May, 2019')
+      Field('Release v1.8 May, 2019')
+        SingleStyledText('Release v1.8 May, 2019')
 #### DownExpandingContainer('footer')
   Footer('14		Chapter 3.  Opslog Examples')
        > (0,0,0,0,2) footer

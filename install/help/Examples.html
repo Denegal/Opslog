@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Opslog Examples &#8212; OpsLog v1.7a May, 2019 documentation</title>
+    <title>Opslog Examples &#8212; OpsLog v1.8 May, 2019 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -29,7 +29,7 @@
         <li class="right" >
           <a href="Usage.html" title="Opslog Usage"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">OpsLog v1.7a May, 2019 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">OpsLog v1.8 May, 2019 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -45,15 +45,19 @@
 <p>The current operator is stored in the programs configuration file and is
 referenced whenever log entries are made or the log is queried. You can
 find the current operator by using the <code class="docutils literal notranslate"><span class="pre">opslog</span> <span class="pre">-o</span></code> command.</p>
-<p>Example:</p>
+<ul>
+<li><p class="first">Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">opslog</span> <span class="o">-</span><span class="n">o</span>
 <span class="n">test_operator</span>
 </pre></div>
 </div>
+</li>
+</ul>
 <p>Whenever the current operator is changed, the configuration file is updated to
 reflect the new operator. You can change the current operator using the
 <code class="docutils literal notranslate"><span class="pre">opslog</span> <span class="pre">-so</span></code> command.</p>
-<p>Example:</p>
+<ul>
+<li><p class="first">Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">opslog</span> <span class="o">-</span><span class="n">o</span>
 <span class="n">test_operator</span>
 
@@ -62,13 +66,16 @@ reflect the new operator. You can change the current operator using the
 <span class="n">new_operator</span>
 </pre></div>
 </div>
+</li>
+</ul>
 </div>
 <div class="section" id="creating-log-entries">
 <h2>Creating Log Entries<a class="headerlink" href="#creating-log-entries" title="Permalink to this headline">¶</a></h2>
-<p>Log entires are created by using any or all of the <a class="reference internal" href="Usage.html#logging-arguments"><span class="std std-ref">Logging Arguments</span></a>.
+<p>Log entires are created by using any or all of the <cite>Logging-Arguments</cite>.
 These can be as simple as a timestamped note using <code class="docutils literal notranslate"><span class="pre">opslog</span> <span class="pre">-n</span> <span class="pre">'note'</span></code> command,
 or as complicated as a full entry using all six arguments.</p>
-<p>Example 1:</p>
+<ul>
+<li><p class="first">Example 1:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">opslog</span> <span class="o">-</span><span class="n">n</span> <span class="s1">&#39;This is a simple operator note&#39;</span>
 <span class="o">&gt;</span> <span class="n">opslog</span> <span class="o">--</span><span class="n">cat</span>
 
@@ -76,7 +83,8 @@ or as complicated as a full entry using all six arguments.</p>
 <span class="mi">2019</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">30</span> <span class="mi">13</span><span class="p">:</span><span class="mi">44</span><span class="p">:</span><span class="mi">10</span>  <span class="n">Example</span> <span class="n">Operator</span>                                        <span class="n">This</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">simple</span> <span class="n">operator</span> <span class="n">note</span>
 </pre></div>
 </div>
-<p>Example 2:</p>
+</li>
+<li><p class="first">Example 2:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">opslog</span> <span class="o">-</span><span class="n">c</span> <span class="s1">&#39;ping 1.2.3.4&#39;</span> <span class="o">-</span><span class="n">n</span> <span class="s1">&#39;This entry includes a command&#39;</span>
 <span class="o">&gt;</span> <span class="n">opslog</span> <span class="o">--</span><span class="n">cat</span>
 
@@ -84,7 +92,8 @@ or as complicated as a full entry using all six arguments.</p>
 <span class="mi">2019</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">30</span> <span class="mi">13</span><span class="p">:</span><span class="mi">46</span><span class="p">:</span><span class="mi">42</span>  <span class="n">Example</span> <span class="n">Operator</span>                <span class="n">ping</span> <span class="mf">1.2</span><span class="o">.</span><span class="mf">3.4</span>         <span class="n">no</span>     <span class="n">This</span> <span class="n">entry</span> <span class="n">includes</span> <span class="n">a</span> <span class="n">command</span>
 </pre></div>
 </div>
-<p>Example 3:</p>
+</li>
+<li><p class="first">Example 3:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">opslog</span> <span class="o">-</span><span class="n">p</span> <span class="mi">1</span> <span class="o">-</span><span class="n">i</span> <span class="s1">&#39;127.0.0.1&#39;</span> <span class="o">-</span><span class="n">C</span> <span class="s1">&#39;ping -c 4 127.0.0.1&#39;</span> <span class="o">-</span><span class="n">f</span> <span class="s1">&#39;testing&#39;</span> <span class="o">-</span><span class="n">n</span> <span class="s1">&#39;This is a full note with command execution&#39;</span>
 <span class="n">PING</span> <span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span> <span class="p">(</span><span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span><span class="p">)</span> <span class="mi">56</span><span class="p">(</span><span class="mi">84</span><span class="p">)</span> <span class="nb">bytes</span> <span class="n">of</span> <span class="n">data</span><span class="o">.</span>
 <span class="mi">64</span> <span class="nb">bytes</span> <span class="kn">from</span> <span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span><span class="p">:</span> <span class="n">icmp_seq</span><span class="o">=</span><span class="mi">1</span> <span class="n">ttl</span><span class="o">=</span><span class="mi">64</span> <span class="n">time</span><span class="o">=</span><span class="mf">0.027</span> <span class="n">ms</span>
@@ -101,19 +110,21 @@ or as complicated as a full entry using all six arguments.</p>
 <span class="mi">2019</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">30</span> <span class="mi">13</span><span class="p">:</span><span class="mi">48</span><span class="p">:</span><span class="mi">36</span>  <span class="n">Example</span> <span class="n">Operator</span>  <span class="n">testing</span>     <span class="mi">1</span>   <span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span>     <span class="n">ping</span> <span class="o">-</span><span class="n">c</span> <span class="mi">4</span> <span class="mf">1.2</span><span class="o">.</span><span class="mf">3.4</span>      <span class="n">yes</span>     <span class="n">This</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">full</span> <span class="n">note</span> <span class="k">with</span> <span class="n">command</span> <span class="n">execution</span>
 </pre></div>
 </div>
-<p>Note 1: In all three examples. the <code class="docutils literal notranslate"><span class="pre">opslog</span> <span class="pre">--cat</span></code> command is executed to show the contents of the log.</p>
-<p>Note 2: In example 2, the 7th field(executed) lists ‘no’ because the command syntax was entered
-with the <code class="docutils literal notranslate"><span class="pre">-c</span></code> option. This option only logs the command but does not attempt to execute it.</p>
-<p>Note 3: In example 3, the 7th field(executed) lists ‘yes’ because the command syntax was entered
-with the <code class="docutils literal notranslate"><span class="pre">-C</span></code> option. This option creates the log entry and then attempts to execute the command
-exactly as entered. Example 3 also shows the results of the executed command.</p>
+<ul class="simple">
+<li>Note 1: In all three examples. the <code class="docutils literal notranslate"><span class="pre">opslog</span> <span class="pre">--cat</span></code> command is executed to show the contents of the log.</li>
+<li>Note 2: In example 2, the 7th field(executed) lists ‘no’ because the command syntax was entered with the <code class="docutils literal notranslate"><span class="pre">-c</span></code> option. This option only logs the command but does not attempt to execute it.</li>
+<li>Note 3: In example 3, the 7th field(executed) lists ‘yes’ because the command syntax was entered with the <code class="docutils literal notranslate"><span class="pre">-C</span></code> option. This option creates the log entry and then attempts to execute the command exactly as entered. Example 3 also shows the results of the executed command.</li>
+</ul>
+</li>
+</ul>
 </div>
 <div class="section" id="displaying-and-searching-the-log">
 <h2>Displaying and Searching the Log<a class="headerlink" href="#displaying-and-searching-the-log" title="Permalink to this headline">¶</a></h2>
 <p>Logs can be easily displayed using the <code class="docutils literal notranslate"><span class="pre">opslog</span> <span class="pre">--cat</span></code> command. The log displayed will always
 be the current operators log only. the output from this command can be piped into other commands
 as needed such as <code class="docutils literal notranslate"><span class="pre">head</span></code>, <code class="docutils literal notranslate"><span class="pre">less</span></code>, or <code class="docutils literal notranslate"><span class="pre">grep</span></code>.</p>
-<p>Example 1:</p>
+<ul>
+<li><p class="first">Example 1:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">opslog</span> <span class="o">-</span><span class="n">o</span>
 <span class="n">Example</span> <span class="n">Operator</span>
 <span class="o">&gt;</span> <span class="n">opslog</span> <span class="o">--</span><span class="n">cat</span>
@@ -129,7 +140,8 @@ as needed such as <code class="docutils literal notranslate"><span class="pre">h
 <span class="mi">8</span>  <span class="mi">2019</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">30</span> <span class="mi">14</span><span class="p">:</span><span class="mi">01</span><span class="p">:</span><span class="mi">25</span>  <span class="n">Example</span> <span class="n">Operator</span>  <span class="n">example</span> <span class="n">mission</span>                                    <span class="n">Sample</span> <span class="n">Entry</span> <span class="mi">8</span><span class="p">,</span> <span class="k">with</span> <span class="mi">2</span> <span class="n">flags</span>
 </pre></div>
 </div>
-<p>Example 2:</p>
+</li>
+<li><p class="first">Example 2:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">opslog</span> <span class="o">--</span><span class="n">cat</span> <span class="o">|</span> <span class="n">head</span> <span class="o">-</span><span class="n">n4</span>
 
       <span class="n">Date</span>              <span class="n">Operator</span>            <span class="n">Flag</span>        <span class="n">PAA</span> <span class="n">IPs</span> <span class="n">Command</span> <span class="n">Syntax</span> <span class="n">Executed</span>              <span class="n">Note</span>
@@ -138,10 +150,13 @@ as needed such as <code class="docutils literal notranslate"><span class="pre">h
 <span class="mi">3</span>  <span class="mi">2019</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">30</span> <span class="mi">14</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">31</span>  <span class="n">Example</span> <span class="n">Operator</span>  <span class="n">mission</span>                                            <span class="n">Sample</span> <span class="n">Entry</span> <span class="mi">3</span><span class="p">,</span> <span class="k">with</span> <span class="n">flag</span>
 </pre></div>
 </div>
+</li>
+</ul>
 <p>Although the logs can be searched by piping to grep, Flags provide a much more efficient way of
 tagging entries of particular interest. You can list out all the flags used in the current log
 using the <code class="docutils literal notranslate"><span class="pre">opslog</span> <span class="pre">-lf</span></code> command.</p>
-<p>Example:</p>
+<ul>
+<li><p class="first">Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">opslog</span> <span class="o">--</span><span class="n">lf</span>
 
     <span class="n">Below</span> <span class="n">are</span> <span class="n">the</span> <span class="n">flags</span> <span class="n">being</span> <span class="n">used</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">current</span> <span class="n">log</span>
@@ -153,9 +168,12 @@ using the <code class="docutils literal notranslate"><span class="pre">opslog</s
         <span class="mi">2</span>          <span class="n">example</span>         <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
 </pre></div>
 </div>
+</li>
+</ul>
 <p>You can also search for and display log entries based on the flags the entry was tagged with using
 the <code class="docutils literal notranslate"><span class="pre">opslog</span> <span class="pre">-sf</span> <span class="pre">flag</span></code> command. The command can accept multiple flags in it’s search.</p>
-<p>Example 1:</p>
+<ul>
+<li><p class="first">Example 1:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">opslog</span> <span class="o">-</span><span class="n">sf</span> <span class="n">opschecks</span>
 
         <span class="n">Date</span>              <span class="n">Operator</span>            <span class="n">Flag</span>        <span class="n">PAA</span> <span class="n">IPs</span> <span class="n">Command</span> <span class="n">Syntax</span> <span class="n">Executed</span>              <span class="n">Note</span>
@@ -164,7 +182,8 @@ the <code class="docutils literal notranslate"><span class="pre">opslog</span> <
 <span class="mi">7</span>  <span class="mi">2019</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">30</span> <span class="mi">14</span><span class="p">:</span><span class="mi">01</span><span class="p">:</span><span class="mi">14</span>  <span class="n">Example</span> <span class="n">Operator</span>  <span class="n">example</span> <span class="n">opschecks</span>                                  <span class="n">Sample</span> <span class="n">Entry</span> <span class="mi">7</span><span class="p">,</span> <span class="k">with</span> <span class="mi">2</span> <span class="n">flags</span>
 </pre></div>
 </div>
-<p>Example 2:</p>
+</li>
+<li><p class="first">Example 2:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">opslog</span> <span class="o">-</span><span class="n">sf</span> <span class="n">example</span> <span class="n">mission</span>
 
         <span class="n">Date</span>              <span class="n">Operator</span>            <span class="n">Flag</span>        <span class="n">PAA</span> <span class="n">IPs</span> <span class="n">Command</span> <span class="n">Syntax</span> <span class="n">Executed</span>              <span class="n">Note</span>
@@ -174,21 +193,24 @@ the <code class="docutils literal notranslate"><span class="pre">opslog</span> <
 <span class="mi">8</span>  <span class="mi">2019</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">30</span> <span class="mi">14</span><span class="p">:</span><span class="mi">01</span><span class="p">:</span><span class="mi">25</span>  <span class="n">Example</span> <span class="n">Operator</span>  <span class="n">example</span> <span class="n">mission</span>                                    <span class="n">Sample</span> <span class="n">Entry</span> <span class="mi">8</span><span class="p">,</span> <span class="k">with</span> <span class="mi">2</span> <span class="n">flags</span>
 </pre></div>
 </div>
+</li>
+</ul>
 </div>
 <div class="section" id="exporting-and-merging-logs">
 <h2>Exporting and Merging Logs<a class="headerlink" href="#exporting-and-merging-logs" title="Permalink to this headline">¶</a></h2>
-<p>Once the logs are complete, the can be exported by using the <code class="docutils literal notranslate"><span class="pre">opslog</span> <span class="pre">--export</span></code> command
+<p>Once the logs are complete, they can be exported by using the <code class="docutils literal notranslate"><span class="pre">opslog</span> <span class="pre">--export</span></code> command
 and specifying the export location and optionally a format. The location can use absolute or relative path, and will
 output to the current directory if only a filename is given</p>
-<p>Example:</p>
+<ul>
+<li><p class="first">Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">ls</span> <span class="o">-</span><span class="n">l</span> <span class="o">~/</span><span class="n">tmp</span><span class="o">/</span>
 <span class="n">total</span> <span class="mi">0</span>
 <span class="o">&gt;</span> <span class="n">opslog</span> <span class="o">--</span><span class="n">export</span> <span class="o">~/</span><span class="n">tmp</span><span class="o">/</span><span class="n">log</span>
 <span class="n">Log</span> <span class="n">file</span> <span class="n">successfully</span> <span class="n">exported</span>
 <span class="o">&gt;</span><span class="n">ls</span> <span class="o">-</span><span class="n">l</span> <span class="o">~/</span><span class="n">tmp</span><span class="o">/</span>
 <span class="n">total</span> <span class="mi">4</span>
-<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span> <span class="mi">1</span> <span class="n">assessor</span> <span class="n">assessor</span> <span class="mi">594</span> <span class="n">Apr</span> <span class="mi">30</span> <span class="mi">10</span><span class="p">:</span><span class="mi">24</span> <span class="n">log</span><span class="o">.</span><span class="n">csv</span>
-<span class="o">&gt;</span> <span class="n">cat</span> <span class="o">~/</span><span class="n">tmp</span><span class="o">/</span><span class="n">log</span><span class="o">.</span><span class="n">csv</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span> <span class="mi">1</span> <span class="n">assessor</span> <span class="n">assessor</span> <span class="mi">594</span> <span class="n">Apr</span> <span class="mi">30</span> <span class="mi">10</span><span class="p">:</span><span class="mi">24</span> <span class="n">log</span>
+<span class="o">&gt;</span> <span class="n">cat</span> <span class="o">~/</span><span class="n">tmp</span><span class="o">/</span><span class="n">log</span>
           <span class="n">Date</span>              <span class="n">Operator</span>            <span class="n">Flag</span>        <span class="n">PAA</span> <span class="n">IPs</span> <span class="n">Command</span> <span class="n">Syntax</span> <span class="n">Executed</span>              <span class="n">Note</span>
 <span class="mi">1</span>  <span class="mi">2019</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">30</span> <span class="mi">14</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">03</span>  <span class="n">Example</span> <span class="n">Operator</span>                                                     <span class="n">Sample</span> <span class="n">Entry</span> <span class="mi">1</span>
 <span class="mi">2</span>  <span class="mi">2019</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">30</span> <span class="mi">14</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">06</span>  <span class="n">Example</span> <span class="n">Operator</span>                                                     <span class="n">Sample</span> <span class="n">Entry</span> <span class="mi">2</span>
@@ -200,7 +222,8 @@ output to the current directory if only a filename is given</p>
 <span class="mi">8</span>  <span class="mi">2019</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">30</span> <span class="mi">14</span><span class="p">:</span><span class="mi">01</span><span class="p">:</span><span class="mi">25</span>  <span class="n">Example</span> <span class="n">Operator</span>  <span class="n">example</span> <span class="n">mission</span>                                    <span class="n">Sample</span> <span class="n">Entry</span> <span class="mi">8</span><span class="p">,</span> <span class="k">with</span> <span class="mi">2</span> <span class="n">flags</span>
 </pre></div>
 </div>
-<p>Example 2:</p>
+</li>
+<li><p class="first">Example 2:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">ls</span> <span class="o">-</span><span class="n">l</span> <span class="o">~/</span><span class="n">tmp</span><span class="o">/</span>
 <span class="n">total</span> <span class="mi">0</span>
 <span class="o">&gt;</span> <span class="n">opslog</span> <span class="o">--</span><span class="n">export</span> <span class="o">~/</span><span class="n">tmp</span><span class="o">/</span><span class="n">log</span><span class="o">.</span><span class="n">csv</span> <span class="o">--</span><span class="nb">format</span> <span class="n">csv</span>
@@ -215,37 +238,51 @@ output to the current directory if only a filename is given</p>
 <span class="mi">2019</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">30</span> <span class="mi">14</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">38</span><span class="p">;</span><span class="n">Example</span> <span class="n">Operator</span><span class="p">;</span><span class="n">mission</span><span class="p">;;;;;</span><span class="n">Sample</span> <span class="n">Entry</span> <span class="mi">4</span><span class="p">,</span> <span class="k">with</span> <span class="n">flag</span>
 <span class="mi">2019</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">30</span> <span class="mi">14</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">49</span><span class="p">;</span><span class="n">Example</span> <span class="n">Operator</span><span class="p">;</span><span class="n">opschecks</span><span class="p">;;;;;</span><span class="n">Sample</span> <span class="n">Entry</span> <span class="mi">5</span><span class="p">,</span> <span class="k">with</span> <span class="n">flag</span> <span class="mi">2</span>
 <span class="mi">2019</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">30</span> <span class="mi">14</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">52</span><span class="p">;</span><span class="n">Example</span> <span class="n">Operator</span><span class="p">;</span><span class="n">opschecks</span><span class="p">;;;;;</span><span class="n">Sample</span> <span class="n">Entry</span> <span class="mi">6</span><span class="p">,</span> <span class="k">with</span> <span class="n">flag</span> <span class="mi">2</span>
-<span class="mi">2019</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">30</span> <span class="mi">14</span><span class="p">:</span><span class="mi">01</span><span class="p">:</span><span class="mi">14</span><span class="p">;</span><span class="n">Example</span> <span class="n">Operator</span><span class="p">;</span><span class="n">example</span> <span class="n">opschecks</span><span class="p">;;;;;</span><span class="n">Sample</span> <span class="n">Entry</span> <span class="mi">7</span><span class="p">,</span> <span class="k">with</span> <span class="mi">2</span> <span class="n">flag</span>
-<span class="mi">2019</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">30</span> <span class="mi">14</span><span class="p">:</span><span class="mi">01</span><span class="p">:</span><span class="mi">25</span><span class="p">;</span><span class="n">Example</span> <span class="n">Operator</span><span class="p">;</span><span class="n">example</span> <span class="n">mission</span><span class="p">;;;;;</span><span class="n">Sample</span> <span class="n">Entry</span> <span class="mi">8</span><span class="p">,</span> <span class="k">with</span> <span class="mi">2</span> <span class="n">flag</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">30</span> <span class="mi">14</span><span class="p">:</span><span class="mi">01</span><span class="p">:</span><span class="mi">14</span><span class="p">;</span><span class="n">Example</span> <span class="n">Operator</span><span class="p">;</span><span class="n">example</span> <span class="n">opschecks</span><span class="p">;;;;;</span><span class="n">Sample</span> <span class="n">Entry</span> <span class="mi">7</span><span class="p">,</span> <span class="k">with</span> <span class="mi">2</span> <span class="n">flags</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">30</span> <span class="mi">14</span><span class="p">:</span><span class="mi">01</span><span class="p">:</span><span class="mi">25</span><span class="p">;</span><span class="n">Example</span> <span class="n">Operator</span><span class="p">;</span><span class="n">example</span> <span class="n">mission</span><span class="p">;;;;;</span><span class="n">Sample</span> <span class="n">Entry</span> <span class="mi">8</span><span class="p">,</span> <span class="k">with</span> <span class="mi">2</span> <span class="n">flags</span>
 </pre></div>
 </div>
+</li>
+</ul>
 <p>If for any reason multiple logs need to be combined, the <code class="docutils literal notranslate"><span class="pre">opslog</span> <span class="pre">--merge</span></code> command can
 do so. The command takes any number of files as arguments, checks these files to ensure they
 are csv formated log files, and merges them together into one log.</p>
-<p>Example:</p>
+<ul>
+<li><p class="first">Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">ls</span> <span class="o">-</span><span class="n">l</span>
+
 <span class="n">total</span> <span class="mi">8</span>
 <span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span> <span class="mi">1</span> <span class="n">assessor</span> <span class="n">assessor</span> <span class="mi">138</span> <span class="n">Apr</span> <span class="mi">30</span> <span class="mi">10</span><span class="p">:</span><span class="mi">29</span> <span class="n">merg1_log</span><span class="o">.</span><span class="n">csv</span>
 <span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span> <span class="mi">1</span> <span class="n">assessor</span> <span class="n">assessor</span>  <span class="mi">92</span> <span class="n">Apr</span> <span class="mi">30</span> <span class="mi">10</span><span class="p">:</span><span class="mi">30</span> <span class="n">merg2_log</span><span class="o">.</span><span class="n">csv</span>
+
 <span class="o">&gt;</span> <span class="n">cat</span> <span class="n">merg1_log</span><span class="o">.</span><span class="n">csv</span>
+
 <span class="mi">2019</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">30</span> <span class="mi">15</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span><span class="mi">32</span><span class="p">;</span><span class="n">merg1</span><span class="p">;;;;;;</span><span class="n">Sample</span> <span class="n">entry</span> <span class="mi">1</span>
 <span class="mi">2019</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">30</span> <span class="mi">15</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span><span class="mi">41</span><span class="p">;</span><span class="n">merg1</span><span class="p">;;;;;;</span><span class="n">Sample</span> <span class="n">entry</span> <span class="mi">2</span>
 <span class="mi">2019</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">30</span> <span class="mi">15</span><span class="p">:</span><span class="mi">29</span><span class="p">:</span><span class="mi">19</span><span class="p">;</span><span class="n">merg1</span><span class="p">;;;;;;</span><span class="n">Sample</span> <span class="n">entry</span> <span class="mi">5</span>
+
 <span class="o">&gt;</span> <span class="n">cat</span> <span class="n">merg2_log</span><span class="o">.</span><span class="n">csv</span>
+
 <span class="mi">2019</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">30</span> <span class="mi">15</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span><span class="mi">55</span><span class="p">;</span><span class="n">merg2</span><span class="p">;;;;;;</span><span class="n">Sample</span> <span class="n">entry</span> <span class="mi">3</span>
 <span class="mi">2019</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">30</span> <span class="mi">15</span><span class="p">:</span><span class="mi">29</span><span class="p">:</span><span class="mi">03</span><span class="p">;</span><span class="n">merg2</span><span class="p">;;;;;;</span><span class="n">Sample</span> <span class="n">entry</span> <span class="mi">4</span>
+
 <span class="o">&gt;</span> <span class="n">opslog</span> <span class="o">--</span><span class="n">merge</span> <span class="n">merg1_log</span><span class="o">.</span><span class="n">csv</span> <span class="n">merg2_log</span><span class="o">.</span><span class="n">csv</span>
+
 <span class="n">Checking</span> <span class="n">files</span><span class="o">...</span>
 <span class="n">All</span> <span class="n">files</span> <span class="n">matches</span> <span class="n">log</span> <span class="nb">format</span><span class="o">.</span>
 <span class="n">Enter</span> <span class="n">destination</span> <span class="n">filename</span><span class="p">:</span> <span class="n">merged_log</span><span class="o">.</span><span class="n">csv</span>
 <span class="n">Enter</span> <span class="n">destination</span> <span class="n">log</span> <span class="nb">format</span><span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">csv</span><span class="p">,</span> <span class="n">json</span><span class="p">):</span> <span class="n">csv</span>
 <span class="n">Merge</span> <span class="n">Successful</span>
+
 <span class="o">&gt;</span> <span class="n">ls</span> <span class="o">-</span><span class="n">l</span>
+
 <span class="n">total</span> <span class="mi">12</span>
 <span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span> <span class="mi">1</span> <span class="n">assessor</span> <span class="n">assessor</span> <span class="mi">138</span> <span class="n">Apr</span> <span class="mi">30</span> <span class="mi">10</span><span class="p">:</span><span class="mi">29</span> <span class="n">merg1_log</span><span class="o">.</span><span class="n">csv</span>
 <span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span> <span class="mi">1</span> <span class="n">assessor</span> <span class="n">assessor</span>  <span class="mi">92</span> <span class="n">Apr</span> <span class="mi">30</span> <span class="mi">10</span><span class="p">:</span><span class="mi">30</span> <span class="n">merg2_log</span><span class="o">.</span><span class="n">csv</span>
 <span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span> <span class="mi">1</span> <span class="n">assessor</span> <span class="n">assessor</span> <span class="mi">230</span> <span class="n">Apr</span> <span class="mi">30</span> <span class="mi">10</span><span class="p">:</span><span class="mi">33</span> <span class="n">merged_log</span><span class="o">.</span><span class="n">csv</span>
+
 <span class="o">&gt;</span> <span class="n">cat</span> <span class="n">merged_log</span><span class="o">.</span><span class="n">csv</span>
+
 <span class="mi">2019</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">30</span> <span class="mi">15</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span><span class="mi">32</span><span class="p">;</span><span class="n">merg1</span><span class="p">;;;;;;</span><span class="n">Sample</span> <span class="n">entry</span> <span class="mi">1</span>
 <span class="mi">2019</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">30</span> <span class="mi">15</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span><span class="mi">41</span><span class="p">;</span><span class="n">merg1</span><span class="p">;;;;;;</span><span class="n">Sample</span> <span class="n">entry</span> <span class="mi">2</span>
 <span class="mi">2019</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">30</span> <span class="mi">15</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span><span class="mi">55</span><span class="p">;</span><span class="n">merg2</span><span class="p">;;;;;;</span><span class="n">Sample</span> <span class="n">entry</span> <span class="mi">3</span>
@@ -253,7 +290,11 @@ are csv formated log files, and merges them together into one log.</p>
 <span class="mi">2019</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">30</span> <span class="mi">15</span><span class="p">:</span><span class="mi">29</span><span class="p">:</span><span class="mi">19</span><span class="p">;</span><span class="n">merg1</span><span class="p">;;;;;;</span><span class="n">Sample</span> <span class="n">entry</span> <span class="mi">5</span>
 </pre></div>
 </div>
-<p>Note 1: Currently, all logs you are attempting to merge MUST be in csv format or the merge will fail.</p>
+<ul class="simple">
+<li>Note 1: Currently, all logs you are attempting to merge MUST be in csv format or the merge will fail.</li>
+</ul>
+</li>
+</ul>
 </div>
 </div>
 
@@ -309,7 +350,7 @@ are csv formated log files, and merges them together into one log.</p>
         <li class="right" >
           <a href="Usage.html" title="Opslog Usage"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">OpsLog v1.7a May, 2019 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">OpsLog v1.8 May, 2019 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

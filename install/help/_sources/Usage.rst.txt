@@ -72,11 +72,9 @@ The management arguments are::
   --format FILETYPE     Format to use when exporting the log(csv, json, or default)
   --merge File1 File2   Merge multiple log files together into one
 
-Note: The files can be given in absolute or relative path. If no path is specified
-the file will output to the current directory.
+- Note 1: The files can be given in absolute or relative path. If no path is specified the file will output to the current directory.
 
-Note 2: The merge command can accept any number of log files. It will first check to ensure all
-supplied files are in the correct format, and then ask for the output log name before merging.
+- Note 2: The merge command can accept any number of log files. It will first check to ensure all supplied files are in the correct format, and then ask for the output log name before merging.
 
 Output Arguments
 ================
@@ -111,18 +109,17 @@ The logging arguments are::
   -n 'text'             Operator notes to include in the log entry
   -f Flag [Flag ...]    Flag(s) used to tag the log entry
 
-Note 1: When inputting command syntax and notes, use of single quote marks (') are recommended to
-prevent your shell from interpreting it before logging.
+- Note 1: When inputting command syntax and notes, use of single quote marks (') are recommended to prevent your shell from interpreting it before logging.
 
-Note 1 Example::
+    - Note 1 Example::
 
-    >IP='1.2.3.4'
-    >opslog -c "ping $IP" -n "Testing connectivity to the $IP variable"
-    >opslog -c 'ping $IP' -n 'Testing connectivity to the $IP variable'
-    >opslog --cat
+        >IP='1.2.3.4'
+        >opslog -c "ping $IP" -n "Testing connectivity to the $IP variable"
+        >opslog -c 'ping $IP' -n 'Testing connectivity to the $IP variable'
+        >opslog --cat
 
-    2019-04-29 18:59:24;argument_tests;;;;ping 1.2.3.4;no;Testing connectivity to the ip 1.2.3.4 variable
-    2019-04-29 18:59:42;argument_tests;;;;ping $IP;no;Testing connectivity to the $IP variable
+        2019-04-29 18:59:24;argument_tests;;;;ping 1.2.3.4;no;Testing connectivity to the 1.2.3.4 variable
+        2019-04-29 18:59:42;argument_tests;;;;ping $IP;no;Testing connectivity to the $IP variable
 
 
-Note 2: Flags can be added with the -f option. Multiple flags may be used if space separated.
+- Note 2: Flags can be added with the -f option. Multiple flags may be used if space separated.

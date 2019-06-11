@@ -3,18 +3,18 @@
 Overview on How to Install and setup this Script
 ++++++++++++++++++++++++++++++++++++++++++++++++
 
-Simple Installation
-===================
+Simple Installation/Upgrade
+===========================
 
 1. Download the opslog program and extract zip file
 
 2. Inside the opslog folder run the opslog program as root or with sudo privileges.
 
-    - Example: ``sudo ./opslog``
+    - Example: ``sudo ./opslog_installer``
 
-3. Follow the prompts to complete install of the program
+3. Follow the prompts to complete install/upgrade of the program
 
-4. Restart terminal and ensure alias is working by running ``opslog``
+4. If installing, restart terminal and ensure alias is working by running ``opslog``
 
     - If the opslog program help is displayed, the program installed correctly
     - The original folder can now be removed if desired
