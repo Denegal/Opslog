@@ -136,6 +136,7 @@ latex_documents = [
      'Jacob Coburn', 'manual'),
 ]
 
+rinoh_stylesheet = '/usr/lib/python3.6/site-packages/rinoh/data/stylesheets/sphinx_article.rts'
 
 # -- Options for manual page output ------------------------------------------
 
