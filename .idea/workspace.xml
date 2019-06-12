@@ -2,41 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e35e272-57d4-456c-ba8f-5dccd6754c3a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/doctrees/Installation.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/doctrees/Installation.doctree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/doctrees/environment.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/doctrees/environment.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/html/.buildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/html/.buildinfo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/html/Examples.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/html/Examples.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/html/Installation.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/html/Installation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/html/Usage.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/html/Usage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/html/_sources/Installation.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/html/_sources/Installation.rst.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/html/_static/documentation_options.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/html/_static/documentation_options.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/html/genindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/html/genindex.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/html/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/html/objects.inv" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/html/objects.inv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/html/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/html/search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/html/searchindex.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/html/searchindex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/man/opslog.1" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/man/opslog.1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/rinoh/OpsLog.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/rinoh/OpsLog.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/rinoh/OpsLog.rtc" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/rinoh/OpsLog.rtc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.build/rinoh/OpsLog.stylelog" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.build/rinoh/OpsLog.stylelog" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Installation.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Installation.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs/conf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/install/OpsLog.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/install/OpsLog.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/install/help/.buildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/install/help/.buildinfo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/install/help/Examples.html" beforeDir="false" afterPath="$PROJECT_DIR$/install/help/Examples.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/install/help/Installation.html" beforeDir="false" afterPath="$PROJECT_DIR$/install/help/Installation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/install/help/Usage.html" beforeDir="false" afterPath="$PROJECT_DIR$/install/help/Usage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/install/help/_sources/Examples.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/install/help/_sources/Examples.rst.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/install/help/_sources/Installation.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/install/help/_sources/Installation.rst.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/install/help/_sources/Usage.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/install/help/_sources/Usage.rst.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/install/help/_static/documentation_options.js" beforeDir="false" afterPath="$PROJECT_DIR$/install/help/_static/documentation_options.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/install/help/genindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/install/help/genindex.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/install/help/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/install/help/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/install/help/objects.inv" beforeDir="false" afterPath="$PROJECT_DIR$/install/help/objects.inv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/install/help/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/install/help/search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/install/help/searchindex.js" beforeDir="false" afterPath="$PROJECT_DIR$/install/help/searchindex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/install/opslog.1" beforeDir="false" afterPath="$PROJECT_DIR$/install/opslog.1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/opslog.py" beforeDir="false" afterPath="$PROJECT_DIR$/opslog.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -50,8 +15,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/opslog.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="458">
-              <caret line="105" column="33" selection-start-line="105" selection-start-column="33" selection-end-line="105" selection-end-column="33" />
+            <state relative-caret-position="288">
+              <caret line="414" column="36" lean-forward="true" selection-start-line="414" selection-start-column="36" selection-end-line="414" selection-end-column="36" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -107,6 +72,11 @@
       </file>
     </leaf>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>exit</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -122,10 +92,9 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="763" />
-    <option name="y" value="25" />
-    <option name="width" value="1157" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1875" />
+    <option name="width" value="1149" />
     <option name="height" value="1030" />
   </component>
   <component name="ProjectView">
@@ -178,9 +147,9 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="763" y="25" width="1157" height="1030" extended-state="0" />
+    <frame x="1919" y="-1" width="1922" height="1082" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2058304" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20537125" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -191,17 +160,24 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3292683" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.33702883" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.33646813" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32705098" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.3260188" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/docs/Usage.rst">
-      <provider selected="true" editor-type-id="restructured-text-editor" />
+    <entry file="file://$PROJECT_DIR$/opslog.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="414" column="36" lean-forward="true" selection-start-line="414" selection-start-column="36" selection-end-line="414" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/docs/Makefile">
       <provider selected="true" editor-type-id="text-editor" />
@@ -213,7 +189,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/Installation.rst">
+    <entry file="file://$PROJECT_DIR$/docs/index.rst">
+      <provider selected="true" editor-type-id="restructured-text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/Examples.rst">
       <provider selected="true" editor-type-id="restructured-text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
@@ -226,21 +205,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/Examples.rst">
+    <entry file="file://$PROJECT_DIR$/docs/Installation.rst">
       <provider selected="true" editor-type-id="restructured-text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/index.rst">
+    <entry file="file://$PROJECT_DIR$/docs/Usage.rst">
       <provider selected="true" editor-type-id="restructured-text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/opslog.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="105" column="33" selection-start-line="105" selection-start-column="33" selection-end-line="105" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
   </component>
 </project>

@@ -141,7 +141,6 @@ def _upgrade_opslog():
 
     else:
         print("A newer version of the Opslog program is already installed.")
-        exit()
 
     sys.exit()
 
@@ -412,17 +411,19 @@ def _merge_logs(logs_list):
     # ./ for current dir, ../ for parent dir, and ~ for home dir
     dest_file = input("Enter destination filename: ")
     dest_file = dest_file.replace('../', os.path.dirname(os.getcwd()) + '/').replace('./', os.getcwd() + '/').replace('~', os.getenv("HOME"))
+    if not (dest_file.startswith('/') or dest_file.startswith('./')):
+        dest_file = './' + dest_file
 
     # test to ensure provided string is an approprite directory the user has permission for
     # this also doubles as input validation
     if not os.path.isdir(os.path.dirname(dest_file)):
         print("ERROR: Destination {} does not exist or you do not have permissions to save files to it".format(dest_file))
-        exit()
+        sys.exit()
 
     # Once output destination is validated, ask for output format
     # if no format is provided, set to default
     dest_format = input("Enter destination log format(default, csv, json): ")
-    if dest_format.lower() not in list("default", "csv", "json"):
+    if dest_format.lower() not in ["default", "csv", "json"]:
         print("Unrecognized output format. Using default format.")
         dest_format = 'default'
 
@@ -532,7 +533,7 @@ if __name__ == '__main__':
     root_group.add_argument(
         '-v', '--version',
         action='version',
-        version='%(prog)s version {}\n\nCreated by: \n  Jacob Coburn\n  834COS\\DOB\n  jacob.coburn.1@us.af.mil'.format(
+        version='OpsLog version {}\n\nCreated by: \n  Jacob Coburn\n  834COS\\DOB\n  jacob.coburn.1@us.af.mil'.format(
             _version)
     )
     root_group.add_argument(
