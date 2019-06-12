@@ -199,7 +199,7 @@ def _install_opslog():
 
         copyfile('install/OpsLog.pdf', '/usr/lib/ops_log/help/OpsLog.pdf')
         os.chmod("/usr/lib/ops_log/help/OpsLog.pdf", 0o774)
-        copyfile(os.getcwd() + '/' + str(__file__), "/usr/lib/ops_log/opslog")
+        copyfile(os.getcwd() + '/OpsLog_Installer', "/usr/lib/ops_log/opslog")
         os.chmod("/usr/lib/ops_log/opslog", 0o775)
 
         print("""Program successfully installed to /usr/lib/ops_log/
@@ -515,7 +515,7 @@ if __name__ == '__main__':
 
     if not os.path.isfile(_configfile):
         _install_opslog()
-    elif __file__ == 'opslog_installer':
+    elif os.path.isfile(os.getcwd() + '/OpsLog_Installer'):
         _upgrade_opslog()
 
     parser = argparse.ArgumentParser(formatter_class=argparse.RawDescriptionHelpFormatter,
