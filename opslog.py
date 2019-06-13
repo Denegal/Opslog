@@ -111,7 +111,7 @@ def _upgrade_opslog():
             print("Beginning Upgrade...")
             try:
                 # Copy the new opslog program to the opslog directory, overwritting original
-                copyfile(os.getcwd() + '/' + str(__file__), "/usr/lib/ops_log/opslog")
+                copyfile(os.getcwd() + '/OpsLog_Installer', "/usr/lib/ops_log/opslog")
                 os.chmod("/usr/lib/ops_log/opslog", 0o775)
 
                 # Copy new man page over old one
