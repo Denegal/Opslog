@@ -1,7 +1,7 @@
 
 
-Overview on How to Install and setup this Script
-++++++++++++++++++++++++++++++++++++++++++++++++
+Overview and How to Install and setup this Script
++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Simple Installation/Upgrade
 ===========================
@@ -12,7 +12,7 @@ Simple Installation/Upgrade
 
     - Example: ``sudo ./opslog_installer``
 
-3. Follow the prompts to complete install/upgrade of the program
+3. Follow the prompts to complete install or upgrade of the program
 
 4. If installing, restart terminal and ensure alias is working by running ``opslog``
 
@@ -28,13 +28,13 @@ Install Location
 opslog is installed to the /usr/lib/ops_log/ directory.
 The folder is created with root privileges and the sticky bit set.
 This allows the program to access it's configuration file and create
-operator logs regardless of the user running it (after install, root
+operator logs regardless which user is running it (after install, root
 privileges are not required to run the program or create logs.)
 
 Inside the ops_log/ folder are the config.ini file which the script
 uses for tracking the current operator, and a operator_logs/ folder
-which stores the .csv file logs for the operators. Like the main installation
-folder, the operator_logs folder is created by root, with sticky bit permissions
+which stores the .csv file logs for the operators. The operator_logs
+folder is also created by root, with sticky bit permissions
 to allow the program to update logs for operators even if they were initially
 created while another user was logged in.
 
@@ -62,19 +62,18 @@ Below is an sample directory listing of the install location::
 Post Install
 ============
 
-Once the initial installation is complete, the program can be run from anywhere on the system
-using the shortcut alias 'opslog'. This is due to an alias being created in the /etc/profile.d/
-directory in the opslog_alias.sh file.
-
-If for any reason this does not work and users are unable to use the 'opslog'
-shortcut after installation, users can manually create this alias by adding the line::
+Once the initial installation is complete, the program can be run
+from anywhere on the system using the shortcut alias 'opslog'. If
+for any reason this does not work and users are unable to use the
+'opslog' shortcut after installation, users can create this alias
+by adding the line::
 
     alias opslog='/usr/lib/ops_log/opslog'
 
 in their .bashrc file found in their home directory.
 
 
-A man page is created for the program and can be access with the command::
+A man page is also created for the program and can be accessed with the command::
 
     man opslog
 
@@ -82,7 +81,7 @@ A man page is created for the program and can be access with the command::
 Simple Uninstall
 ===================
 
-1. Ensure all log file are backed up by exporting or copying logs
+1. Ensure all log files are backed up by exporting or copying logs
 
     - Example: ``opslog --export ~/Desktop/log_backup --format csv``
 

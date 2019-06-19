@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Overview on How to Install and setup this Script &#8212; OpsLog v1.8 May, 2019 documentation</title>
+    <title>Overview and How to Install and setup this Script &#8212; OpsLog v1.8 June, 2019 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -19,7 +19,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Opslog Usage" href="Usage.html" />
-    <link rel="prev" title="Welcome to OpsLog’s documentation!" href="index.html" /> 
+    <link rel="prev" title="Welcome to OpsLog’s documentation!" href="User_Guide.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -31,9 +31,9 @@
           <a href="Usage.html" title="Opslog Usage"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="Welcome to OpsLog’s documentation!"
+          <a href="User_Guide.html" title="Welcome to OpsLog’s documentation!"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">OpsLog v1.8 May, 2019 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="User_Guide.html">OpsLog v1.8 June, 2019 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -42,8 +42,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="overview-on-how-to-install-and-setup-this-script">
-<h1>Overview on How to Install and setup this Script<a class="headerlink" href="#overview-on-how-to-install-and-setup-this-script" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="overview-and-how-to-install-and-setup-this-script">
+<h1>Overview and How to Install and setup this Script<a class="headerlink" href="#overview-and-how-to-install-and-setup-this-script" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="simple-installation-upgrade">
 <h2>Simple Installation/Upgrade<a class="headerlink" href="#simple-installation-upgrade" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
@@ -56,7 +56,7 @@
 </ul>
 </div></blockquote>
 </li>
-<li><p class="first">Follow the prompts to complete install/upgrade of the program</p>
+<li><p class="first">Follow the prompts to complete install or upgrade of the program</p>
 </li>
 <li><p class="first">If installing, restart terminal and ensure alias is working by running <code class="docutils literal notranslate"><span class="pre">opslog</span></code></p>
 <blockquote>
@@ -73,12 +73,12 @@
 <p>opslog is installed to the /usr/lib/ops_log/ directory.
 The folder is created with root privileges and the sticky bit set.
 This allows the program to access it’s configuration file and create
-operator logs regardless of the user running it (after install, root
+operator logs regardless which user is running it (after install, root
 privileges are not required to run the program or create logs.)</p>
 <p>Inside the ops_log/ folder are the config.ini file which the script
 uses for tracking the current operator, and a operator_logs/ folder
-which stores the .csv file logs for the operators. Like the main installation
-folder, the operator_logs folder is created by root, with sticky bit permissions
+which stores the .csv file logs for the operators. The operator_logs
+folder is also created by root, with sticky bit permissions
 to allow the program to update logs for operators even if they were initially
 created while another user was logged in.</p>
 <p>Below is an sample directory listing of the install location:</p>
@@ -104,16 +104,16 @@ created while another user was logged in.</p>
 </div>
 <div class="section" id="post-install">
 <h2>Post Install<a class="headerlink" href="#post-install" title="Permalink to this headline">¶</a></h2>
-<p>Once the initial installation is complete, the program can be run from anywhere on the system
-using the shortcut alias ‘opslog’. This is due to an alias being created in the /etc/profile.d/
-directory in the opslog_alias.sh file.</p>
-<p>If for any reason this does not work and users are unable to use the ‘opslog’
-shortcut after installation, users can manually create this alias by adding the line:</p>
+<p>Once the initial installation is complete, the program can be run
+from anywhere on the system using the shortcut alias ‘opslog’. If
+for any reason this does not work and users are unable to use the
+‘opslog’ shortcut after installation, users can create this alias
+by adding the line:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">alias</span> <span class="n">opslog</span><span class="o">=</span><span class="s1">&#39;/usr/lib/ops_log/opslog&#39;</span>
 </pre></div>
 </div>
 <p>in their .bashrc file found in their home directory.</p>
-<p>A man page is created for the program and can be access with the command:</p>
+<p>A man page is also created for the program and can be accessed with the command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">man</span> <span class="n">opslog</span>
 </pre></div>
 </div>
@@ -121,7 +121,7 @@ shortcut after installation, users can manually create this alias by adding the 
 <div class="section" id="simple-uninstall">
 <h2>Simple Uninstall<a class="headerlink" href="#simple-uninstall" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
-<li><p class="first">Ensure all log file are backed up by exporting or copying logs</p>
+<li><p class="first">Ensure all log files are backed up by exporting or copying logs</p>
 <blockquote>
 <div><ul class="simple">
 <li>Example: <code class="docutils literal notranslate"><span class="pre">opslog</span> <span class="pre">--export</span> <span class="pre">~/Desktop/log_backup</span> <span class="pre">--format</span> <span class="pre">csv</span></code></li>
@@ -155,9 +155,9 @@ shortcut after installation, users can manually create this alias by adding the 
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table of Contents</a></h3>
+  <h3><a href="User_Guide.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Overview on How to Install and setup this Script</a><ul>
+<li><a class="reference internal" href="#">Overview and How to Install and setup this Script</a><ul>
 <li><a class="reference internal" href="#simple-installation-upgrade">Simple Installation/Upgrade</a></li>
 <li><a class="reference internal" href="#install-location">Install Location</a></li>
 <li><a class="reference internal" href="#post-install">Post Install</a></li>
@@ -167,7 +167,7 @@ shortcut after installation, users can manually create this alias by adding the 
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="index.html"
+  <p class="topless"><a href="User_Guide.html"
                         title="previous chapter">Welcome to OpsLog’s documentation!</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="Usage.html"
@@ -205,9 +205,9 @@ shortcut after installation, users can manually create this alias by adding the 
           <a href="Usage.html" title="Opslog Usage"
              >next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="Welcome to OpsLog’s documentation!"
+          <a href="User_Guide.html" title="Welcome to OpsLog’s documentation!"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">OpsLog v1.8 May, 2019 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="User_Guide.html">OpsLog v1.8 June, 2019 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

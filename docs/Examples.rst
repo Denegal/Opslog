@@ -4,7 +4,7 @@ Opslog Examples
 Displaying and Changing the Current Operator
 ============================================
 
-The current operator is stored in the programs configuration file and is
+The current operator is stored in the program configuration file and is
 referenced whenever log entries are made or the log is queried. You can
 find the current operator by using the ``opslog -o`` command.
 
@@ -149,7 +149,7 @@ Exporting and Merging Logs
 ==========================
 
 Once the logs are complete, they can be exported by using the ``opslog --export`` command
-and specifying the export location and optionally a format. The location can use absolute or relative path, and will
+and specifying the export location and optional format. The location can use absolute or relative path, and will
 output to the current directory if only a filename is given
 
 

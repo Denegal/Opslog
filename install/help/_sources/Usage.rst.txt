@@ -27,7 +27,7 @@ The syntax is always the same::
 
 The eight fields are::
 
-    - Date:     The date and time the entry was made in UTC timezone
+    - Date:     The date and time entry was made in UTC timezone
         - YYYY-MM-DD HH:MM:SS
     - Operator: The operator who made the entry
     - Flag:     Tags used in a log entry. These can be used later for searching or catagorizing entries
@@ -122,4 +122,4 @@ The logging arguments are::
         2019-04-29 18:59:42;argument_tests;;;;ping $IP;no;Testing connectivity to the $IP variable
 
 
-- Note 2: Flags can be added with the -f option. Multiple flags may be used if space separated.
+- Note 2: Flags can be added with the -f option, and multiple flags may be used by separating them with a space.
