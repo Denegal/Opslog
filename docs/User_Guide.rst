@@ -34,8 +34,8 @@ executed after logging, giving a timestamped record of when commands were run on
 network.
 
 Finally, multiple logs can be merged together. Merged logs are automatically sorted
-properly based on time, allowing a operator to combine their logs from multiple
-machines into one concise log or for multiple operators logs to be combined to
+properly based on time, allowing an operator to combine their logs from multiple
+machines into one concise log or for multiple operator logs to be combined to
 create an msl.
 
 
