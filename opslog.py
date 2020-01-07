@@ -271,6 +271,7 @@ def display_log(log=None):
 
     if not log.empty:
         return log.to_string(formatters=left_justify)
+
     else:
         print("\nThere are no entries in current log tagged with any of the provided flags.")
         print("Use 'opslog -lf' to list all currently used flags\n")
@@ -497,8 +498,11 @@ def main(args):
     args.n = '' if not args.n else args.n[0]
 
     # Create entry with all provided arguments
-    new_entry = str(date) + ';' + get_operator() + ';' + args.f + ';' + args.p + ';' + \
-               args.i + ';' + command + ';' + executed + ';' + args.n
+    # Ensure the no semicolons appear in any of the fields as that would break the csv file
+    # Replace them instead with commas for logging purposes
+    new_entry = str(date) + ';' + get_operator() + ';' + re.sub(';', ',', args.f) + ';' + re.sub(';', ',',
+                                                                                                 args.p) + ';' + re.sub(
+        ';', ',', args.i) + ';' + re.sub(';', ',', command) + ';' + executed + ';' + re.sub(';', ',', args.n)
 
     # Write new entry to log
     with open(os.path.join(_logdir, get_operator() + "_ops_log.csv"), 'a+') as log:
